@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/eddyzhang1986/antd-jsonschema-form/issues"
   },
-  "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme"
+  "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme",
+  "devDependencies": {
+    "codecov": "^2.2.0"
+  }
 }
