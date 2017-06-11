@@ -4,6 +4,7 @@
   "description": "aother ui implement for react-jsonschema-form",
   "main": "index.jsx",
   "scripts": {
+    "ci":"",
     "test": ""
   },
   "repository": {
