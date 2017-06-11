@@ -4,8 +4,8 @@
   "description": "aother ui implement for react-jsonschema-form",
   "main": "index.jsx",
   "scripts": {
-    "ci":"",
-    "test": ""
+    "ci":"node -v",
+    "test": "node -v"
   },
   "repository": {
     "type": "git",
