@@ -1,0 +1,26 @@
+{
+  "name": "antd-jsonschema-form",
+  "version": "1.0.0",
+  "description": "aother ui implement for react-jsonschema-form",
+  "main": "index.jsx",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddyzhang1986/antd-jsonschema-form.git"
+  },
+  "keywords": [
+    "react-jsonschema",
+    "react-jsonschema-form",
+    "antd",
+    "antd",
+    "design"
+  ],
+  "author": "eddy.zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eddyzhang1986/antd-jsonschema-form/issues"
+  },
+  "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme"
+}
