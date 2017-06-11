@@ -4,8 +4,8 @@
   "description": "aother ui implement for react-jsonschema-form",
   "main": "index.jsx",
   "scripts": {
-    "ci":"node -v",
-    "test": "node -v"
+    "ci": "node -v",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme",
   "devDependencies": {
-    "codecov": "^2.2.0"
+    "codecov": "^2.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2"
   }
 }
