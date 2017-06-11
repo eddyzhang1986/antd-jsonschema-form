@@ -1,6 +1,8 @@
 <a href="#" id="status-image-popup" title="Latest push build on default branch: passed" name="status-images" class="open-popup" data-ember-action="" data-ember-action-755="755">
-                      <img src="https://travis-ci.org/eddyzhang1986/antd-jsonschema-form.svg?branch=master" alt="build:passed">
-                    </a>
+    <img src="https://travis-ci.org/eddyzhang1986/antd-jsonschema-form.svg?branch=master" alt="build:passed">
+</a>
+					
+					
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/eddyzhang1986/antd-jsonschema-form/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
