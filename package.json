@@ -5,7 +5,7 @@
   "main": "index.jsx",
   "scripts": {
     "ci": "node -v",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov"
+    "test": "node -v"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/eddyzhang1986/antd-jsonschema-form/issues"
   },
-  "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme"
+  "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
 }
