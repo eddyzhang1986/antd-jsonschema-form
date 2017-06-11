@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme",
   "devDependencies": {
+    "chai": "^4.0.2",
     "codecov": "^2.2.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.4.2"
