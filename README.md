@@ -1,7 +1,9 @@
 <a href="#" id="status-image-popup" title="Latest push build on default branch: passed" name="status-images" class="open-popup" data-ember-action="" data-ember-action-755="755">
     <img src="https://travis-ci.org/eddyzhang1986/antd-jsonschema-form.svg?branch=master" alt="build:passed">
 </a>
-					
+[![codecov](https://codecov.io/gh/eddyzhang1986/antd-jsonschema-form/branch/master/graph/badge.svg)](https://codecov.io/gh/eddyzhang1986/antd-jsonschema-form)
+
+
 					
 ## Welcome to GitHub Pages
 
