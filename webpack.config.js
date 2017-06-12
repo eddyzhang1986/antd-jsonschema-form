@@ -2,9 +2,9 @@ var webpack = require("webpack");
 
 module.exports = {
     entry: ['babel-polyfill', './src/index.jsx'],
-    node: {
-        setImmediate: true
-    },
+    // node: {
+    //     setImmediate: true
+    // },
     output: {
         path: "./dist/",
         publicPath: "/dist/",
