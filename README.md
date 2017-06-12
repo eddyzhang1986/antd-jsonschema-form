@@ -16,7 +16,22 @@
 
 ### Quick start
 
+#### Setup
+
     npm install --save antd-jsonschema-form
+
+#### Import & Use
+
+    import React, {Component} from 'react';
+    import { render } from "react-dom";
+    import Form from 'antd-jsonschema-form';
+
+    
+    render((
+       <Form {...} />
+     ), document.getElementById("app"));
+    
+ 
 
 ### Live demo
 
