@@ -2,10 +2,12 @@
   "name": "antd-jsonschema-form",
   "version": "1.0.0",
   "description": "aother ui implement for react-jsonschema-form",
-  "main": "index.jsx",
+  "main": "lib/index.jsx",
   "scripts": {
     "ci": "webpack --progress --color",
-    "test": "node -v"
+    "test": "node -v",
+	"compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
