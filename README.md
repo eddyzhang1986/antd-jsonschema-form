@@ -5,9 +5,9 @@
 
   This project base on :
 
-  1.antd-design
+  1. antd-design
 
-  2.react-jsonschema-form
+  2. react-jsonschema-form
    
 Use antd design ui framework implements react-jsonschema-form
 
@@ -17,6 +17,8 @@ Use antd design ui framework implements react-jsonschema-form
     npm install --save antd-jsonschema-form
 
 ### Live demo
+
+    [https://eddyzhang1986.github.io/antd-jsonschema-form/](https://eddyzhang1986.github.io/antd-jsonschema-form/ "Samples")
 
     
 ### Documents
