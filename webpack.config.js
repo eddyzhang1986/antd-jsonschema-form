@@ -8,9 +8,9 @@ module.exports = {
   output: {
     path: "./dist/",
     publicPath: "/dist/",
-    filename: "bundle.js",
-    library: "AntdJSONSchemaForm",
-    libraryTarget: "umd"
+    filename: "bundle.js"//,
+    // library: "AntdJSONSchemaForm",
+    // libraryTarget: "umd"
   },
   // plugins: [
   //   new webpack.DefinePlugin({
