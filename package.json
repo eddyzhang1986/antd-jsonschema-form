@@ -4,7 +4,7 @@
   "description": "aother ui implement for react-jsonschema-form",
   "main": "index.jsx",
   "scripts": {
-    "ci": "node -v",
+    "ci": "webpack --progress --color",
     "test": "node -v"
   },
   "repository": {
