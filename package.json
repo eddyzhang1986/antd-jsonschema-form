@@ -1,6 +1,6 @@
 {
   "name": "antd-jsonschema-form",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "aother ui implement for react-jsonschema-form",
   "main": "lib/index.js",
   "scripts": {
