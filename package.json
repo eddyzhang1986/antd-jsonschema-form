@@ -2,7 +2,7 @@
   "name": "antd-jsonschema-form",
   "version": "1.0.1",
   "description": "aother ui implement for react-jsonschema-form",
-  "main": "lib/index.jsx",
+  "main": "lib/index.js",
   "scripts": {
     "ci": "webpack --progress --color",
     "test": "node -v",
