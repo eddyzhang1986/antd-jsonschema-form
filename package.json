@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme",
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-jsonschema-form": "^0.49.0"
