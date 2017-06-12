@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>antd-jsonschema-form</title>
+<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script src="https://unpkg.com/react-jsonschema-form/dist/react-jsonschema-form.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+
+      const {default: Form} = JSONSchemaForm;
+	  const schema = {
+  title: "Todo",
+  type: "object",
+  required: ["title"],
+  properties: {
+    title: {type: "string", title: "Title", default: "A new task"},
+    done: {type: "boolean", title: "Done?", default: false}
+  }
+};
+const log = (type) => console.log.bind(console, type);
+
+      ReactDOM.render(
+       (
+  <Form schema={schema}
+        onChange={log("changed")}
+        onSubmit={log("submitted")}
+        onError={log("errors")} />
+),
+        document.getElementById('app')
+      );
+
+  </script>
+</body>
+</html>
