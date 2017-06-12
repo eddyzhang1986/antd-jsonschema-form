@@ -20,14 +20,14 @@ module.exports = {
     })
   ],
   devtool: "source-map",
-  externals: {
-    react: {
-      root: "React",
-      commonjs: "react",
-      commonjs2: "react",
-      amd: "react"
-    }
-  },
+  // externals: {
+  //   react: {
+  //     root: "React",
+  //     commonjs: "react",
+  //     commonjs2: "react",
+  //     amd: "react"
+  //   }
+  // },
   module: {
     loaders: [
       { test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" }
