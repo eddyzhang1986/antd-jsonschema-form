@@ -1,5 +1,5 @@
 <a href="#" id="status-image-popup" title="Latest push build on default branch: passed" name="status-images" class="open-popup" data-ember-action="" data-ember-action-755="755">
-    <img src="https://travis-ci.org/eddyzhang1986/antd-jsonschema-form.svg?branch=master" alt="build:passed">
+    <img src="https://travis-ci.org/eddyzhang1986/antd-jsonschema-form.svg?branch=master" alt="build:passed"/>
 </a>
 <!--
 <a href="https://codecov.io/gh/eddyzhang1986/antd-jsonschema-form">
@@ -8,40 +8,25 @@
 -->
 
 					
-## Welcome to GitHub Pages
+## Welcome to antd-jsonschema-form
 
-You can use the [editor on GitHub](https://github.com/eddyzhang1986/antd-jsonschema-form/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+  This project base on :
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+  1.antd-design
 
-### Markdown
+  2.react-jsonschema-form
+   
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Quick Start
 
-# Header 1
-## Header 2
-### Header 3
+    npm install --save antd-jsonschema-form
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/eddyzhang1986/antd-jsonschema-form/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+### Contributors
+
+
