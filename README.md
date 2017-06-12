@@ -18,8 +18,7 @@ Use antd design ui framework implements react-jsonschema-form
 
 ### Live demo
 
-    [https://eddyzhang1986.github.io/antd-jsonschema-form/](https://eddyzhang1986.github.io/antd-jsonschema-form/ "Samples")
-
+ [https://eddyzhang1986.github.io/antd-jsonschema-form/](https://eddyzhang1986.github.io/antd-jsonschema-form/ "Samples")
     
 ### Documents
 
