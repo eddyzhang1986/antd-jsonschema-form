@@ -1,9 +1,10 @@
-var My = {
-   add:function (a,b){
-	 return a+b;
-   },
-   reduce:function(a,b){
-	   return a-b;
+export default class A {
+
+   render(){
+     console.log('test');
    }
+
 }
-module.exports=My;
+let a=new A();
+a.render();
+
