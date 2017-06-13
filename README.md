@@ -1,15 +1,15 @@
 [![Build Status](https://travis-ci.org/eddyzhang1986/antd-jsonschema-form.svg?branch=master)](https://travis-ci.org/eddyzhang1986/antd-jsonschema-form)
-
+[![codecov](https://codecov.io/gh/eddyzhang1986/antd-jsonschema-form/branch/master/graph/badge.svg)](https://codecov.io/gh/eddyzhang1986/antd-jsonschema-form)
 					
 ## Welcome to antd-jsonschema-form
 
   This project base on :
 
-  1. <a target="_blank" href="https://github.com/ant-design/ant-design">antd-design</a>(a beautiful react ui framework)
+  1. [antd-design](https://github.com/ant-design/ant-design "antd-design") (a beautiful react ui framework)
 
-  2. <a target="_blank" href="https://github.com/mozilla-services/react-jsonschema-form">react-jsonschema-form</a>(a powerful Form widget for 'IETF JSONSchema Specification')
+  2. [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form "react-jsonschema-form")(a powerful Form widget for 'IETF JSONSchema Specification')
 
-  3. <a target="_blank" href="http://json-schema.org/">IETF JSON Schema</a>
+  3. [IETF JSON Schema](https://github.com/mozilla-services/react-jsonschema-form "IETF JSON Schema")
    
 ##### This project use antd design ui framework implements react-jsonschema-form base on IETF JSONSchema v4 Specification.
 
@@ -35,9 +35,7 @@
 
 ### Live demo
 
- <a target="_blank" href="https://eddyzhang1986.github.io/antd-jsonschema-form/">
-   https://eddyzhang1986.github.io/antd-jsonschema-form/
- </a>
+[https://eddyzhang1986.github.io/antd-jsonschema-form/](https://eddyzhang1986.github.io/antd-jsonschema-form/ "https://eddyzhang1986.github.io/antd-jsonschema-form/")
     
 ### Documents
 
