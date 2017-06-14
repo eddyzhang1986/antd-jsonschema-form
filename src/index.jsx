@@ -16,6 +16,10 @@ const schema = {
 const log = (type) => console.log.bind(console, type);
 
 
+export function sum(a, b) {
+  return a + b;
+}
+
 /**
  * 导出测试发布到npm
  */
@@ -30,10 +34,10 @@ export default class FormTest extends Component {
 
 }
 
-
+/*
 render((
   <Form schema={schema}
     onChange={log("changed")}
     onSubmit={log("submitted")}
     onError={log("errors")} />
-), document.getElementById("main"));
+), document.getElementById("main"));*/
