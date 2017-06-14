@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "ci": "webpack --progress --color",
-    "test": "node -v",
+    "test": "jest",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
   },
@@ -35,9 +35,11 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
+    "jest": "^20.0.4",
     "webpack": "^1.14.0"
   }
 }
