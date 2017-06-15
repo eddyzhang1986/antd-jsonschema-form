@@ -22,11 +22,30 @@
 
 #### Import & Use
 
+###### npm
+
     import React, {Component} from 'react';
     import { render } from "react-dom";
     import Form from 'antd-jsonschema-form';
 
     
+    render((
+       <Form {...} />
+     ), document.getElementById("app"));
+
+###### CDN
+
+    <!--import babel and react-->
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <!--import antd-jsonschema-form-->
+    <script src="https://unpkg.com/antd-jsonschema-form@latest/dist/bundle.js"></script>
+
+    <!--render form-->
+    const {default: Form} = AntdJSONSchemaForm;
+ 
     render((
        <Form {...} />
      ), document.getElementById("app"));
