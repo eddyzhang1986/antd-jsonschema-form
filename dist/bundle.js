@@ -8139,7 +8139,7 @@
 
 	(0, _reactDom.render)(_react2.default.createElement(_reactJsonschemaForm2.default, { schema: schema,
 	  safeRenderCompletion: true,
-	  noHtml5Validate: false,
+	  noHtml5Validate: true,
 	  onChange: log("changed"),
 	  onSubmit: log("submitted"),
 	  onError: log("errors") }), document.getElementById("main"));

@@ -40,7 +40,7 @@ export default class FormTest extends Component {
 render((
   <Form schema={schema}
     safeRenderCompletion={true}
-	noHtml5Validate={false}
+	noHtml5Validate={true}
     onChange={log("changed")}
     onSubmit={log("submitted")}
     onError={log("errors")} />
