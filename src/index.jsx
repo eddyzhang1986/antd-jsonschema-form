@@ -7,9 +7,9 @@ import Form from "react-jsonschema-form";
 const schema = {
   title: "Todo",
   type: "object",
-  required: ["title"],
+ 
   properties: {
-    title: { type: "string", title: "Title", default: "A new task" },
+    title: { type: "string", title: "Title", default: "A new task" , required: ["title"]},
 	title2: { type: "string", title: "Title", default: "A new task2" },
     done: { type: "boolean", title: "Done?", default: false }
   }
