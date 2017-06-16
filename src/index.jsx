@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Form from "react-jsonschema-form";
 
@@ -9,6 +10,7 @@ const schema = {
   required: ["title"],
   properties: {
     title: { type: "string", title: "Title", default: "A new task" },
+	title2: { type: "string", title: "Title", default: "A new task2" },
     done: { type: "boolean", title: "Done?", default: false }
   }
 };

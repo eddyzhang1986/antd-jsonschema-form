@@ -30,7 +30,9 @@ module.exports = {
   // },
   module: {
     loaders: [
-      { test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" }
+      { test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" },
+	  { test: /\.css$/, loader: 'style-loader!css-loader' },
+	  {test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader"}
     ]
   }
 }
