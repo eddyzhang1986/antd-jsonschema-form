@@ -8134,16 +8134,13 @@
 	  return FormTest;
 	}(_react.Component);
 
-	/*
-	render((
-	  <Form schema={schema}
-	    onChange={log("changed")}
-	    onSubmit={log("submitted")}
-	    onError={log("errors")} />
-	), document.getElementById("main"));*/
-
-
 	exports.default = FormTest;
+
+
+	(0, _reactDom.render)(_react2.default.createElement(_reactJsonschemaForm2.default, { schema: schema,
+	  onChange: log("changed"),
+	  onSubmit: log("submitted"),
+	  onError: log("errors") }), document.getElementById("main"));
 
 /***/ }),
 /* 298 */

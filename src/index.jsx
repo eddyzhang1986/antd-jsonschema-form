@@ -36,10 +36,10 @@ export default class FormTest extends Component {
 
 }
 
-/*
+
 render((
   <Form schema={schema}
     onChange={log("changed")}
     onSubmit={log("submitted")}
     onError={log("errors")} />
-), document.getElementById("main"));*/
+), document.getElementById("main"));
