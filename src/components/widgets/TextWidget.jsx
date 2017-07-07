@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import BaseInput from "./BaseInput";
+
+import BaseInput from "./BaseInput.jsx";
 
 function TextWidget(props) {
   return <BaseInput {...props} />;
