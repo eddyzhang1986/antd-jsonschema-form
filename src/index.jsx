@@ -36,7 +36,7 @@ export default class FormTest extends Component {
 
 }
 
-
+/*
 render((
   <Form schema={schema}
     safeRenderCompletion={true}
@@ -44,4 +44,4 @@ render((
     onChange={log("changed")}
     onSubmit={log("submitted")}
     onError={log("errors")} />
-), document.getElementById("main"));
+), document.getElementById("main"));*/
