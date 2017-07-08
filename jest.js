@@ -14,7 +14,5 @@ module.exports = {
   },
   snapshotSerializers: [
     'enzyme-to-json/serializer',
-  ],
-  "coverageDirectory": "./coverage/",
-  "collectCoverage": true
+  ]
 };
