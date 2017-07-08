@@ -1,4 +1,7 @@
 {
-  "plugins":["transform-object-rest-spread"],
+  "plugins":[
+     "transform-object-rest-spread",
+     ["import", { libraryName: "antd", style: "css" }] 
+  ],
   "presets": ["react","env"]
 }
