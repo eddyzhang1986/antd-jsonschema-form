@@ -5,13 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "ci": "webpack --progress --color && jest && codecov",
-    "test": "jest",
+    "test": "jest --config .jest.js",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
-  },
-  "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true
   },
   "repository": {
     "type": "git",
@@ -22,7 +18,10 @@
     "react-jsonschema-form",
     "antd",
     "antd",
-    "design"
+    "design",
+    "frontend",
+    "form",
+    "framework"
   ],
   "author": "eddy.zhang",
   "license": "MIT",
@@ -48,6 +47,8 @@
     "babel-preset-react": "^6.24.1",
     "codecov": "^2.2.0",
     "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
     "file-loader": "^0.11.2",
     "jest": "^20.0.4",
     "style-loader": "^0.18.2",
