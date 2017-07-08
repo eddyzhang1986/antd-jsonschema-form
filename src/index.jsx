@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
+import { DatePicker } from 'antd';
 
 import Form from "react-jsonschema-form";
 
@@ -38,10 +39,13 @@ export default class FormTest extends Component {
 
 /*
 render((
+<div>
+  <DatePicker/>
   <Form schema={schema}
     safeRenderCompletion={true}
 	noHtml5Validate={true}
     onChange={log("changed")}
     onSubmit={log("submitted")}
     onError={log("errors")} />
+</div>
 ), document.getElementById("main"));*/
