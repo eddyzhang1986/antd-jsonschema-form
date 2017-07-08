@@ -6,7 +6,7 @@
   "scripts": {
     "ci": "webpack --progress --color && jest && codecov",
     "test": "jest",
-    "compile": "babel src/index.jsx --out-file lib/index.js",
+    "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
   },
   "jest": {
