@@ -64,4 +64,7 @@
 
 ### Contributors
 
+### License
+    MIT
 
+	
