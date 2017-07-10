@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { DatePicker } from 'antd';
+const { MonthPicker, RangePicker } = DatePicker;
 
-import BaseInput from "./BaseInput";
 
 function DateWidget(props) {
   const { onChange } = props;
   return (
-    <BaseInput
-      type="date"
+    <DatePicker
       {...props}
       onChange={value => onChange(value || undefined)}
     />

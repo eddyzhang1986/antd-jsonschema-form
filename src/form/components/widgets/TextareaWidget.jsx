@@ -22,7 +22,6 @@ function TextareaWidget(props) {
   return (
    <Input type="textarea"
       id={id}
-      className="form-control"
       value={typeof value === "undefined" ? "" : value}
       placeholder={placeholder}
       required={required}

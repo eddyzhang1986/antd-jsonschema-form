@@ -7,9 +7,9 @@ export default class Form extends Component {
 
     render() {
 
-        const { schema, uiSchema, formData, errorSchema, idSchema } = this.state;
-        const registry = this.getRegistry();
-        const _SchemaField = registry.fields.SchemaField;
+        //const { schema, uiSchema, formData, errorSchema, idSchema } = this.state;
+        //const registry = this.getRegistry();
+        //const _SchemaField = registry.fields.SchemaField;
 
         return <div>
            test

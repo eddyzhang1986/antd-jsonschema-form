@@ -1,34 +1,32 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
 
-import BaseInput from "./BaseInput";
-
-function fromJSONDate(jsonDate) {
-  return jsonDate ? jsonDate.slice(0, 19) : "";
+const onChange = (value, dateString) => {
+  console.log('Selected Time: ', value);
+  console.log('Formatted Selected Time: ', dateString);
 }
 
-function toJSONDate(dateString) {
-  if (dateString) {
-    return new Date(dateString).toJSON();
-  }
+const onOk = (value) => {
+  console.log('onOk: ', value);
 }
 
-function DateTimeWidget(props) {
+const DateTimeWidget = (props) => {
   const { value, onChange } = props;
   return (
-    <BaseInput
-      type="datetime-local"
-      {...props}
-      value={fromJSONDate(value)}
-      onChange={value => onChange(toJSONDate(value))}
+    <DatePicker
+      showTime
+      format="YYYY-MM-DD HH:mm:ss"
+      placeholder="Select Time"
+      onChange={onChange}
+      onOk={onOk}
     />
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
-  DateTimeWidget.propTypes = {
-    value: PropTypes.string,
-  };
-}
+// if (process.env.NODE_ENV !== "production") {
+//   DateTimeWidget.propTypes = {
+//     value: PropTypes.string,
+//   };
+// }
 
 export default DateTimeWidget;
