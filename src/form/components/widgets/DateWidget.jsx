@@ -14,10 +14,10 @@ function DateWidget(props) {
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
-  DateWidget.propTypes = {
-    value: PropTypes.string,
-  };
-}
+// if (process.env.NODE_ENV !== "production") {
+//   DateWidget.propTypes = {
+//     value: PropTypes.string,
+//   };
+// }
 
 export default DateWidget;

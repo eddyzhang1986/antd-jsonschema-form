@@ -153,19 +153,19 @@ class AltDateWidget extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== "production") {
-  AltDateWidget.propTypes = {
-    schema: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-    time: PropTypes.bool,
-  };
-}
+// if (process.env.NODE_ENV !== "production") {
+//   AltDateWidget.propTypes = {
+//     schema: PropTypes.object.isRequired,
+//     id: PropTypes.string.isRequired,
+//     value: PropTypes.string,
+//     required: PropTypes.bool,
+//     disabled: PropTypes.bool,
+//     readonly: PropTypes.bool,
+//     autofocus: PropTypes.bool,
+//     onChange: PropTypes.func,
+//     onBlur: PropTypes.func,
+//     time: PropTypes.bool,
+//   };
+// }
 
 export default AltDateWidget;
