@@ -13,6 +13,9 @@ module.exports = {
     library: "AntdJSONSchemaForm",
     libraryTarget: "umd"
   },
+  resolve: {
+    extensions: ["", ".js", ".jsx", ".css"]
+  },
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
