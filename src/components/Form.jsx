@@ -1,3 +1,13 @@
-import Form from 'react-jsonschema-form';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-export default Form;
+
+
+export default class Form extends Component {
+
+    render() {
+        return <div>
+            test
+        </div>
+    }
+}
