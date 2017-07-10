@@ -1,7 +1,7 @@
 var webpack = require("webpack");
 
 module.exports = {
-  entry: ['babel-polyfill', './src/demo.jsx'],
+  entry: ['babel-polyfill', './src/demo/demo.jsx'],
   // node: {
   //     setImmediate: true
   // },
