@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "ci": "npm run demo && npm run dist",
-    "demo":"rimraf demo && cross-env NODE_ENV=production webpack --config webpack.config.demo.js --optimize-minimize",
-    "dist":"rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.dist.js --optimize-minimize",
+    "demo": "rimraf demo && cross-env NODE_ENV=production webpack --config webpack.config.demo.js --optimize-minimize",
+    "dist": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.dist.js --optimize-minimize",
     "test": "jest --config .jest.js",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
@@ -56,6 +56,7 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "codecov": "^2.2.0",
+    "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
