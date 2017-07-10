@@ -41,7 +41,7 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
     <!--import antd-jsonschema-form-->
-    <script src="https://unpkg.com/antd-jsonschema-form@latest/dist/bundle.js"></script>
+    <script src="https://unpkg.com/antd-jsonschema-form@latest/dist/form.js"></script>
 
     <!--render form-->
     const {default: Form} = AntdJSONSchemaForm;

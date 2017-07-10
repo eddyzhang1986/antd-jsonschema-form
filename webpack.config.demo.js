@@ -6,19 +6,19 @@ module.exports = {
   //     setImmediate: true
   // },
   output: {
-    path: "./dist/",
-    publicPath: "/dist/",
+    path: "./demo/",
+    publicPath: "/demo/",
     filename: "bundle.js"//,
     // library: "AntdJSONSchemaForm",
     // libraryTarget: "umd"
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     "process.env": {
-  //       NODE_ENV: JSON.stringify("production")
-  //     }
-  //   })
-  // ],
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    })
+  ],
   //devtool: "source-map",
   // externals: {
   //   react: {
@@ -31,8 +31,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" },
-	  { test: /\.css$/, loader: 'style-loader!css-loader' },
-	  {test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader"}
+	    { test: /\.css$/, loader: 'style-loader!css-loader' },
+	    {test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader"}
     ]
   }
 }

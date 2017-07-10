@@ -4,7 +4,9 @@
   "description": "aother ui implement for react-jsonschema-form",
   "main": "lib/index.js",
   "scripts": {
-    "ci": "webpack --progress --color && jest && codecov",
+    "ci": "npm run demo && npm run dist",
+    "demo":"rimraf demo && cross-env NODE_ENV=production webpack --config webpack.config.demo.js --optimize-minimize",
+    "dist":"rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.dist.js --optimize-minimize",
     "test": "jest --config .jest.js",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
