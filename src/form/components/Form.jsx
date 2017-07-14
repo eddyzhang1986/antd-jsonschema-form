@@ -280,14 +280,17 @@ export default class Form extends Component {
                 onChange={(e, fieldPath) => {
                     //console.log(fieldPath);
                     //console.log(e.target.value, "onChange");
-                    this.setState({
-                        formData: {
-                            [fieldPath]: e.target.value,
-                            ...formData
-                        }
-                    }, () => {
-                        console.log(JSON.stringify(formData));
+                   
+                    const newData = update(formData, {
+                         [fieldPath]: {$set: e.target.value}
                     });
+
+                    this.setState({
+                        formData: newData
+                    }, () => {
+                        console.log(JSON.stringify(this.state.formData));
+                    });
+
                 }}
                 onBlur={(e, fieldPath) => {
                     //console.log(fieldPath);

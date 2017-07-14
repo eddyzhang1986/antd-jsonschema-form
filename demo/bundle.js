@@ -30007,10 +30007,13 @@
 	                    onChange: function onChange(e, fieldPath) {
 	                        //console.log(fieldPath);
 	                        //console.log(e.target.value, "onChange");
+	
+	                        var newData = (0, _reactAddonsUpdate2.default)(formData, _defineProperty({}, fieldPath, { $set: e.target.value }));
+	
 	                        _this2.setState({
-	                            formData: _extends(_defineProperty({}, fieldPath, e.target.value), formData)
+	                            formData: newData
 	                        }, function () {
-	                            console.log(JSON.stringify(formData));
+	                            console.log(JSON.stringify(_this2.state.formData));
 	                        });
 	                    },
 	                    onBlur: function onBlur(e, fieldPath) {
