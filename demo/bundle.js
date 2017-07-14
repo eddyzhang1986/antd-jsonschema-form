@@ -29724,6 +29724,7 @@
 	
 	    var offSpringSchema = getOffspringSchema(schema, fPath);
 	
+	    var value = "test";
 	    return _react2.default.createElement(_input2.default, {
 	        onChange: function onChange(e) {
 	            if (_onChange) {
@@ -29736,7 +29737,9 @@
 	                console.log(formData, "formData");
 	                _onBlur(e, fPath);
 	            }
-	        } });
+	        },
+	        value: value
+	    });
 	};
 	
 	var getOffspringSchema = function getOffspringSchema(schema, fPath) {

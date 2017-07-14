@@ -49,6 +49,7 @@ const Widget = (props) => {
     const { fPath } = uiSchema;
     const offSpringSchema = getOffspringSchema(schema, fPath);
 
+    const value = "test";
     return <Input
         onChange={(e) => {
             if (onChange) {
@@ -61,7 +62,9 @@ const Widget = (props) => {
                 console.log(formData, "formData");
                 onBlur(e, fPath);
             }
-        }} />
+        }}
+        value={value}
+    />
 }
 
 
