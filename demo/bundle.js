@@ -29691,15 +29691,25 @@
 	    "children": [{
 	        "xType": "row",
 	        "children": {
-	            "xType": "field",
-	            "fPath": "/title"
+	            "xType": "col",
+	            "children": {
+	                "xType": "field",
+	                "fieldPath": "/title"
+	            }
+	
 	        }
 	
 	    }, {
 	        "xType": "row",
 	        "children": {
-	            "xType": "field",
-	            "fPath": "/done"
+	            "xType": "col",
+	            "children": [{
+	                "xType": "field",
+	                "fieldPath": "/done"
+	            }, {
+	                "xType": "field",
+	                "fieldPath": "/work"
+	            }]
 	        }
 	    }]
 	
@@ -29714,14 +29724,14 @@
 	
 	var widgetMap = {};
 	
-	var getOffspringSchema = function getOffspringSchema(schema, fPath) {
-	    console.log(schema, "schema");
+	var getOffspringSchema = function getOffspringSchema(schema, fieldPath) {
+	    //console.log(schema, "schema");
 	    return "test";
 	};
 	
-	var getFormValue = function getFormValue(formData, fPath) {
-	    console.log(formData, "formData");
-	    return formData[fPath];
+	var getFormValue = function getFormValue(formData, fieldPath) {
+	    //console.log(formData, "formData");
+	    return formData[fieldPath];
 	};
 	
 	var Widget = function Widget(props) {
@@ -29732,10 +29742,10 @@
 	        _onBlur = props.onBlur,
 	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
 	
-	    var fPath = uiSchema.fPath;
+	    var fieldPath = uiSchema.fieldPath;
 	
-	    var offSpringSchema = getOffspringSchema(schema, fPath);
-	    var formValue = getFormValue(formData, fPath);
+	    var offSpringSchema = getOffspringSchema(schema, fieldPath);
+	    var formValue = getFormValue(formData, fieldPath);
 	
 	    var value = formValue || offSpringSchema.default;
 	
@@ -29748,13 +29758,13 @@
 	        onChange: function onChange(e) {
 	            if (_onChange) {
 	
-	                _onChange(e, fPath);
+	                _onChange(e, fieldPath);
 	            }
 	        },
 	        onBlur: function onBlur(e) {
 	            if (_onBlur) {
 	
-	                _onBlur(e, fPath);
+	                _onBlur(e, fieldPath);
 	            }
 	        }
 	    }));
@@ -29990,16 +30000,18 @@
 	                _react2.default.createElement(Visit, { schema: schema,
 	                    uiSchema: uiSchema,
 	                    formData: formData,
-	                    onChange: function onChange(e, fPath) {
-	                        console.log(fPath);
-	                        console.log(e.target.value, "onChange");
+	                    onChange: function onChange(e, fieldPath) {
+	                        //console.log(fieldPath);
+	                        //console.log(e.target.value, "onChange");
 	                        _this2.setState({
-	                            formData: _defineProperty({}, fPath, e.target.value)
+	                            formData: _defineProperty({}, fieldPath, e.target.value)
+	                        }, function () {
+	                            console.log(JSON.stringify(formData));
 	                        });
 	                    },
-	                    onBlur: function onBlur(e, fPath) {
-	                        console.log(fPath);
-	                        console.log(e.target.value, "onBlur");
+	                    onBlur: function onBlur(e, fieldPath) {
+	                        //console.log(fieldPath);
+	                        //console.log(e.target.value, "onBlur");
 	                    } })
 	            );
 	        }

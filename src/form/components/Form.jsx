@@ -12,15 +12,25 @@ const uiSchema = {
     "children": [{
         "xType": "row",
         "children": {
-            "xType": "field",
-            "fieldPath": "/title"
+            "xType": "col",
+            "children": {
+                "xType": "field",
+                "fieldPath": "/title"
+            }
+
         }
 
     }, {
         "xType": "row",
         "children": {
-            "xType": "field",
-            "fieldPath": "/done"
+            "xType": "col",
+            "children": [{
+                "xType": "field",
+                "fieldPath": "/done"
+            }, {
+                "xType": "field",
+                "fieldPath": "/work"
+            }]
         }
     }]
 
@@ -44,12 +54,12 @@ const widgetMap = {
 }
 
 const getOffspringSchema = (schema, fieldPath) => {
-    console.log(schema, "schema");
+    //console.log(schema, "schema");
     return "test"
 }
 
 const getFormValue = (formData, fieldPath) => {
-    console.log(formData, "formData");
+    //console.log(formData, "formData");
     return formData[fieldPath]
 }
 
@@ -267,17 +277,19 @@ export default class Form extends Component {
                 uiSchema={uiSchema}
                 formData={formData}
                 onChange={(e, fieldPath) => {
-                    console.log(fieldPath);
-                    console.log(e.target.value, "onChange");
+                    //console.log(fieldPath);
+                    //console.log(e.target.value, "onChange");
                     this.setState({
                         formData: {
                             [fieldPath]: e.target.value
                         }
-                    })
+                    }, () => {
+                        console.log(JSON.stringify(formData));
+                    });
                 }}
                 onBlur={(e, fieldPath) => {
-                    console.log(fieldPath);
-                    console.log(e.target.value, "onBlur");
+                    //console.log(fieldPath);
+                    //console.log(e.target.value, "onBlur");
                 }} />
 
         </div>
