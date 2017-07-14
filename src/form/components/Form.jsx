@@ -13,18 +13,14 @@ const uiSchema = {
         "xType": "row",
         "children": {
             "xType": "field",
-            "props": {
-                "fPath": "/title"
-            }
+            "fPath": "/title"
         }
 
     }, {
         "xType": "row",
         "children": {
             "xType": "field",
-            "props": {
-                "fPath": "/done"
-            }
+            "fPath": "/done"
         }
     }]
 
@@ -49,16 +45,18 @@ const widgetMap = {
 
 
 const Widget = (props) => {
-    const { onChange, onBlur } = props;
+    const { schema, uiSchema, onChange, onBlur } = props;
+    const { fPath } = uiSchema;
+    const offSpringSchema = getOffspringSchema(schema, fPath);
     return <Input
         onChange={(e) => {
             if (onChange) {
-                onChange(e);
+                onChange(e, fPath);
             }
         }}
         onBlur={(e) => {
             if (onBlur) {
-                onBlur(e);
+                onBlur(e, fPath);
             }
         }} />
 }
@@ -75,9 +73,7 @@ const getOffspringSchema = (schema, fPath) => {
  */
 const VisitField = (props) => {
     const { schema, uiSchema, onChange, onBlur, ...otherProps } = props;
-    const { fPath } = uiSchema;
-    const offSpringSchema = getOffspringSchema(schema, fPath);
-    return <Widget offSpringSchema={offSpringSchema} onChange={onChange} onBlur={onBlur} />
+    return <Widget schema={schema} uiSchema={uiSchema} onChange={onChange} onBlur={onBlur} />
 }
 
 const VisitGrid = (props) => {
@@ -248,10 +244,12 @@ export default class Form extends Component {
             <Visit schema={schema}
                 uiSchema={uiSchema}
                 formData={formData}
-                onChange={(e) => {
+                onChange={(e, fPath) => {
+                    console.log(fPath);
                     console.log(e.target.value, "onChange");
                 }}
-                onBlur={(e) => {
+                onBlur={(e, fPath) => {
+                    console.log(fPath);
                     console.log(e.target.value, "onBlur");
                 }} />
 

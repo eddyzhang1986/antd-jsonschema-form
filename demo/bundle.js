@@ -29690,18 +29690,14 @@
 	        "xType": "row",
 	        "children": {
 	            "xType": "field",
-	            "props": {
-	                "fPath": "/title"
-	            }
+	            "fPath": "/title"
 	        }
 	
 	    }, {
 	        "xType": "row",
 	        "children": {
 	            "xType": "field",
-	            "props": {
-	                "fPath": "/done"
-	            }
+	            "fPath": "/done"
 	        }
 	    }]
 	
@@ -29717,18 +29713,22 @@
 	var widgetMap = {};
 	
 	var Widget = function Widget(props) {
-	    var _onChange = props.onChange,
+	    var schema = props.schema,
+	        uiSchema = props.uiSchema,
+	        _onChange = props.onChange,
 	        _onBlur = props.onBlur;
+	    var fPath = uiSchema.fPath;
 	
+	    var offSpringSchema = getOffspringSchema(schema, fPath);
 	    return _react2.default.createElement(_input2.default, {
 	        onChange: function onChange(e) {
 	            if (_onChange) {
-	                _onChange(e);
+	                _onChange(e, fPath);
 	            }
 	        },
 	        onBlur: function onBlur(e) {
 	            if (_onBlur) {
-	                _onBlur(e);
+	                _onBlur(e, fPath);
 	            }
 	        } });
 	};
@@ -29749,10 +29749,7 @@
 	        onBlur = props.onBlur,
 	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "onChange", "onBlur"]);
 	
-	    var fPath = uiSchema.fPath;
-	
-	    var offSpringSchema = getOffspringSchema(schema, fPath);
-	    return _react2.default.createElement(Widget, { offSpringSchema: offSpringSchema, onChange: onChange, onBlur: onBlur });
+	    return _react2.default.createElement(Widget, { schema: schema, uiSchema: uiSchema, onChange: onChange, onBlur: onBlur });
 	};
 	
 	var VisitGrid = function VisitGrid(props) {
@@ -29961,10 +29958,12 @@
 	                _react2.default.createElement(Visit, { schema: schema,
 	                    uiSchema: uiSchema,
 	                    formData: formData,
-	                    onChange: function onChange(e) {
+	                    onChange: function onChange(e, fPath) {
+	                        console.log(fPath);
 	                        console.log(e.target.value, "onChange");
 	                    },
-	                    onBlur: function onBlur(e) {
+	                    onBlur: function onBlur(e, fPath) {
+	                        console.log(fPath);
 	                        console.log(e.target.value, "onBlur");
 	                    } })
 	            );
