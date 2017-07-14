@@ -19,10 +19,33 @@ export default class FormTest extends Component {
 
 }
 
+class Demo extends Component
+{
+    constructor(props){
+      super(props);
+      this.state={
+         formData={
+
+         }
+      }
+    }
+    render(){
+     const {formData}=this.state;
+       return <Form
+       formData={formData}
+       onChange={(e,newData,fieldPath)=>{
+         console.log(newData);
+         this.setState({
+             formData:newData
+         });
+       }}
+       />
+    }
+
+}
 
 render((
 <div>
-  <Form />
-
+  <Demo />
 </div>
 ), document.getElementById("main"));

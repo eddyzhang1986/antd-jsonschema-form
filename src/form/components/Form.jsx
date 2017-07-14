@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import update from 'react-addons-update'; 
+import update from 'react-addons-update';
 import PropTypes from "prop-types";
+import setimmediate from 'setimmediate';
 
 import { Row, Col, Tabs, Input } from 'antd';
 const TabPane = Tabs.TabPane;
@@ -82,16 +83,10 @@ const Widget = (props) => {
     return <Input
         {...valueProps}
         onChange={(e) => {
-            if (onChange) {
-
-                onChange(e, fieldPath);
-            }
+            onChange(e, fieldPath);
         }}
         onBlur={(e) => {
-            if (onBlur) {
-
-                onBlur(e, fieldPath);
-            }
+            onBlur(e, fieldPath);
         }}
     />
 }
@@ -266,13 +261,14 @@ export default class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formData: {
-
-            }
+            formData: this.props.formData || {}
         }
     }
     render() {
+
+        const { onChange, onBlur } = this.state;
         const { formData } = this.state;
+
         return <div>
             <Visit schema={schema}
                 uiSchema={uiSchema}
@@ -280,19 +276,30 @@ export default class Form extends Component {
                 onChange={(e, fieldPath) => {
                     //console.log(fieldPath);
                     //console.log(e.target.value, "onChange");
-                   
+
                     const newData = update(formData, {
-                         [fieldPath]: {$set: e.target.value}
+                        [fieldPath]: { $set: e.target.value }
                     });
 
                     this.setState({
                         formData: newData
                     }, () => {
-                        console.log(JSON.stringify(this.state.formData));
+                        if (onChange) {
+                            setImmediate(() => {
+                                onChange(e, newData, fieldPath);
+                            });
+                        }
+                        //console.log(JSON.stringify(this.state.formData));
                     });
 
                 }}
+
                 onBlur={(e, fieldPath) => {
+                    if (onBlur) {
+                        setImmediate(() => {
+                            onBlur(e, formData, fieldPath);
+                        });
+                    }
                     //console.log(fieldPath);
                     //console.log(e.target.value, "onBlur");
                 }} />

@@ -45,7 +45,8 @@
     "react": "^15.5.4",
     "react-addons-update": "^15.6.0",
     "react-dom": "^15.5.4",
-    "react-jsonschema-form": "^0.49.0"
+    "react-jsonschema-form": "^0.49.0",
+    "setimmediate": "^1.0.5"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
