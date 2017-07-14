@@ -282,7 +282,8 @@ export default class Form extends Component {
                     //console.log(e.target.value, "onChange");
                     this.setState({
                         formData: {
-                            [fieldPath]: e.target.value
+                            [fieldPath]: e.target.value,
+                            ...formData
                         }
                     }, () => {
                         console.log(JSON.stringify(formData));
