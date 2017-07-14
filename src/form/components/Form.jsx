@@ -13,14 +13,14 @@ const uiSchema = {
         "xType": "row",
         "children": {
             "xType": "field",
-            "fPath": "/title"
+            "fieldPath": "/title"
         }
 
     }, {
         "xType": "row",
         "children": {
             "xType": "field",
-            "fPath": "/done"
+            "fieldPath": "/done"
         }
     }]
 
@@ -43,23 +43,23 @@ const widgetMap = {
 
 }
 
-const getOffspringSchema = (schema, fPath) => {
+const getOffspringSchema = (schema, fieldPath) => {
     console.log(schema, "schema");
     return "test"
 }
 
-const getFormValue = (formData, fPath) => {
+const getFormValue = (formData, fieldPath) => {
     console.log(formData, "formData");
-    return formData[fPath]
+    return formData[fieldPath]
 }
 
 
 
 const Widget = (props) => {
     const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
-    const { fPath } = uiSchema;
-    const offSpringSchema = getOffspringSchema(schema, fPath);
-    const formValue = getFormValue(formData, fPath);
+    const { fieldPath } = uiSchema;
+    const offSpringSchema = getOffspringSchema(schema, fieldPath);
+    const formValue = getFormValue(formData, fieldPath);
 
     const value = (formValue || offSpringSchema.default);
 
@@ -73,13 +73,13 @@ const Widget = (props) => {
         onChange={(e) => {
             if (onChange) {
 
-                onChange(e, fPath);
+                onChange(e, fieldPath);
             }
         }}
         onBlur={(e) => {
             if (onBlur) {
 
-                onBlur(e, fPath);
+                onBlur(e, fieldPath);
             }
         }}
     />
@@ -266,17 +266,17 @@ export default class Form extends Component {
             <Visit schema={schema}
                 uiSchema={uiSchema}
                 formData={formData}
-                onChange={(e, fPath) => {
-                    console.log(fPath);
+                onChange={(e, fieldPath) => {
+                    console.log(fieldPath);
                     console.log(e.target.value, "onChange");
                     this.setState({
                         formData: {
-                            [fPath]: e.target.value
+                            [fieldPath]: e.target.value
                         }
                     })
                 }}
-                onBlur={(e, fPath) => {
-                    console.log(fPath);
+                onBlur={(e, fieldPath) => {
+                    console.log(fieldPath);
                     console.log(e.target.value, "onBlur");
                 }} />
 
