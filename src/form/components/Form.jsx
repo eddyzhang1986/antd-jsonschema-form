@@ -43,35 +43,50 @@ const widgetMap = {
 
 }
 
+const getOffspringSchema = (schema, fPath) => {
+    console.log(schema, "schema");
+    return "test"
+}
+
+const getFormValue = (formData, fPath) => {
+    console.log(formData, "formData");
+    return formData[fPath]
+}
+
+
 
 const Widget = (props) => {
     const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
     const { fPath } = uiSchema;
     const offSpringSchema = getOffspringSchema(schema, fPath);
+    const formValue = getFormValue(formData, fPath);
 
-    const value = "test";
+    const value = (formValue || offSpringSchema.default);
+
+    let valueProps = {};
+    if (value) {
+        valueProps = { value: value }
+    }
+
     return <Input
+        {...valueProps}
         onChange={(e) => {
             if (onChange) {
-                console.log(formData, "formData");
+
                 onChange(e, fPath);
             }
         }}
         onBlur={(e) => {
             if (onBlur) {
-                console.log(formData, "formData");
+
                 onBlur(e, fPath);
             }
         }}
-        value={value}
     />
 }
 
 
-const getOffspringSchema = (schema, fPath) => {
 
-    return "test"
-}
 
 /**
  * 
@@ -254,6 +269,11 @@ export default class Form extends Component {
                 onChange={(e, fPath) => {
                     console.log(fPath);
                     console.log(e.target.value, "onChange");
+                    this.setState({
+                        formData: {
+                            [fPath]: e.target.value
+                        }
+                    })
                 }}
                 onBlur={(e, fPath) => {
                     console.log(fPath);

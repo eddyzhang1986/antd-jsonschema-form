@@ -29662,6 +29662,8 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(298);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -29712,6 +29714,16 @@
 	
 	var widgetMap = {};
 	
+	var getOffspringSchema = function getOffspringSchema(schema, fPath) {
+	    console.log(schema, "schema");
+	    return "test";
+	};
+	
+	var getFormValue = function getFormValue(formData, fPath) {
+	    console.log(formData, "formData");
+	    return formData[fPath];
+	};
+	
 	var Widget = function Widget(props) {
 	    var schema = props.schema,
 	        uiSchema = props.uiSchema,
@@ -29723,28 +29735,29 @@
 	    var fPath = uiSchema.fPath;
 	
 	    var offSpringSchema = getOffspringSchema(schema, fPath);
+	    var formValue = getFormValue(formData, fPath);
 	
-	    var value = "test";
-	    return _react2.default.createElement(_input2.default, {
+	    var value = formValue || offSpringSchema.default;
+	
+	    var valueProps = {};
+	    if (value) {
+	        valueProps = { value: value };
+	    }
+	
+	    return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
 	        onChange: function onChange(e) {
 	            if (_onChange) {
-	                console.log(formData, "formData");
+	
 	                _onChange(e, fPath);
 	            }
 	        },
 	        onBlur: function onBlur(e) {
 	            if (_onBlur) {
-	                console.log(formData, "formData");
+	
 	                _onBlur(e, fPath);
 	            }
-	        },
-	        value: value
-	    });
-	};
-	
-	var getOffspringSchema = function getOffspringSchema(schema, fPath) {
-	
-	    return "test";
+	        }
+	    }));
 	};
 	
 	/**
@@ -29967,6 +29980,8 @@
 	    _createClass(Form, [{
 	        key: "render",
 	        value: function render() {
+	            var _this2 = this;
+	
 	            var formData = this.state.formData;
 	
 	            return _react2.default.createElement(
@@ -29978,6 +29993,9 @@
 	                    onChange: function onChange(e, fPath) {
 	                        console.log(fPath);
 	                        console.log(e.target.value, "onChange");
+	                        _this2.setState({
+	                            formData: _defineProperty({}, fPath, e.target.value)
+	                        });
 	                    },
 	                    onBlur: function onBlur(e, fPath) {
 	                        console.log(fPath);
