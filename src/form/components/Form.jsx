@@ -78,7 +78,7 @@ const Widget = (props) => {
 
 
     const valueProps = { value: (value || undefined) };
-    console.log(valueProps, "valueProps");
+    //console.log(valueProps, "valueProps");
 
     return <Input
         {...valueProps}
