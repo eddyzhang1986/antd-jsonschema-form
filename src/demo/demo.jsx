@@ -24,7 +24,7 @@ class Demo extends Component
     constructor(props){
       super(props);
       this.state={
-         formData={
+         formData:{
 
          }
       }
@@ -34,9 +34,11 @@ class Demo extends Component
        return <Form
        formData={formData}
        onChange={(e,newData,fieldPath)=>{
-         console.log(newData);
+         //console.log(newData);
          this.setState({
              formData:newData
+         },()=>{
+           console.log(this.state.formData,"formData");
          });
        }}
        />

@@ -266,7 +266,7 @@ export default class Form extends Component {
     }
     render() {
 
-        const { onChange, onBlur } = this.state;
+        const { onChange, onBlur } = this.props;
         const { formData } = this.state;
 
         return <div>
