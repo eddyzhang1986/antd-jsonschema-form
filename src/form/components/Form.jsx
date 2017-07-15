@@ -76,10 +76,9 @@ const Widget = (props) => {
 
     const value = (formValue || offSpringSchema.default);
 
-    let valueProps = {};
-    if (value) {
-        valueProps = { value: value }
-    }
+
+    const valueProps = { value: (value || undefined) };
+    console.log(valueProps, "valueProps");
 
     return <Input
         {...valueProps}

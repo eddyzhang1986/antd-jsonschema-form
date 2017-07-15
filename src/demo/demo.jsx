@@ -19,14 +19,14 @@ export default class FormTest extends Component {
 
 }
 
-function sleep(time){
+function sleep(time) {
 
- return new Promise((resolve,reject)=>{
-     window.setTimeout(()=>{
-       resolve();
-     },time)
-   
- })
+  return new Promise((resolve, reject) => {
+    window.setTimeout(() => {
+      resolve();
+    }, time)
+
+  })
 
 }
 
@@ -48,8 +48,10 @@ class Demo extends Component {
     this.setState({
 
       formData: {
-        "/done":"e"
+
       }
+    }, () => {
+      console.log(this.state.formData, "setFormData");
     })
 
   }
@@ -58,19 +60,19 @@ class Demo extends Component {
     const { formData } = this.state;
     return <div>
       <Form
-      formData={formData}
-      onChange={(e, newData, fieldPath) => {
-        //console.log(newData);
-        this.setState({
-          formData: newData
-        }, () => {
-          console.log(this.state.formData, "formData");
-        });
-      }}
-    />
-    <input type="button" onClick={()=>{
-      this.changeFormData();
-    }} value="test"/>
+        formData={formData}
+        onChange={(e, newData, fieldPath) => {
+          //console.log(newData);
+          this.setState({
+            formData: newData
+          }, () => {
+            console.log(this.state.formData, "formData");
+          });
+        }}
+      />
+      <input type="button" onClick={() => {
+        this.changeFormData();
+      }} value="test" />
     </div>
   }
 

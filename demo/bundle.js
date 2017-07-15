@@ -8146,6 +8146,8 @@
 	    key: "changeFormData",
 	    value: function () {
 	      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+	        var _this3 = this;
+	
 	        return regeneratorRuntime.wrap(function _callee$(_context) {
 	          while (1) {
 	            switch (_context.prev = _context.next) {
@@ -8156,9 +8158,9 @@
 	              case 2:
 	                this.setState({
 	
-	                  formData: {
-	                    "/done": "e"
-	                  }
+	                  formData: {}
+	                }, function () {
+	                  console.log(_this3.state.formData, "setFormData");
 	                });
 	
 	              case 3:
@@ -8178,7 +8180,7 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _this3 = this;
+	      var _this4 = this;
 	
 	      var formData = this.state.formData;
 	
@@ -8189,15 +8191,15 @@
 	          formData: formData,
 	          onChange: function onChange(e, newData, fieldPath) {
 	            //console.log(newData);
-	            _this3.setState({
+	            _this4.setState({
 	              formData: newData
 	            }, function () {
-	              console.log(_this3.state.formData, "formData");
+	              console.log(_this4.state.formData, "formData");
 	            });
 	          }
 	        }),
 	        _react2.default.createElement("input", { type: "button", onClick: function onClick() {
-	            _this3.changeFormData();
+	            _this4.changeFormData();
 	          }, value: "test" })
 	      );
 	    }
@@ -29517,10 +29519,8 @@
 	
 	    var value = formValue || offSpringSchema.default;
 	
-	    var valueProps = {};
-	    if (value) {
-	        valueProps = { value: value };
-	    }
+	    var valueProps = { value: value || undefined };
+	    console.log(valueProps, "valueProps");
 	
 	    return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
 	        onChange: function onChange(e) {
