@@ -264,6 +264,13 @@ export default class Form extends Component {
             formData: this.props.formData || {}
         }
     }
+    componentWillReceiveProps(nextProps) {
+        if (JSON.stringify(this.props.formData) !== JSON.stringify(nextProps.formData)) {
+            this.setState({
+                formData: nextProps.formData
+            })
+        }
+    }
     render() {
 
         const { onChange, onBlur } = this.props;

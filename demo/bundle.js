@@ -8081,6 +8081,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -8114,6 +8116,16 @@
 	
 	exports.default = FormTest;
 	
+	
+	function sleep(time) {
+	
+	  return new Promise(function (resolve, reject) {
+	    window.setTimeout(function () {
+	      resolve();
+	    }, time);
+	  });
+	}
+	
 	var Demo = function (_Component2) {
 	  _inherits(Demo, _Component2);
 	
@@ -8123,29 +8135,71 @@
 	    var _this2 = _possibleConstructorReturn(this, (Demo.__proto__ || Object.getPrototypeOf(Demo)).call(this, props));
 	
 	    _this2.state = {
-	      formData: {}
+	      formData: {
+	        "/done": "test"
+	      }
 	    };
 	    return _this2;
 	  }
 	
 	  _createClass(Demo, [{
+	    key: "changeFormData",
+	    value: function () {
+	      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+	        return regeneratorRuntime.wrap(function _callee$(_context) {
+	          while (1) {
+	            switch (_context.prev = _context.next) {
+	              case 0:
+	                _context.next = 2;
+	                return sleep(1000);
+	
+	              case 2:
+	                this.setState({
+	
+	                  formData: {
+	                    "/done": "e"
+	                  }
+	                });
+	
+	              case 3:
+	              case "end":
+	                return _context.stop();
+	            }
+	          }
+	        }, _callee, this);
+	      }));
+	
+	      function changeFormData() {
+	        return _ref.apply(this, arguments);
+	      }
+	
+	      return changeFormData;
+	    }()
+	  }, {
 	    key: "render",
 	    value: function render() {
 	      var _this3 = this;
 	
 	      var formData = this.state.formData;
 	
-	      return _react2.default.createElement(_index2.default, {
-	        formData: formData,
-	        onChange: function onChange(e, newData, fieldPath) {
-	          //console.log(newData);
-	          _this3.setState({
-	            formData: newData
-	          }, function () {
-	            console.log(_this3.state.formData, "formData");
-	          });
-	        }
-	      });
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(_index2.default, {
+	          formData: formData,
+	          onChange: function onChange(e, newData, fieldPath) {
+	            //console.log(newData);
+	            _this3.setState({
+	              formData: newData
+	            }, function () {
+	              console.log(_this3.state.formData, "formData");
+	            });
+	          }
+	        }),
+	        _react2.default.createElement("input", { type: "button", onClick: function onClick() {
+	            _this3.changeFormData();
+	          }, value: "test" })
+	      );
 	    }
 	  }]);
 	
@@ -29692,6 +29746,15 @@
 	    }
 	
 	    _createClass(Form, [{
+	        key: "componentWillReceiveProps",
+	        value: function componentWillReceiveProps(nextProps) {
+	            if (JSON.stringify(this.props.formData) !== JSON.stringify(nextProps.formData)) {
+	                this.setState({
+	                    formData: nextProps.formData
+	                });
+	            }
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	            var _this2 = this;

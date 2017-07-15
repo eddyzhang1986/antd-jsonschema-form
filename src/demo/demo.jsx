@@ -19,35 +19,65 @@ export default class FormTest extends Component {
 
 }
 
-class Demo extends Component
-{
-    constructor(props){
-      super(props);
-      this.state={
-         formData:{
+function sleep(time){
 
-         }
+ return new Promise((resolve,reject)=>{
+     window.setTimeout(()=>{
+       resolve();
+     },time)
+   
+ })
+
+}
+
+
+class Demo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formData: {
+        "/done": "test"
       }
     }
-    render(){
-     const {formData}=this.state;
-       return <Form
-       formData={formData}
-       onChange={(e,newData,fieldPath)=>{
-         //console.log(newData);
-         this.setState({
-             formData:newData
-         },()=>{
-           console.log(this.state.formData,"formData");
-         });
-       }}
-       />
-    }
+  }
+
+
+  async changeFormData() {
+
+    await sleep(1000);
+    this.setState({
+
+      formData: {
+        "/done":"e"
+      }
+    })
+
+  }
+
+  render() {
+    const { formData } = this.state;
+    return <div>
+      <Form
+      formData={formData}
+      onChange={(e, newData, fieldPath) => {
+        //console.log(newData);
+        this.setState({
+          formData: newData
+        }, () => {
+          console.log(this.state.formData, "formData");
+        });
+      }}
+    />
+    <input type="button" onClick={()=>{
+      this.changeFormData();
+    }} value="test"/>
+    </div>
+  }
 
 }
 
 render((
-<div>
-  <Demo />
-</div>
+  <div>
+    <Demo />
+  </div>
 ), document.getElementById("main"));
