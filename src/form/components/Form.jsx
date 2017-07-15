@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import update from 'react-addons-update';
 import PropTypes from "prop-types";
 import setimmediate from 'setimmediate';
+import _ from 'lodash';
 
 import { Row, Col, Tabs, Input } from 'antd';
 const TabPane = Tabs.TabPane;
@@ -265,7 +266,7 @@ export default class Form extends Component {
         }
     }
     componentWillReceiveProps(nextProps) {
-        if (JSON.stringify(this.props.formData) !== JSON.stringify(nextProps.formData)) {
+        if (!_.isEqual(this.props.formData, nextProps.formData)) {
             this.setState({
                 formData: nextProps.formData
             })
