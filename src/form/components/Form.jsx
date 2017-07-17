@@ -50,11 +50,13 @@ const schema = {
 }
 
 
-const widgetMap = {
-
-
-
-}
+// const widgetMap = {
+//     "text": TextWidget,
+//     "textarea": TextareaWidget,
+//     "datepicker": DatePickerWidget,
+//     "datetimepicker": DateTimePickerWidget,
+//     "switch": SwitchWidget
+// }
 
 const getOffspringSchema = (schema, fieldPath) => {
     //console.log(schema, "schema");
