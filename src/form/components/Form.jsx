@@ -55,7 +55,10 @@ const schema = {
 //     "textarea": TextareaWidget,
 //     "datepicker": DatePickerWidget,
 //     "datetimepicker": DateTimePickerWidget,
-//     "switch": SwitchWidget
+//     "switch": SwitchWidget,
+//     "checkbox": CheckboxWidget,
+//     "updown": UpdownWidget,
+//     "radio": RadioWidget
 // }
 
 const getOffspringSchema = (schema, fieldPath) => {
@@ -67,7 +70,6 @@ const getFormValue = (formData, fieldPath) => {
     //console.log(formData, "formData");
     return formData[fieldPath]
 }
-
 
 
 const Widget = (props) => {
@@ -93,7 +95,9 @@ const Widget = (props) => {
     />
 }
 
-
+const Field = (props) => {
+    return <Widget {...props} />
+}
 
 
 /**
@@ -102,7 +106,7 @@ const Widget = (props) => {
  */
 const VisitField = (props) => {
     const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
-    return <Widget schema={schema} uiSchema={uiSchema} formData={formData} onChange={onChange} onBlur={onBlur} />
+    return <Field schema={schema} uiSchema={uiSchema} formData={formData} onChange={onChange} onBlur={onBlur} />
 }
 
 const VisitGrid = (props) => {
