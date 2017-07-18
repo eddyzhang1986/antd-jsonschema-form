@@ -221,7 +221,7 @@ export default class Form extends Component {
                         formData: newData
                     }, () => {
                         if (onChange) {
-                            setImmediate(() => {
+                            window.setImmediate(() => {
                                 onChange(e, newData, fieldPath);
                             });
                         }
@@ -232,7 +232,7 @@ export default class Form extends Component {
 
                 onBlur={(e, fieldPath) => {
                     if (onBlur) {
-                        setImmediate(() => {
+                         window.setImmediate(() => {
                             onBlur(e, formData, fieldPath);
                         });
                     }
