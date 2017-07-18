@@ -51393,15 +51393,47 @@
 /* 606 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	
-	var _css = __webpack_require__(607);
+	var _react = __webpack_require__(298);
 	
-	var _input = __webpack_require__(610);
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _TextWidget = __webpack_require__(607);
+	
+	var _TextWidget2 = _interopRequireDefault(_TextWidget);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var widgetMap = {
+	    "text": _TextWidget2.default
+	};
+	
+	var Widget = function Widget(props) {
+	
+	    var WidgetImpl = widgetMap["text"];
+	    return _react2.default.createElement(WidgetImpl, props);
+	};
+	
+	exports.default = Widget;
+
+/***/ }),
+/* 607 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _css = __webpack_require__(608);
+	
+	var _input = __webpack_require__(611);
 	
 	var _input2 = _interopRequireDefault(_input);
 	
@@ -51411,78 +51443,78 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _propTypes = __webpack_require__(478);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
 	var getOffspringSchema = function getOffspringSchema(schema, fieldPath) {
-	    //console.log(schema, "schema");
-	    return "test";
+	  //console.log(schema, "schema");
+	  return "test";
 	};
 	
 	var getFormValue = function getFormValue(formData, fieldPath) {
-	    //console.log(formData, "formData");
-	    return formData[fieldPath];
+	  //console.log(formData, "formData");
+	  return formData[fieldPath];
 	};
 	
-	// const widgetMap = {
-	//     "text": TextWidget,
-	//     "textarea": TextareaWidget,
-	//     "datepicker": DatePickerWidget,
-	//     "datetimepicker": DateTimePickerWidget,
-	//     "switch": SwitchWidget,
-	//     "checkbox": CheckboxWidget,
-	//     "updown": UpdownWidget,
-	//     "radio": RadioWidget
+	var TextWidget = function TextWidget(props) {
+	  var schema = props.schema,
+	      uiSchema = props.uiSchema,
+	      formData = props.formData,
+	      _onChange = props.onChange,
+	      _onBlur = props.onBlur,
+	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	
+	  var fieldPath = uiSchema.fieldPath;
+	
+	  var offSpringSchema = getOffspringSchema(schema, fieldPath);
+	  var formValue = getFormValue(formData, fieldPath);
+	
+	  var value = formValue || offSpringSchema.default;
+	
+	  var valueProps = { value: value || undefined };
+	  //console.log(valueProps, "valueProps");
+	
+	  return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
+	    onChange: function onChange(e) {
+	      _onChange(e, fieldPath);
+	    },
+	    onBlur: function onBlur(e) {
+	      _onBlur(e, fieldPath);
+	    }
+	  }));
+	};
+	
+	// if (process.env.NODE_ENV !== "production") {
+	//   TextWidget.propTypes = {
+	//     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	//   };
 	// }
 	
-	var Widget = function Widget(props) {
-	    var schema = props.schema,
-	        uiSchema = props.uiSchema,
-	        formData = props.formData,
-	        _onChange = props.onChange,
-	        _onBlur = props.onBlur,
-	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
-	
-	    var fieldPath = uiSchema.fieldPath;
-	
-	    var offSpringSchema = getOffspringSchema(schema, fieldPath);
-	    var formValue = getFormValue(formData, fieldPath);
-	
-	    var value = formValue || offSpringSchema.default;
-	
-	    var valueProps = { value: value || undefined };
-	    //console.log(valueProps, "valueProps");
-	
-	    return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
-	        onChange: function onChange(e) {
-	            _onChange(e, fieldPath);
-	        },
-	        onBlur: function onBlur(e) {
-	            _onBlur(e, fieldPath);
-	        }
-	    }));
-	};
-	exports.default = Widget;
+	exports.default = TextWidget;
 
 /***/ }),
-/* 607 */
+/* 608 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	__webpack_require__(482);
 	
-	__webpack_require__(608);
+	__webpack_require__(609);
 
 /***/ }),
-/* 608 */
+/* 609 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(609);
+	var content = __webpack_require__(610);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// Prepare cssTransformation
 	var transform;
@@ -51507,7 +51539,7 @@
 	}
 
 /***/ }),
-/* 609 */
+/* 610 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(469)(undefined);
@@ -51521,7 +51553,7 @@
 
 
 /***/ }),
-/* 610 */
+/* 611 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51530,19 +51562,19 @@
 	  value: true
 	});
 	
-	var _Input = __webpack_require__(611);
+	var _Input = __webpack_require__(612);
 	
 	var _Input2 = _interopRequireDefault(_Input);
 	
-	var _Group = __webpack_require__(614);
+	var _Group = __webpack_require__(615);
 	
 	var _Group2 = _interopRequireDefault(_Group);
 	
-	var _Search = __webpack_require__(615);
+	var _Search = __webpack_require__(616);
 	
 	var _Search2 = _interopRequireDefault(_Search);
 	
-	var _TextArea = __webpack_require__(612);
+	var _TextArea = __webpack_require__(613);
 	
 	var _TextArea2 = _interopRequireDefault(_TextArea);
 	
@@ -51555,7 +51587,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 611 */
+/* 612 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51604,7 +51636,7 @@
 	
 	var _omit2 = _interopRequireDefault(_omit);
 	
-	var _TextArea = __webpack_require__(612);
+	var _TextArea = __webpack_require__(613);
 	
 	var _TextArea2 = _interopRequireDefault(_TextArea);
 	
@@ -51779,7 +51811,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 612 */
+/* 613 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51820,7 +51852,7 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _calculateNodeHeight = __webpack_require__(613);
+	var _calculateNodeHeight = __webpack_require__(614);
 	
 	var _calculateNodeHeight2 = _interopRequireDefault(_calculateNodeHeight);
 	
@@ -51936,7 +51968,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 613 */
+/* 614 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -52045,7 +52077,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 614 */
+/* 615 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52087,7 +52119,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 615 */
+/* 616 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52124,7 +52156,7 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _Input = __webpack_require__(611);
+	var _Input = __webpack_require__(612);
 	
 	var _Input2 = _interopRequireDefault(_Input);
 	
