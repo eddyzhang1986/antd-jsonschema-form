@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import setimmediate from 'setimmediate';
 import _ from 'lodash';
 
-import Widget from './widgets/Widget.jsx';
+import Widget from './widgets/Widget';
 import { Row, Col, Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 
