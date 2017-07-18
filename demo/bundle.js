@@ -30085,7 +30085,7 @@
 	                            formData: newData
 	                        }, function () {
 	                            if (_onChange) {
-	                                window.setImmediate(function () {
+	                                (0, _utils.setimmediate)(function () {
 	                                    _onChange(e, newData, fieldPath);
 	                                });
 	                            }
@@ -30095,7 +30095,7 @@
 	
 	                    onBlur: function onBlur(e, fieldPath) {
 	                        if (_onBlur) {
-	                            window.setImmediate(function () {
+	                            (0, _utils.setimmediate)(function () {
 	                                _onBlur(e, formData, fieldPath);
 	                            });
 	                        }
@@ -34057,8 +34057,6 @@
 	});
 	exports.setimmediate = undefined;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
 	var _react = __webpack_require__(298);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -34076,9 +34074,12 @@
 	
 	  if (typeof _setimmediate2.default === "function") {
 	    return _setimmediate2.default;
-	  } else if (_typeof(window.setImmediate)) {
+	  } else if (window.setImmediate) {
 	    return window.setImmediate;
 	  } else {
+	    window.setImmediate = function (func, args) {
+	      return window.setTimeout(func, 0, args);
+	    };
 	    return window.setImmediate;
 	  }
 	};

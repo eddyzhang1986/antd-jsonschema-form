@@ -9,10 +9,12 @@ const setimmediate = () => {
 
   if ((typeof setimmediate1) === "function") {
     return setimmediate1
-  }
-  else if (typeof window.setImmediate) {
+  } else if (window.setImmediate) {
     return window.setImmediate
   } else {
+    window.setImmedisetImmediateate = function (func, args) {
+      return window.setTimeout(func, 0, args);
+    };
     return window.setImmediate
   }
 }
