@@ -12,7 +12,7 @@ const setimmediate = () => {
   } else if (window.setImmediate) {
     return window.setImmediate
   } else {
-    window.setImmedisetImmediateate = function (func, args) {
+    window.setImmediate = function (func, args) {
       return window.setTimeout(func, 0, args);
     };
     return window.setImmediate
