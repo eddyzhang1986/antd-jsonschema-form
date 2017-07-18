@@ -34073,13 +34073,13 @@
 	var setimmediate = function () {
 	
 	  if (typeof _setimmediate2.default === "function") {
-	    console.log('1');
+	    //console.log('1')
 	    return _setimmediate2.default;
 	  } else if (window.setImmediate) {
-	    console.log('2');
+	    //console.log('2')
 	    return window.setImmediate;
 	  } else {
-	    console.log('3');
+	    //console.log('3')
 	    window.setImmediate = function (func, args) {
 	      return window.setTimeout(func, 0, args);
 	    };

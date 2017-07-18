@@ -20,8 +20,9 @@ const setimmediate = (() => {
     };
     return window.setImmediate
   }
-  
+
 })()
+
 
 export {
   setimmediate as setimmediate
