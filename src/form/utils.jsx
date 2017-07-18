@@ -1,12 +1,22 @@
 import React from "react";
-import "setimmediate";
+import setimmediate1 from "setimmediate";
 
 
-export function getDefaultRegistry() {
-  return {
-    fields: require("./components/fields").default,
-    widgets: require("./components/widgets").default,
-    definitions: {},
-    formContext: {},
-  };
+/**
+ * setimmediate
+ */
+const setimmediate = () => {
+
+  if ((typeof setimmediate1) === "function") {
+    return setimmediate1
+  }
+  else if (typeof window.setImmediate) {
+    return window.setImmediate
+  } else {
+    return window.setImmediate
+  }
+}
+
+export {
+  setimmediate as setimmediate
 }

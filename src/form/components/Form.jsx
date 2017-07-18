@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import update from 'react-addons-update';
 import PropTypes from "prop-types";
-import setimmediate from 'setimmediate';
+import { setimmediate } from '../utils';
 import _ from 'lodash';
 
 import Widget from './widgets/Widget';
@@ -232,7 +232,7 @@ export default class Form extends Component {
 
                 onBlur={(e, fieldPath) => {
                     if (onBlur) {
-                         window.setImmediate(() => {
+                        window.setImmediate(() => {
                             onBlur(e, formData, fieldPath);
                         });
                     }
