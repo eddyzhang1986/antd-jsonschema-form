@@ -5,6 +5,49 @@ import { DatePicker } from 'antd';
 
 import Form from '../form/index.jsx';
 
+
+const schema = {
+
+  "type": "object",
+  "properties": {
+
+
+  }
+
+}
+
+
+const uiSchema = {
+  "xType": "grid",
+  "children": [{
+    "xType": "row",
+    "children": {
+      "xType": "col",
+      "children": {
+        "xType": "field",
+        "fieldPath": "/title"
+      }
+
+    }
+
+  }, {
+    "xType": "row",
+    "children": {
+      "xType": "col",
+      "children": [{
+        "xType": "field",
+        "fieldPath": "/done"
+      }, {
+        "xType": "field",
+        "fieldPath": "/work"
+      }]
+    }
+  }]
+
+}
+
+
+
 /**
  * 导出测试发布到npm
  */
@@ -60,6 +103,8 @@ class Demo extends Component {
     const { formData } = this.state;
     return <div>
       <Form
+        schema={schema}
+        uiSchema={uiSchema}
         formData={formData}
         onChange={(e, newData, fieldPath) => {
           //console.log(newData);

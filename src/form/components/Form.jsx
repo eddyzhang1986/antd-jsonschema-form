@@ -4,97 +4,20 @@ import PropTypes from "prop-types";
 import setimmediate from 'setimmediate';
 import _ from 'lodash';
 
-import { Row, Col, Tabs, Input } from 'antd';
+import Widget from './widgets/Widget.jsx';
+import { Row, Col, Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 
 
 
 
-const uiSchema = {
-    "xType": "grid",
-    "children": [{
-        "xType": "row",
-        "children": {
-            "xType": "col",
-            "children": {
-                "xType": "field",
-                "fieldPath": "/title"
-            }
-
-        }
-
-    }, {
-        "xType": "row",
-        "children": {
-            "xType": "col",
-            "children": [{
-                "xType": "field",
-                "fieldPath": "/done"
-            }, {
-                "xType": "field",
-                "fieldPath": "/work"
-            }]
-        }
-    }]
-
-}
-
-const schema = {
-
-    "type": "object",
-    "properties": {
 
 
-    }
 
-}
-
-
-// const widgetMap = {
-//     "text": TextWidget,
-//     "textarea": TextareaWidget,
-//     "datepicker": DatePickerWidget,
-//     "datetimepicker": DateTimePickerWidget,
-//     "switch": SwitchWidget,
-//     "checkbox": CheckboxWidget,
-//     "updown": UpdownWidget,
-//     "radio": RadioWidget
-// }
-
-const getOffspringSchema = (schema, fieldPath) => {
-    //console.log(schema, "schema");
-    return "test"
-}
-
-const getFormValue = (formData, fieldPath) => {
-    //console.log(formData, "formData");
-    return formData[fieldPath]
-}
-
-
-const Widget = (props) => {
-    const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
-    const { fieldPath } = uiSchema;
-    const offSpringSchema = getOffspringSchema(schema, fieldPath);
-    const formValue = getFormValue(formData, fieldPath);
-
-    const value = (formValue || offSpringSchema.default);
-
-
-    const valueProps = { value: (value || undefined) };
-    //console.log(valueProps, "valueProps");
-
-    return <Input
-        {...valueProps}
-        onChange={(e) => {
-            onChange(e, fieldPath);
-        }}
-        onBlur={(e) => {
-            onBlur(e, fieldPath);
-        }}
-    />
-}
-
+/**
+ * 
+ * @param {*} props 
+ */
 const Field = (props) => {
     return <Widget {...props} />
 }
@@ -279,7 +202,7 @@ export default class Form extends Component {
     }
     render() {
 
-        const { onChange, onBlur } = this.props;
+        const { schema, uiSchema, onChange, onBlur } = this.props;
         const { formData } = this.state;
 
         return <div>
