@@ -19,8 +19,8 @@ const widgetMap = {
 }
 
 const Widget = (props) => {
-
-    let WidgetImpl = widgetMap["text"];
+    const { schema, uiSchema } = props;
+    let WidgetImpl = widgetMap[(uiSchema.widget || "text")];
     return <WidgetImpl {...props} />
 }
 

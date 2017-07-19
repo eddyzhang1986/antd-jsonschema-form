@@ -8106,6 +8106,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/groupNo"
 	      }
 	    }, {
@@ -8115,6 +8116,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/empNo"
 	      }
 	    }, {
@@ -8124,6 +8126,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/empName"
 	      }
 	    }, {
@@ -8133,6 +8136,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/beforeName"
 	      }
 	    }, {
@@ -8142,6 +8146,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/enName"
 	      }
 	    }, {
@@ -8151,6 +8156,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/zhName"
 	      }
 	    }, {
@@ -8160,6 +8166,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/pinYin"
 	      }
 	    }, {
@@ -8169,6 +8176,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/enName2"
 	      }
 	    }, {
@@ -8178,6 +8186,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/IDNumber"
 	      }
 	    }, {
@@ -8187,6 +8196,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/sex"
 	      }
 	    }, {
@@ -8196,6 +8206,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "date",
 	        "fieldPath": "/fields/birthDay"
 	      }
 	    }, {
@@ -8205,6 +8216,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "updown",
 	        "fieldPath": "/fields/age"
 	      }
 	    }, {
@@ -8214,6 +8226,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/country"
 	      }
 	    }, {
@@ -8223,6 +8236,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/maritalStatus"
 	      }
 	    }, {
@@ -8232,6 +8246,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/nation"
 	      }
 	    }, {
@@ -8241,6 +8256,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/political"
 	      }
 	    }, {
@@ -8250,6 +8266,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/joinDate"
 	      }
 	    }, {
@@ -8259,6 +8276,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "text",
 	        "fieldPath": "/fields/household"
 	      }
 	    }, {
@@ -8268,6 +8286,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
+	        "widget": "textarea",
 	        "fieldPath": "/bloodType"
 	      }
 	    }]
@@ -51673,8 +51692,10 @@
 	};
 	
 	var Widget = function Widget(props) {
+	    var schema = props.schema,
+	        uiSchema = props.uiSchema;
 	
-	    var WidgetImpl = widgetMap["text"];
+	    var WidgetImpl = widgetMap[uiSchema.widget || "text"];
 	    return _react2.default.createElement(WidgetImpl, props);
 	};
 	

@@ -31,6 +31,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/groupNo"
       }
     }, {
@@ -40,6 +41,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/empNo"
       }
     }, {
@@ -49,6 +51,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/empName"
       }
     }, {
@@ -58,6 +61,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/beforeName"
       }
     }, {
@@ -67,6 +71,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/enName"
       }
     }, {
@@ -76,6 +81,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/zhName"
       }
     }, {
@@ -85,6 +91,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/pinYin"
       }
     }, {
@@ -94,6 +101,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/enName2"
       }
     }, {
@@ -103,6 +111,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/IDNumber"
       }
     }, {
@@ -112,6 +121,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/sex"
       }
     }, {
@@ -121,6 +131,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"date",
         "fieldPath": "/fields/birthDay"
       }
     }, {
@@ -130,6 +141,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"updown",
         "fieldPath": "/fields/age"
       }
     }, {
@@ -139,6 +151,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/country"
       }
     }, {
@@ -148,6 +161,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/maritalStatus"
       }
     }, {
@@ -157,6 +171,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/nation"
       }
     }, {
@@ -166,6 +181,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/political"
       }
     }, {
@@ -175,6 +191,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/joinDate"
       }
     }, {
@@ -184,6 +201,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"text",
         "fieldPath": "/fields/household"
       }
     }, {
@@ -193,6 +211,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
+        "widget":"textarea",
         "fieldPath": "/bloodType"
       }
     }]
