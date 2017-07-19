@@ -79,7 +79,7 @@ class Demo extends Component {
     super(props);
     this.state = {
       formData: {
-        "/done": "test"
+        "/done": "2017-07-19"
       }
     }
   }

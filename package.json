@@ -43,6 +43,7 @@
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-addons-update": "^15.6.0",
     "react-dom": "^15.5.4",
