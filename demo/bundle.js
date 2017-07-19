@@ -29828,15 +29828,15 @@
 	
 	var _css = __webpack_require__(481);
 	
-	var _col = __webpack_require__(486);
+	var _row = __webpack_require__(486);
 	
-	var _col2 = _interopRequireDefault(_col);
+	var _row2 = _interopRequireDefault(_row);
 	
 	var _css2 = __webpack_require__(579);
 	
-	var _row = __webpack_require__(580);
+	var _col = __webpack_require__(580);
 	
-	var _row2 = _interopRequireDefault(_row);
+	var _col2 = _interopRequireDefault(_col);
 	
 	var _css3 = __webpack_require__(581);
 	
@@ -29892,16 +29892,16 @@
 	    var uiSchema = props.uiSchema;
 	
 	    return _react2.default.createElement(
-	        "div",
-	        null,
+	        _col2.default,
+	        { style: { paddingTop: "10px", paddingBottom: "10px" } },
 	        _react2.default.createElement(
-	            "span",
-	            null,
+	            _col2.default,
+	            { span: 3, style: { textAlign: "center" } },
 	            uiSchema.fieldPath
 	        ),
 	        _react2.default.createElement(
-	            "span",
-	            null,
+	            _col2.default,
+	            { span: 18 },
 	            _react2.default.createElement(_Widget2.default, props)
 	        )
 	    );
@@ -29982,7 +29982,7 @@
 	
 	    return _react2.default.createElement(
 	        _row2.default,
-	        _extends({}, uiSchema.layoutProps || {}, { gutter: 16 }),
+	        uiSchema.layoutProps || {},
 	        children.map(function (item, index) {
 	            return _react2.default.createElement(Visit, { key: index, schema: schema, edit: edit, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
@@ -30334,7 +30334,7 @@
 	
 	var _grid = __webpack_require__(487);
 	
-	exports['default'] = _grid.Col;
+	exports['default'] = _grid.Row;
 	module.exports = exports['default'];
 
 /***/ }),
@@ -32294,7 +32294,7 @@
 	
 	var _grid = __webpack_require__(487);
 	
-	exports['default'] = _grid.Row;
+	exports['default'] = _grid.Col;
 	module.exports = exports['default'];
 
 /***/ }),

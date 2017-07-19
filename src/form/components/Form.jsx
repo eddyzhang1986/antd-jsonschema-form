@@ -20,10 +20,10 @@ const TabPane = Tabs.TabPane;
  */
 const Field = (props) => {
     const { uiSchema } = props;
-    return <div>
-        <span>{uiSchema.fieldPath}</span>
-        <span><Widget {...props} /></span>
-    </div>
+    return <Col style={{paddingTop:"10px",paddingBottom:"10px"}}>
+        <Col span={3} style={{textAlign:"center"}}>{uiSchema.fieldPath}</Col>
+        <Col span={18}><Widget {...props} /></Col>
+    </Col>
 }
 
 
