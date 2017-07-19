@@ -8226,13 +8226,16 @@
 	          schema: schema,
 	          uiSchema: uiSchema,
 	          formData: formData,
-	          onChange: function onChange(e, newData, fieldPath) {
+	          onChange: function onChange(e, newValue, newData, fieldPath) {
 	            //console.log(newData);
 	            _this4.setState({
 	              formData: newData
 	            }, function () {
-	              console.log(_this4.state.formData, "formData");
+	              console.log(_this4.state.formData, "change");
 	            });
+	          },
+	          onBlur: function onBlur(e, newValue, newData, fieldPath) {
+	            console.log(newData, 'blur');
 	          }
 	        }),
 	        _react2.default.createElement("input", { type: "button", onClick: function onClick() {
@@ -30075,28 +30078,28 @@
 	                _react2.default.createElement(Visit, { schema: schema,
 	                    uiSchema: uiSchema,
 	                    formData: formData,
-	                    onChange: function onChange(e, fieldPath) {
+	                    onChange: function onChange(e, newValue, fieldPath) {
 	                        //console.log(fieldPath);
 	                        //console.log(e.target.value, "onChange");
 	
-	                        var newData = (0, _reactAddonsUpdate2.default)(formData, _defineProperty({}, fieldPath, { $set: e.target.value }));
+	                        var newData = (0, _reactAddonsUpdate2.default)(formData, _defineProperty({}, fieldPath, { $set: newValue }));
 	
 	                        _this2.setState({
 	                            formData: newData
 	                        }, function () {
 	                            if (_onChange) {
 	                                (0, _utils.setimmediate)(function () {
-	                                    _onChange(e, newData, fieldPath);
+	                                    _onChange(e, newValue, newData, fieldPath);
 	                                });
 	                            }
 	                            //console.log(JSON.stringify(this.state.formData));
 	                        });
 	                    },
 	
-	                    onBlur: function onBlur(e, fieldPath) {
+	                    onBlur: function onBlur(e, newValue, fieldPath) {
 	                        if (_onBlur) {
 	                            (0, _utils.setimmediate)(function () {
-	                                _onBlur(e, formData, fieldPath);
+	                                _onBlur(e, newValue, formData, fieldPath);
 	                            });
 	                        }
 	                        //console.log(fieldPath);
@@ -51495,10 +51498,10 @@
 	
 	  return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
 	    onChange: function onChange(e) {
-	      _onChange(e, fieldPath);
+	      _onChange(e, e.target.value, fieldPath);
 	    },
 	    onBlur: function onBlur(e) {
-	      _onBlur(e, fieldPath);
+	      _onBlur(e, e.target.value, fieldPath);
 	    }
 	  }));
 	};

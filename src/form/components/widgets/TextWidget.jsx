@@ -23,10 +23,10 @@ const TextWidget = (props) => {
   return <Input
     {...valueProps}
     onChange={(e) => {
-      onChange(e, fieldPath);
+      onChange(e, e.target.value, fieldPath);
     }}
     onBlur={(e) => {
-      onBlur(e, fieldPath);
+      onBlur(e, e.target.value, fieldPath);
     }}
   />
 }

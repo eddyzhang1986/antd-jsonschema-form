@@ -209,12 +209,12 @@ export default class Form extends Component {
             <Visit schema={schema}
                 uiSchema={uiSchema}
                 formData={formData}
-                onChange={(e, fieldPath) => {
+                onChange={(e,newValue, fieldPath) => {
                     //console.log(fieldPath);
                     //console.log(e.target.value, "onChange");
 
                     const newData = update(formData, {
-                        [fieldPath]: { $set: e.target.value }
+                        [fieldPath]: { $set: newValue }
                     });
 
                     this.setState({
@@ -222,7 +222,7 @@ export default class Form extends Component {
                     }, () => {
                         if (onChange) {
                             setimmediate(() => {
-                                onChange(e, newData, fieldPath);
+                                onChange(e,newValue, newData, fieldPath);
                             });
                         }
                         //console.log(JSON.stringify(this.state.formData));
@@ -230,10 +230,10 @@ export default class Form extends Component {
 
                 }}
 
-                onBlur={(e, fieldPath) => {
+                onBlur={(e,newValue, fieldPath) => {
                     if (onBlur) {
                         setimmediate(() => {
-                            onBlur(e, formData, fieldPath);
+                            onBlur(e,newValue, formData, fieldPath);
                         });
                     }
                     //console.log(fieldPath);

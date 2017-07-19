@@ -106,13 +106,16 @@ class Demo extends Component {
         schema={schema}
         uiSchema={uiSchema}
         formData={formData}
-        onChange={(e, newData, fieldPath) => {
+        onChange={(e, newValue, newData, fieldPath) => {
           //console.log(newData);
           this.setState({
             formData: newData
           }, () => {
-            console.log(this.state.formData, "formData");
+            console.log(this.state.formData, "change");
           });
+        }}
+        onBlur={(e, newValue, newData, fieldPath) => {
+          console.log(newData, 'blur');
         }}
       />
       <input type="button" onClick={() => {
