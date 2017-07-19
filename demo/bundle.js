@@ -51432,7 +51432,11 @@
 	
 	var _TextWidget2 = _interopRequireDefault(_TextWidget);
 	
-	var _UpDownWidget = __webpack_require__(617);
+	var _TextareaWidget = __webpack_require__(617);
+	
+	var _TextareaWidget2 = _interopRequireDefault(_TextareaWidget);
+	
+	var _UpDownWidget = __webpack_require__(618);
 	
 	var _UpDownWidget2 = _interopRequireDefault(_UpDownWidget);
 	
@@ -51440,12 +51444,13 @@
 	
 	var widgetMap = {
 	    "text": _TextWidget2.default,
+	    "textarea": _TextareaWidget2.default,
 	    "updown": _UpDownWidget2.default
 	};
 	
 	var Widget = function Widget(props) {
 	
-	    var WidgetImpl = widgetMap["updown"];
+	    var WidgetImpl = widgetMap["textarea"];
 	    return _react2.default.createElement(WidgetImpl, props);
 	};
 	
@@ -52252,9 +52257,79 @@
 	  value: true
 	});
 	
-	var _css = __webpack_require__(618);
+	var _css = __webpack_require__(608);
 	
-	var _inputNumber = __webpack_require__(621);
+	var _input = __webpack_require__(611);
+	
+	var _input2 = _interopRequireDefault(_input);
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(298);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(478);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _utils = __webpack_require__(602);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var TextareaWidget = function TextareaWidget(props) {
+	  var schema = props.schema,
+	      uiSchema = props.uiSchema,
+	      formData = props.formData,
+	      _onChange = props.onChange,
+	      _onBlur = props.onBlur,
+	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	
+	  var fieldPath = uiSchema.fieldPath;
+	
+	  var offSpringSchema = (0, _utils.getOffspringSchema)(schema, fieldPath);
+	  var formValue = (0, _utils.getFormValue)(formData, fieldPath);
+	
+	  var value = formValue || offSpringSchema.default;
+	
+	  var valueProps = { value: value || "" };
+	  //console.log(valueProps, "valueProps");
+	
+	  return _react2.default.createElement(_input2.default, _extends({
+	    type: "textarea"
+	  }, valueProps, {
+	    onChange: function onChange(e) {
+	      _onChange(e, e.target.value, fieldPath);
+	    },
+	    onBlur: function onBlur(e) {
+	      _onBlur(e, e.target.value, fieldPath);
+	    }
+	  }));
+	};
+	
+	// if (process.env.NODE_ENV !== "production") {
+	//   TextWidget.propTypes = {
+	//     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	//   };
+	// }
+	
+	exports.default = TextareaWidget;
+
+/***/ }),
+/* 618 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _css = __webpack_require__(619);
+	
+	var _inputNumber = __webpack_require__(622);
 	
 	var _inputNumber2 = _interopRequireDefault(_inputNumber);
 	
@@ -52311,23 +52386,23 @@
 	exports.default = UpDownWidget;
 
 /***/ }),
-/* 618 */
+/* 619 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	__webpack_require__(482);
 	
-	__webpack_require__(619);
+	__webpack_require__(620);
 
 /***/ }),
-/* 619 */
+/* 620 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(620);
+	var content = __webpack_require__(621);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// Prepare cssTransformation
 	var transform;
@@ -52352,7 +52427,7 @@
 	}
 
 /***/ }),
-/* 620 */
+/* 621 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(469)(undefined);
@@ -52366,7 +52441,7 @@
 
 
 /***/ }),
-/* 621 */
+/* 622 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52407,7 +52482,7 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _rcInputNumber = __webpack_require__(622);
+	var _rcInputNumber = __webpack_require__(623);
 	
 	var _rcInputNumber2 = _interopRequireDefault(_rcInputNumber);
 	
@@ -52455,7 +52530,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 622 */
+/* 623 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52488,11 +52563,11 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _mixin = __webpack_require__(623);
+	var _mixin = __webpack_require__(624);
 	
 	var _mixin2 = _interopRequireDefault(_mixin);
 	
-	var _InputHandler = __webpack_require__(624);
+	var _InputHandler = __webpack_require__(625);
 	
 	var _InputHandler2 = _interopRequireDefault(_InputHandler);
 	
@@ -52780,7 +52855,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 623 */
+/* 624 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -53084,7 +53159,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 624 */
+/* 625 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53093,7 +53168,7 @@
 	  value: true
 	});
 	
-	var _objectWithoutProperties2 = __webpack_require__(625);
+	var _objectWithoutProperties2 = __webpack_require__(626);
 	
 	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 	
@@ -53121,7 +53196,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _rcTouchable = __webpack_require__(626);
+	var _rcTouchable = __webpack_require__(627);
 	
 	var _rcTouchable2 = _interopRequireDefault(_rcTouchable);
 	
@@ -53162,7 +53237,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 625 */
+/* 626 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -53182,7 +53257,7 @@
 	};
 
 /***/ }),
-/* 626 */
+/* 627 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// inspired by react-native
@@ -53220,7 +53295,7 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _PressEvent = __webpack_require__(627);
+	var _PressEvent = __webpack_require__(628);
 	
 	var _PressEvent2 = _interopRequireDefault(_PressEvent);
 	
@@ -53853,7 +53928,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 627 */
+/* 628 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

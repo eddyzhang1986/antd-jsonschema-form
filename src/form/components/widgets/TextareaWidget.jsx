@@ -1,60 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Input } from 'antd';
+import { Input } from "antd";
+import { getOffspringSchema, getFormValue } from '../../utils';
 
 
-function TextareaWidget(props) {
-  const {
-    id,
-    options,
-    placeholder,
-    value,
-    required,
-    disabled,
-    readonly,
-    autofocus,
-    onChange,
-    onBlur,
-  } = props;
-  const _onChange = ({ target: { value } }) => {
-    return onChange(value === "" ? options.emptyValue : value);
-  };
-  return (
-   <Input type="textarea"
-      id={id}
-      value={typeof value === "undefined" ? "" : value}
-      placeholder={placeholder}
-      required={required}
-      disabled={disabled}
-      readOnly={readonly}
-      autoFocus={autofocus}
-      rows={options.rows}
-      onBlur={onBlur && (event => onBlur(id, event.target.value))}
-      onChange={_onChange}
-    />
-  );
+
+
+
+
+const TextareaWidget = (props) => {
+  const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+  const { fieldPath } = uiSchema;
+  const offSpringSchema = getOffspringSchema(schema, fieldPath);
+  const formValue = getFormValue(formData, fieldPath);
+
+  const value = (formValue || offSpringSchema.default);
+
+
+  const valueProps = { value: (value || "") };
+  //console.log(valueProps, "valueProps");
+
+  return <Input
+     type="textarea"
+    {...valueProps}
+    onChange={(e) => {
+      onChange(e, e.target.value, fieldPath);
+    }}
+    onBlur={(e) => {
+      onBlur(e, e.target.value, fieldPath);
+    }}
+  />
 }
 
-TextareaWidget.defaultProps = {
-  autofocus: false,
-  options: {},
-};
+
 
 // if (process.env.NODE_ENV !== "production") {
-//   TextareaWidget.propTypes = {
-//     schema: PropTypes.object.isRequired,
-//     id: PropTypes.string.isRequired,
-//     placeholder: PropTypes.string,
-//     options: PropTypes.shape({
-//       rows: PropTypes.number,
-//     }),
-//     value: PropTypes.string,
-//     required: PropTypes.bool,
-//     disabled: PropTypes.bool,
-//     readonly: PropTypes.bool,
-//     autofocus: PropTypes.bool,
-//     onChange: PropTypes.func,
-//     onBlur: PropTypes.func,
+//   TextWidget.propTypes = {
+//     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 //   };
 // }
 
