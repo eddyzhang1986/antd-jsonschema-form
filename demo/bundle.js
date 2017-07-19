@@ -51444,18 +51444,23 @@
 	
 	var _DateWidget2 = _interopRequireDefault(_DateWidget);
 	
+	var _ColorWidget = __webpack_require__(846);
+	
+	var _ColorWidget2 = _interopRequireDefault(_ColorWidget);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var widgetMap = {
 	    "text": _TextWidget2.default,
 	    "textarea": _TextareaWidget2.default,
 	    "updown": _UpDownWidget2.default,
-	    "date": _DateWidget2.default
+	    "date": _DateWidget2.default,
+	    "color": _ColorWidget2.default
 	};
 	
 	var Widget = function Widget(props) {
 	
-	    var WidgetImpl = widgetMap["date"];
+	    var WidgetImpl = widgetMap["color"];
 	    return _react2.default.createElement(WidgetImpl, props);
 	};
 	
@@ -81623,6 +81628,76 @@
 	    prefixCls: 'ant-calendar'
 	};
 	module.exports = exports['default'];
+
+/***/ }),
+/* 846 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _css = __webpack_require__(608);
+	
+	var _input = __webpack_require__(611);
+	
+	var _input2 = _interopRequireDefault(_input);
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(298);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(478);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _utils = __webpack_require__(602);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var ColorWidget = function ColorWidget(props) {
+	  var schema = props.schema,
+	      uiSchema = props.uiSchema,
+	      formData = props.formData,
+	      _onChange = props.onChange,
+	      _onBlur = props.onBlur,
+	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	
+	  var fieldPath = uiSchema.fieldPath;
+	
+	  var offSpringSchema = (0, _utils.getOffspringSchema)(schema, fieldPath);
+	  var formValue = (0, _utils.getFormValue)(formData, fieldPath);
+	
+	  var value = formValue || offSpringSchema.default;
+	
+	  var valueProps = { value: value || undefined };
+	  //console.log(valueProps, "valueProps");
+	
+	  return _react2.default.createElement(_input2.default, _extends({
+	    type: "color"
+	  }, valueProps, {
+	    onChange: function onChange(e) {
+	      _onChange(e, e.target.value, fieldPath);
+	    },
+	    onBlur: function onBlur(e) {
+	      _onBlur(e, e.target.value, fieldPath);
+	    }
+	  }));
+	};
+	
+	// if (process.env.NODE_ENV !== "production") {
+	//   TextWidget.propTypes = {
+	//     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	//   };
+	// }
+	
+	exports.default = ColorWidget;
 
 /***/ })
 /******/ ]);

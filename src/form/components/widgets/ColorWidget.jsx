@@ -1,23 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Input } from "antd";
+import { getOffspringSchema, getFormValue } from '../../utils';
 
-import BaseInput from "./BaseInput";
 
-function ColorWidget(props) {
-  const { disabled, readonly } = props;
-  return <BaseInput type="color" {...props} disabled={disabled || readonly} />;
+
+
+
+
+const ColorWidget = (props) => {
+  const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+  const { fieldPath } = uiSchema;
+  const offSpringSchema = getOffspringSchema(schema, fieldPath);
+  const formValue = getFormValue(formData, fieldPath);
+
+  const value = (formValue || offSpringSchema.default);
+
+
+  const valueProps = { value: (value || undefined) };
+  //console.log(valueProps, "valueProps");
+
+  return <Input
+    type="color" 
+    {...valueProps}
+    onChange={(e) => {
+      onChange(e, e.target.value, fieldPath);
+    }}
+    onBlur={(e) => {
+      onBlur(e, e.target.value, fieldPath);
+    }}
+  />
 }
 
+
+
 // if (process.env.NODE_ENV !== "production") {
-//   ColorWidget.propTypes = {
-//     schema: PropTypes.object.isRequired,
-//     id: PropTypes.string.isRequired,
-//     value: PropTypes.string,
-//     required: PropTypes.bool,
-//     disabled: PropTypes.bool,
-//     readonly: PropTypes.bool,
-//     autofocus: PropTypes.bool,
-//     onChange: PropTypes.func,
+//   TextWidget.propTypes = {
+//     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 //   };
 // }
 
