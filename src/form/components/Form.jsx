@@ -21,8 +21,8 @@ const TabPane = Tabs.TabPane;
 const Field = (props) => {
     const { uiSchema } = props;
     return <Col style={{ paddingTop: "10px", paddingBottom: "10px" }}>
-        <Col span={6} style={{ paddingLeft: "15px" }}>{uiSchema.fieldPath}</Col>
-        <Col span={18}><Widget {...props} /></Col>
+        <Col span={8} style={{ paddingLeft: "15px" }}>{uiSchema.fieldPath}</Col>
+        <Col span={16}><Widget {...props} /></Col>
     </Col>
 }
 

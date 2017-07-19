@@ -29997,12 +29997,12 @@
 	        { style: { paddingTop: "10px", paddingBottom: "10px" } },
 	        _react2.default.createElement(
 	            _col2.default,
-	            { span: 6, style: { paddingLeft: "15px" } },
+	            { span: 8, style: { paddingLeft: "15px" } },
 	            uiSchema.fieldPath
 	        ),
 	        _react2.default.createElement(
 	            _col2.default,
-	            { span: 18 },
+	            { span: 16 },
 	            _react2.default.createElement(_Widget2.default, props)
 	        )
 	    );
