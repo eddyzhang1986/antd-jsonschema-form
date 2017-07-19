@@ -8409,7 +8409,6 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	  "div",
 	  null,
-	  console.log("//".split('/'), 'title'),
 	  _react2.default.createElement(Demo, null)
 	), document.getElementById("main"));
 
