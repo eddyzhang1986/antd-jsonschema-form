@@ -19,7 +19,10 @@ const TabPane = Tabs.TabPane;
  * @param {*} props 
  */
 const Field = (props) => {
-    return <Widget {...props} />
+    return <div>
+        <span>title</span>
+        <span><Widget {...props} /></span>
+    </div>
 }
 
 

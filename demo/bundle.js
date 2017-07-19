@@ -29839,7 +29839,20 @@
 	 * @param {*} props 
 	 */
 	var Field = function Field(props) {
-	    return _react2.default.createElement(_Widget2.default, props);
+	    return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	            "span",
+	            null,
+	            "title"
+	        ),
+	        _react2.default.createElement(
+	            "span",
+	            null,
+	            _react2.default.createElement(_Widget2.default, props)
+	        )
+	    );
 	};
 	
 	/**

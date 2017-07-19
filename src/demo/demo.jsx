@@ -19,10 +19,19 @@ const schema = {
 
 const uiSchema = {
   "xType": "grid",
+  "layoutProps": {
+
+  },
   "children": [{
     "xType": "row",
+    "layoutProps": {
+
+    },
     "children": {
       "xType": "col",
+      "layoutProps": {
+
+      },
       "children": {
         "xType": "field",
         "fieldPath": "/title"
@@ -32,8 +41,14 @@ const uiSchema = {
 
   }, {
     "xType": "row",
+    "layoutProps": {
+
+    },
     "children": {
       "xType": "col",
+      "layoutProps": {
+
+      },
       "children": [{
         "xType": "field",
         "fieldPath": "/done"
