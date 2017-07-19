@@ -24,6 +24,29 @@ const setimmediate = (() => {
 })()
 
 
+/**
+ * 
+ * @param {*} schema 
+ * @param {*} fieldPath 
+ */
+const getOffspringSchema = (schema, fieldPath) => {
+  //console.log(schema, "schema");
+  return "test"
+}
+
+/**
+ * 
+ * @param {*} formData 
+ * @param {*} fieldPath 
+ */
+const getFormValue = (formData, fieldPath) => {
+  //console.log(formData, "formData");
+  return formData[fieldPath]
+}
+
+
 export {
-  setimmediate as setimmediate
+  setimmediate as setimmediate,
+  getOffspringSchema as getOffspringSchema,
+  getFormValue as getFormValue
 }

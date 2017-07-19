@@ -1,19 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Input } from "antd";
+import { getOffspringSchema, getFormValue } from '../../utils';
 
 
 
 
-const getOffspringSchema = (schema, fieldPath) => {
-  //console.log(schema, "schema");
-  return "test"
-}
-
-const getFormValue = (formData, fieldPath) => {
-  //console.log(formData, "formData");
-  return formData[fieldPath]
-}
 
 
 const TextWidget = (props) => {

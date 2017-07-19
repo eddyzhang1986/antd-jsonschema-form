@@ -34055,7 +34055,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.setimmediate = undefined;
+	exports.getFormValue = exports.getOffspringSchema = exports.setimmediate = undefined;
 	
 	var _react = __webpack_require__(298);
 	
@@ -34087,7 +34087,29 @@
 	  }
 	}();
 	
+	/**
+	 * 
+	 * @param {*} schema 
+	 * @param {*} fieldPath 
+	 */
+	var getOffspringSchema = function getOffspringSchema(schema, fieldPath) {
+	  //console.log(schema, "schema");
+	  return "test";
+	};
+	
+	/**
+	 * 
+	 * @param {*} formData 
+	 * @param {*} fieldPath 
+	 */
+	var getFormValue = function getFormValue(formData, fieldPath) {
+	  //console.log(formData, "formData");
+	  return formData[fieldPath];
+	};
+	
 	exports.setimmediate = setimmediate;
+	exports.getOffspringSchema = getOffspringSchema;
+	exports.getFormValue = getFormValue;
 
 /***/ }),
 /* 603 */
@@ -51447,19 +51469,11 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
+	var _utils = __webpack_require__(602);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-	
-	var getOffspringSchema = function getOffspringSchema(schema, fieldPath) {
-	  //console.log(schema, "schema");
-	  return "test";
-	};
-	
-	var getFormValue = function getFormValue(formData, fieldPath) {
-	  //console.log(formData, "formData");
-	  return formData[fieldPath];
-	};
 	
 	var TextWidget = function TextWidget(props) {
 	  var schema = props.schema,
@@ -51471,8 +51485,8 @@
 	
 	  var fieldPath = uiSchema.fieldPath;
 	
-	  var offSpringSchema = getOffspringSchema(schema, fieldPath);
-	  var formValue = getFormValue(formData, fieldPath);
+	  var offSpringSchema = (0, _utils.getOffspringSchema)(schema, fieldPath);
+	  var formValue = (0, _utils.getFormValue)(formData, fieldPath);
 	
 	  var value = formValue || offSpringSchema.default;
 	
