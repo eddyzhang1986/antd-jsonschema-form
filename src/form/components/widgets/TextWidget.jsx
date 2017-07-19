@@ -17,7 +17,7 @@ const TextWidget = (props) => {
   const value = (formValue || offSpringSchema.default);
 
 
-  const valueProps = { value: (value || undefined) };
+  const valueProps = { value: (value || "") };
   //console.log(valueProps, "valueProps");
 
   return <Input
