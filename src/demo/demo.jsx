@@ -80,7 +80,8 @@ class Demo extends Component {
     this.state = {
       formData: {
         "/done": "2017-07-19"
-      }
+      },
+      edit: false
     }
   }
 
@@ -100,11 +101,12 @@ class Demo extends Component {
   }
 
   render() {
-    const { formData } = this.state;
+    const { edit, formData } = this.state;
     return <div>
       <Form
         schema={schema}
         uiSchema={uiSchema}
+        edit={edit}
         formData={formData}
         onChange={(e, newValue, newData, fieldPath) => {
           //console.log(newData);
