@@ -10,7 +10,7 @@ const schema = {
 
   "type": "object",
   "properties": {
-
+      
 
   }
 
@@ -150,6 +150,7 @@ class Demo extends Component {
 
 render((
   <div>
+   {console.log("//".split('/'),'title')}
     <Demo />
   </div>
 ), document.getElementById("main"));

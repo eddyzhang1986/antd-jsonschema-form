@@ -45,10 +45,12 @@ const VisitGrid = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <div  {...(uiSchema.layoutProps || {}) }>
+            <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        </div>
     }
 
-    return <div>
+    return <div  {...(uiSchema.layoutProps || {}) }>
         {
             children.map((item, index) => {
                 return <Visit key={index} schema={schema} edit={edit} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
@@ -66,10 +68,12 @@ const VisitRow = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Row {...(uiSchema.layoutProps || {}) }>
+            <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        </Row>
     }
 
-    return <Row>
+    return <Row {...(uiSchema.layoutProps || {}) }>
         {
             children.map((item, index) => {
                 return <Visit key={index} schema={schema} edit={edit} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
@@ -89,10 +93,12 @@ const VisitCol = (props) => {
 
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Col {...(uiSchema.layoutProps || {}) }>
+            <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        </Col>
     }
 
-    return <Col>
+    return <Col {...(uiSchema.layoutProps || {}) }>
         {
             children.map((item, index) => {
                 return <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
@@ -135,10 +141,12 @@ const VisitFieldSet = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <div  {...(uiSchema.layoutProps || {}) }>
+            <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        </div>
     }
 
-    return <div>
+    return <div  {...(uiSchema.layoutProps || {}) }>
         {
             children.map((item, index) => {
                 return <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />

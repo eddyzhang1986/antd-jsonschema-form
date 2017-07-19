@@ -8265,6 +8265,7 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	  "div",
 	  null,
+	  console.log("//".split('/'), 'title'),
 	  _react2.default.createElement(Demo, null)
 	), document.getElementById("main"));
 
@@ -29895,12 +29896,16 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(
+	            "div",
+	            uiSchema.layoutProps || {},
+	            _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur })
+	        );
 	    }
 	
 	    return _react2.default.createElement(
 	        "div",
-	        null,
+	        uiSchema.layoutProps || {},
 	        children.map(function (item, index) {
 	            return _react2.default.createElement(Visit, { key: index, schema: schema, edit: edit, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
@@ -29924,12 +29929,16 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(
+	            _row2.default,
+	            uiSchema.layoutProps || {},
+	            _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur })
+	        );
 	    }
 	
 	    return _react2.default.createElement(
 	        _row2.default,
-	        null,
+	        uiSchema.layoutProps || {},
 	        children.map(function (item, index) {
 	            return _react2.default.createElement(Visit, { key: index, schema: schema, edit: edit, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
@@ -29953,12 +29962,16 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(
+	            _col2.default,
+	            uiSchema.layoutProps || {},
+	            _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur })
+	        );
 	    }
 	
 	    return _react2.default.createElement(
 	        _col2.default,
-	        null,
+	        uiSchema.layoutProps || {},
 	        children.map(function (item, index) {
 	            return _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
@@ -30015,12 +30028,16 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(
+	            "div",
+	            uiSchema.layoutProps || {},
+	            _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur })
+	        );
 	    }
 	
 	    return _react2.default.createElement(
 	        "div",
-	        null,
+	        uiSchema.layoutProps || {},
 	        children.map(function (item, index) {
 	            return _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
