@@ -266,11 +266,13 @@ class Demo extends Component {
         }} value="ok" />
         <input type="button" onClick={() => {
           this.setState({
+            formData: (this.formDataCache || {}),
             edit: false
           })
         }} value="cancel" />
       </div> : <div>
           <input type="button" onClick={() => {
+            this.formDataCache = this.state.formData;
             this.setState({
               edit: true
             })
@@ -288,7 +290,6 @@ class Demo extends Component {
 
 render((
   <div>
-    {console.log("//".split('/'), 'title')}
     <Demo />
   </div>
 ), document.getElementById("main"));

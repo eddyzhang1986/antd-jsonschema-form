@@ -8378,6 +8378,7 @@
 	            }, value: "ok" }),
 	          _react2.default.createElement("input", { type: "button", onClick: function onClick() {
 	              _this3.setState({
+	                formData: _this3.formDataCache || {},
 	                edit: false
 	              });
 	            }, value: "cancel" })
@@ -8385,6 +8386,7 @@
 	          "div",
 	          null,
 	          _react2.default.createElement("input", { type: "button", onClick: function onClick() {
+	              _this3.formDataCache = _this3.state.formData;
 	              _this3.setState({
 	                edit: true
 	              });
