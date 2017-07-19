@@ -18,25 +18,12 @@ const DateTimeWidgetDisplay = (props) => {
   const value = (formValue || offSpringSchema.default);
 
 
-  const valueProps = { value: (value ? moment(value) : undefined) };
+  const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
 
-  return <DatePicker
-    showTime
-    format="YYYY-MM-DD HH:mm:ss"
-    placeholder="Select Time"
-
-    {...valueProps}
-    onChange={(e) => {
-      onChange(e, e ? e.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
-    }}
-    onBlur={(e) => {
-      onBlur(e, e ? e.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
-    }}
-    onOk={(value) => {
-      onChange(value, value ? value.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
-    }}
-  />
+  return <span>
+    {value}
+  </span>
 }
 
 

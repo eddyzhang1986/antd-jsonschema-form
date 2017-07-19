@@ -20,7 +20,7 @@ const TextWidgetEdit = (props) => {
   const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
 
-  console.log(edit, 'edit');
+  //console.log(edit, 'edit');
 
   return <Input
     {...valueProps}

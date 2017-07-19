@@ -18,18 +18,12 @@ const DateWidgetDisplay = (props) => {
   const value = (formValue || offSpringSchema.default);
 
 
-  const valueProps = { value: (value ? moment(value) : undefined) };
+  const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
 
-  return <DatePicker
-    {...valueProps}
-    onChange={(e) => {
-      onChange(e, e ? e.format("YYYY-MM-DD") : undefined, fieldPath);
-    }}
-    onBlur={(e) => {
-      onBlur(e, e ? e.format("YYYY-MM-DD") : undefined, fieldPath);
-    }}
-  />
+  return <span>
+    {value}
+  </span>
 }
 
 

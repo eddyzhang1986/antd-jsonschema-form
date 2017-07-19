@@ -20,16 +20,9 @@ const TextareaWidgetDisplay = (props) => {
   const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
 
-  return <Input
-    type="textarea"
-    {...valueProps}
-    onChange={(e) => {
-      onChange(e, e.target.value, fieldPath);
-    }}
-    onBlur={(e) => {
-      onBlur(e, e.target.value, fieldPath);
-    }}
-  />
+  return <span>
+    {value}
+  </span>
 }
 
 

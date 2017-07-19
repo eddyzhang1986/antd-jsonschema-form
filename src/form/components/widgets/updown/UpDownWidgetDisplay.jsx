@@ -20,15 +20,9 @@ const UpDownWidgetDisplay = (props) => {
   const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
 
-  return <InputNumber
-    {...valueProps}
-    onChange={(e) => {
-      onChange(e, e, fieldPath);
-    }}
-    onBlur={(e) => {
-      onBlur(e, e, fieldPath);
-    }}
-  />
+  return <span>
+    {value}
+  </span>
 }
 
 

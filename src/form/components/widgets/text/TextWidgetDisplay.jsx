@@ -20,17 +20,9 @@ const TextWidgetDisplay = (props) => {
   const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
 
-  console.log(edit, 'edit');
-
-  return <Input
-    {...valueProps}
-    onChange={(e) => {
-      onChange(e, e.target.value, fieldPath);
-    }}
-    onBlur={(e) => {
-      onBlur(e, e.target.value, fieldPath);
-    }}
-  />
+  return <span>
+    {value}
+  </span>
 }
 
 

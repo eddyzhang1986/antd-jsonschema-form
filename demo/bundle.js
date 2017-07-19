@@ -51585,7 +51585,7 @@
 	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
-	  console.log(edit, 'edit');
+	  //console.log(edit, 'edit');
 	
 	  return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
 	    onChange: function onChange(e) {
@@ -52338,14 +52338,6 @@
 	  value: true
 	});
 	
-	var _css = __webpack_require__(609);
-	
-	var _input = __webpack_require__(612);
-	
-	var _input2 = _interopRequireDefault(_input);
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _react = __webpack_require__(298);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -52366,8 +52358,8 @@
 	      _props$edit = props.edit,
 	      edit = _props$edit === undefined ? true : _props$edit,
 	      formData = props.formData,
-	      _onChange = props.onChange,
-	      _onBlur = props.onBlur,
+	      onChange = props.onChange,
+	      onBlur = props.onBlur,
 	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
 	  var fieldPath = uiSchema.fieldPath;
@@ -52380,16 +52372,11 @@
 	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
-	  console.log(edit, 'edit');
-	
-	  return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
-	    onChange: function onChange(e) {
-	      _onChange(e, e.target.value, fieldPath);
-	    },
-	    onBlur: function onBlur(e) {
-	      _onBlur(e, e.target.value, fieldPath);
-	    }
-	  }));
+	  return _react2.default.createElement(
+	    "span",
+	    null,
+	    value
+	  );
 	};
 	
 	// if (process.env.NODE_ENV !== "production") {
@@ -52523,14 +52510,6 @@
 	  value: true
 	});
 	
-	var _css = __webpack_require__(609);
-	
-	var _input = __webpack_require__(612);
-	
-	var _input2 = _interopRequireDefault(_input);
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _react = __webpack_require__(298);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -52549,8 +52528,8 @@
 	  var schema = props.schema,
 	      uiSchema = props.uiSchema,
 	      formData = props.formData,
-	      _onChange = props.onChange,
-	      _onBlur = props.onBlur,
+	      onChange = props.onChange,
+	      onBlur = props.onBlur,
 	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
 	
 	  var fieldPath = uiSchema.fieldPath;
@@ -52563,16 +52542,11 @@
 	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
-	  return _react2.default.createElement(_input2.default, _extends({
-	    type: "textarea"
-	  }, valueProps, {
-	    onChange: function onChange(e) {
-	      _onChange(e, e.target.value, fieldPath);
-	    },
-	    onBlur: function onBlur(e) {
-	      _onBlur(e, e.target.value, fieldPath);
-	    }
-	  }));
+	  return _react2.default.createElement(
+	    "span",
+	    null,
+	    value
+	  );
 	};
 	
 	// if (process.env.NODE_ENV !== "production") {
@@ -54302,14 +54276,6 @@
 	  value: true
 	});
 	
-	var _css = __webpack_require__(624);
-	
-	var _inputNumber = __webpack_require__(627);
-	
-	var _inputNumber2 = _interopRequireDefault(_inputNumber);
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _react = __webpack_require__(298);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -54328,8 +54294,8 @@
 	  var schema = props.schema,
 	      uiSchema = props.uiSchema,
 	      formData = props.formData,
-	      _onChange = props.onChange,
-	      _onBlur = props.onBlur,
+	      onChange = props.onChange,
+	      onBlur = props.onBlur,
 	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
 	
 	  var fieldPath = uiSchema.fieldPath;
@@ -54342,14 +54308,11 @@
 	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
-	  return _react2.default.createElement(_inputNumber2.default, _extends({}, valueProps, {
-	    onChange: function onChange(e) {
-	      _onChange(e, e, fieldPath);
-	    },
-	    onBlur: function onBlur(e) {
-	      _onBlur(e, e, fieldPath);
-	    }
-	  }));
+	  return _react2.default.createElement(
+	    "span",
+	    null,
+	    value
+	  );
 	};
 	
 	// if (process.env.NODE_ENV !== "production") {
@@ -82049,14 +82012,6 @@
 	  value: true
 	});
 	
-	var _css = __webpack_require__(637);
-	
-	var _datePicker = __webpack_require__(643);
-	
-	var _datePicker2 = _interopRequireDefault(_datePicker);
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _react = __webpack_require__(298);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -82079,8 +82034,8 @@
 	  var schema = props.schema,
 	      uiSchema = props.uiSchema,
 	      formData = props.formData,
-	      _onChange = props.onChange,
-	      _onBlur = props.onBlur,
+	      onChange = props.onChange,
+	      onBlur = props.onBlur,
 	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
 	
 	  var fieldPath = uiSchema.fieldPath;
@@ -82090,17 +82045,14 @@
 	
 	  var value = formValue || offSpringSchema.default;
 	
-	  var valueProps = { value: value ? (0, _moment2.default)(value) : undefined };
+	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
-	  return _react2.default.createElement(_datePicker2.default, _extends({}, valueProps, {
-	    onChange: function onChange(e) {
-	      _onChange(e, e ? e.format("YYYY-MM-DD") : undefined, fieldPath);
-	    },
-	    onBlur: function onBlur(e) {
-	      _onBlur(e, e ? e.format("YYYY-MM-DD") : undefined, fieldPath);
-	    }
-	  }));
+	  return _react2.default.createElement(
+	    "span",
+	    null,
+	    value
+	  );
 	};
 	
 	// if (process.env.NODE_ENV !== "production") {
@@ -82244,14 +82196,6 @@
 	  value: true
 	});
 	
-	var _css = __webpack_require__(637);
-	
-	var _datePicker = __webpack_require__(643);
-	
-	var _datePicker2 = _interopRequireDefault(_datePicker);
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _react = __webpack_require__(298);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -82274,8 +82218,8 @@
 	  var schema = props.schema,
 	      uiSchema = props.uiSchema,
 	      formData = props.formData,
-	      _onChange = props.onChange,
-	      _onBlur = props.onBlur,
+	      onChange = props.onChange,
+	      onBlur = props.onBlur,
 	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
 	
 	  var fieldPath = uiSchema.fieldPath;
@@ -82285,25 +82229,14 @@
 	
 	  var value = formValue || offSpringSchema.default;
 	
-	  var valueProps = { value: value ? (0, _moment2.default)(value) : undefined };
+	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
-	  return _react2.default.createElement(_datePicker2.default, _extends({
-	    showTime: true,
-	    format: "YYYY-MM-DD HH:mm:ss",
-	    placeholder: "Select Time"
-	
-	  }, valueProps, {
-	    onChange: function onChange(e) {
-	      _onChange(e, e ? e.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
-	    },
-	    onBlur: function onBlur(e) {
-	      _onBlur(e, e ? e.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
-	    },
-	    onOk: function onOk(value) {
-	      _onChange(value, value ? value.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
-	    }
-	  }));
+	  return _react2.default.createElement(
+	    "span",
+	    null,
+	    value
+	  );
 	};
 	
 	// if (process.env.NODE_ENV !== "production") {
@@ -82437,14 +82370,6 @@
 	  value: true
 	});
 	
-	var _css = __webpack_require__(609);
-	
-	var _input = __webpack_require__(612);
-	
-	var _input2 = _interopRequireDefault(_input);
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _react = __webpack_require__(298);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -82463,8 +82388,8 @@
 	  var schema = props.schema,
 	      uiSchema = props.uiSchema,
 	      formData = props.formData,
-	      _onChange = props.onChange,
-	      _onBlur = props.onBlur,
+	      onChange = props.onChange,
+	      onBlur = props.onBlur,
 	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
 	
 	  var fieldPath = uiSchema.fieldPath;
@@ -82477,16 +82402,11 @@
 	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
-	  return _react2.default.createElement(_input2.default, _extends({
-	    type: "color"
-	  }, valueProps, {
-	    onChange: function onChange(e) {
-	      _onChange(e, e.target.value, fieldPath);
-	    },
-	    onBlur: function onBlur(e) {
-	      _onBlur(e, e.target.value, fieldPath);
-	    }
-	  }));
+	  return _react2.default.createElement(
+	    "span",
+	    null,
+	    value
+	  );
 	};
 	
 	// if (process.env.NODE_ENV !== "production") {
