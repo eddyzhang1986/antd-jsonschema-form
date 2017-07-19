@@ -31,7 +31,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/groupNo"
       }
     },{
       "xType": "col",
@@ -40,7 +40,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/empNo"
       }
     },{
       "xType": "col",
@@ -49,7 +49,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/empName"
       }
     },{
       "xType": "col",
@@ -58,7 +58,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/beforeName"
       }
     },{
       "xType": "col",
@@ -67,7 +67,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/enName"
       }
     },{
       "xType": "col",
@@ -76,7 +76,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/zhName"
       }
     },{
       "xType": "col",
@@ -85,7 +85,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/pinYin"
       }
     },{
       "xType": "col",
@@ -94,7 +94,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/enName2"
       }
     },{
       "xType": "col",
@@ -103,7 +103,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/IDNumber"
       }
     },{
       "xType": "col",
@@ -112,7 +112,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/sex"
       }
     },{
       "xType": "col",
@@ -121,7 +121,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/birthDay"
       }
     },{
       "xType": "col",
@@ -130,7 +130,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/age"
       }
     },{
       "xType": "col",
@@ -139,7 +139,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/country"
       }
     },{
       "xType": "col",
@@ -148,7 +148,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/maritalStatus"
       }
     },{
       "xType": "col",
@@ -157,7 +157,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/nation"
       }
     },{
       "xType": "col",
@@ -166,7 +166,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/political"
       }
     },{
       "xType": "col",
@@ -175,7 +175,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/joinDate"
       }
     },{
       "xType": "col",
@@ -184,7 +184,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/fields/household"
       }
     },{
       "xType": "col",
@@ -193,7 +193,7 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "fieldPath": "/title"
+        "fieldPath": "/bloodType"
       }
     }]
 
@@ -234,7 +234,7 @@ class Demo extends Component {
     super(props);
     this.state = {
       formData: {
-        "/done": "2017-07-19"
+        "/fields/birthDay": "2017-07-19"
       },
       edit: true
     }
