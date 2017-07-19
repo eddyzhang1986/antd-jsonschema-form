@@ -29997,7 +29997,7 @@
 	        { style: { paddingTop: "10px", paddingBottom: "10px" } },
 	        _react2.default.createElement(
 	            _col2.default,
-	            { span: 3, style: { textAlign: "center" } },
+	            { span: 6, style: { paddingLeft: "15px" } },
 	            uiSchema.fieldPath
 	        ),
 	        _react2.default.createElement(
