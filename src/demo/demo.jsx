@@ -19,44 +19,76 @@ const schema = {
 
 const uiSchema = {
   "xType": "grid",
-  "layoutProps": {
-
-  },
   "children": [{
     "xType": "row",
-    "layoutProps": {
-
+    "layoutProps":{
+      "gutter":16
     },
-    "children": {
+    "children": [{
       "xType": "col",
       "layoutProps": {
-
+        "span":6 
       },
       "children": {
         "xType": "field",
         "fieldPath": "/title"
       }
-
-    }
-
-  }, {
-    "xType": "row",
-    "layoutProps": {
-
-    },
-    "children": {
+    },{
       "xType": "col",
       "layoutProps": {
-
+        "span":6 
       },
-      "children": [{
+      "children": {
         "xType": "field",
-        "fieldPath": "/done"
-      }, {
+        "fieldPath": "/title"
+      }
+    },{
+      "xType": "col",
+      "layoutProps": {
+        "span":6 
+      },
+      "children": {
         "xType": "field",
-        "fieldPath": "/work"
-      }]
-    }
+        "fieldPath": "/title"
+      }
+    },{
+      "xType": "col",
+      "layoutProps": {
+        "span":6 
+      },
+      "children": {
+        "xType": "field",
+        "fieldPath": "/title"
+      }
+    },{
+      "xType": "col",
+      "layoutProps": {
+        "span":6 
+      },
+      "children": {
+        "xType": "field",
+        "fieldPath": "/title"
+      }
+    },{
+      "xType": "col",
+      "layoutProps": {
+        "span":6 
+      },
+      "children": {
+        "xType": "field",
+        "fieldPath": "/title"
+      }
+    },{
+      "xType": "col",
+      "layoutProps": {
+        "span":6 
+      },
+      "children": {
+        "xType": "field",
+        "fieldPath": "/title"
+      }
+    }]
+
   }]
 
 }

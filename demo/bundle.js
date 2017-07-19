@@ -8098,34 +8098,76 @@
 	
 	var uiSchema = {
 	  "xType": "grid",
-	  "layoutProps": {},
 	  "children": [{
 	    "xType": "row",
-	    "layoutProps": {},
-	    "children": {
+	    "layoutProps": {
+	      "gutter": 16
+	    },
+	    "children": [{
 	      "xType": "col",
-	      "layoutProps": {},
+	      "layoutProps": {
+	        "span": 6
+	      },
 	      "children": {
 	        "xType": "field",
 	        "fieldPath": "/title"
 	      }
-	
-	    }
-	
-	  }, {
-	    "xType": "row",
-	    "layoutProps": {},
-	    "children": {
+	    }, {
 	      "xType": "col",
-	      "layoutProps": {},
-	      "children": [{
+	      "layoutProps": {
+	        "span": 6
+	      },
+	      "children": {
 	        "xType": "field",
-	        "fieldPath": "/done"
-	      }, {
+	        "fieldPath": "/title"
+	      }
+	    }, {
+	      "xType": "col",
+	      "layoutProps": {
+	        "span": 6
+	      },
+	      "children": {
 	        "xType": "field",
-	        "fieldPath": "/work"
-	      }]
-	    }
+	        "fieldPath": "/title"
+	      }
+	    }, {
+	      "xType": "col",
+	      "layoutProps": {
+	        "span": 6
+	      },
+	      "children": {
+	        "xType": "field",
+	        "fieldPath": "/title"
+	      }
+	    }, {
+	      "xType": "col",
+	      "layoutProps": {
+	        "span": 6
+	      },
+	      "children": {
+	        "xType": "field",
+	        "fieldPath": "/title"
+	      }
+	    }, {
+	      "xType": "col",
+	      "layoutProps": {
+	        "span": 6
+	      },
+	      "children": {
+	        "xType": "field",
+	        "fieldPath": "/title"
+	      }
+	    }, {
+	      "xType": "col",
+	      "layoutProps": {
+	        "span": 6
+	      },
+	      "children": {
+	        "xType": "field",
+	        "fieldPath": "/title"
+	      }
+	    }]
+	
 	  }]
 	
 	  /**
@@ -29940,7 +29982,7 @@
 	
 	    return _react2.default.createElement(
 	        _row2.default,
-	        uiSchema.layoutProps || {},
+	        _extends({}, uiSchema.layoutProps || {}, { gutter: 16 }),
 	        children.map(function (item, index) {
 	            return _react2.default.createElement(Visit, { key: index, schema: schema, edit: edit, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
