@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { InputNumber } from "antd";
-import { getOffspringSchema, getFormValue } from '../../utils';
+import { Input } from "antd";
+import UpDownWidgetEdit from './updown/UpDownWidgetEdit'
+import UpDownWidgetDisplay from './updown/UpDownWidgetDisplay'
 
 
 
@@ -9,26 +10,8 @@ import { getOffspringSchema, getFormValue } from '../../utils';
 
 
 const UpDownWidget = (props) => {
-  const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
-  const { fieldPath } = uiSchema;
-  const offSpringSchema = getOffspringSchema(schema, fieldPath);
-  const formValue = getFormValue(formData, fieldPath);
-
-  const value = (formValue || offSpringSchema.default);
-
-
-  const valueProps = { value: (value || undefined) };
-  //console.log(valueProps, "valueProps");
-
-  return <InputNumber
-    {...valueProps}
-    onChange={(e) => {
-      onChange(e, e, fieldPath);
-    }}
-    onBlur={(e) => {
-      onBlur(e, e, fieldPath);
-    }}
-  />
+    const { edit = true } = props;
+    return edit ? <UpDownWidgetEdit {...props} /> : <UpDownWidgetDisplay {...props} />
 }
 
 

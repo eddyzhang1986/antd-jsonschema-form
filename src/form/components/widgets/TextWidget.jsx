@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Input } from "antd";
-import { getOffspringSchema, getFormValue } from '../../utils';
+import TextWidgetEdit from './text/TextWidgetEdit'
+import TextWidgetDisplay from './text/TextWidgetDisplay'
 
 
 
@@ -9,28 +10,8 @@ import { getOffspringSchema, getFormValue } from '../../utils';
 
 
 const TextWidget = (props) => {
-  const { schema, uiSchema, edit = true, formData, onChange, onBlur, ...otherProps } = props;
-  const { fieldPath } = uiSchema;
-  const offSpringSchema = getOffspringSchema(schema, fieldPath);
-  const formValue = getFormValue(formData, fieldPath);
-
-  const value = (formValue || offSpringSchema.default);
-
-
-  const valueProps = { value: (value || undefined) };
-  //console.log(valueProps, "valueProps");
-
-  console.log(edit, 'edit');
-
-  return <Input
-    {...valueProps}
-    onChange={(e) => {
-      onChange(e, e.target.value, fieldPath);
-    }}
-    onBlur={(e) => {
-      onBlur(e, e.target.value, fieldPath);
-    }}
-  />
+    const { edit = true } = props;
+    return edit ? <TextWidgetEdit {...props} /> : <TextWidgetDisplay {...props} />
 }
 
 
