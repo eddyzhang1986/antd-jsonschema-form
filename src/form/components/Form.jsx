@@ -118,13 +118,17 @@ const VisitTab = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Tab  {...(uiSchema.layoutProps || {}) } defaultActiveKey="0">
+            <TabPane {...children.tabPanelProps || {}} key={"0"} tab={"0"} key={"0"} >
+                <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+            </TabPane>
+        </Tab>
     }
 
-    return <Tab defaultActiveKey="0">
+    return <Tab  {...(uiSchema.layoutProps || {}) } defaultActiveKey="0">
         {
             children.map((item, index) => {
-                return <TabPane key={index} tab={index} key={index}>
+                return <TabPane {...item.tabPanelProps || {}} key={index} tab={index} key={index}>
                     <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
                 </TabPane>
             })
