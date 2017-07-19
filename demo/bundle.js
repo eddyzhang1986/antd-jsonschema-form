@@ -8061,10 +8061,6 @@
 
 	"use strict";
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(298);
@@ -8278,34 +8274,7 @@
 	
 	  }]
 	
-	  /**
-	   * 导出测试发布到npm
-	   */
 	};
-	var FormTest = function (_Component) {
-	  _inherits(FormTest, _Component);
-	
-	  function FormTest() {
-	    _classCallCheck(this, FormTest);
-	
-	    return _possibleConstructorReturn(this, (FormTest.__proto__ || Object.getPrototypeOf(FormTest)).apply(this, arguments));
-	  }
-	
-	  _createClass(FormTest, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(_index2.default, { schema: schema,
-	        onChange: log("changed"),
-	        onSubmit: log("submitted"),
-	        onError: log("errors") });
-	    }
-	  }]);
-	
-	  return FormTest;
-	}(_react.Component);
-	
-	exports.default = FormTest;
-	
 	
 	function sleep(time) {
 	
@@ -8316,28 +8285,32 @@
 	  });
 	}
 	
-	var Demo = function (_Component2) {
-	  _inherits(Demo, _Component2);
+	/**
+	 * Demo
+	 */
+	
+	var Demo = function (_Component) {
+	  _inherits(Demo, _Component);
 	
 	  function Demo(props) {
 	    _classCallCheck(this, Demo);
 	
-	    var _this2 = _possibleConstructorReturn(this, (Demo.__proto__ || Object.getPrototypeOf(Demo)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Demo.__proto__ || Object.getPrototypeOf(Demo)).call(this, props));
 	
-	    _this2.state = {
+	    _this.state = {
 	      formData: {
 	        "/fields/birthDay": "2017-07-19"
 	      },
 	      edit: true
 	    };
-	    return _this2;
+	    return _this;
 	  }
 	
 	  _createClass(Demo, [{
 	    key: "changeFormData",
 	    value: function () {
 	      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
-	        var _this3 = this;
+	        var _this2 = this;
 	
 	        return regeneratorRuntime.wrap(function _callee$(_context) {
 	          while (1) {
@@ -8348,10 +8321,9 @@
 	
 	              case 2:
 	                this.setState({
-	
 	                  formData: {}
 	                }, function () {
-	                  console.log(_this3.state.formData, "setFormData");
+	                  console.log(_this2.state.formData, "setFormData");
 	                });
 	
 	              case 3:
@@ -8371,7 +8343,7 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _this4 = this;
+	      var _this3 = this;
 	
 	      var _state = this.state,
 	          edit = _state.edit,
@@ -8386,25 +8358,45 @@
 	          edit: edit,
 	          formData: formData,
 	          onChange: function onChange(e, newValue, newData, fieldPath) {
-	            //console.log(newData);
-	            _this4.setState({
+	            _this3.setState({
 	              formData: newData
 	            }, function () {
-	              console.log(_this4.state.formData, "change");
+	              console.log(_this3.state.formData, "change");
 	            });
 	          },
 	          onBlur: function onBlur(e, newValue, newData, fieldPath) {
 	            console.log(newData, 'blur');
 	          }
 	        }),
-	        _react2.default.createElement("input", { type: "button", onClick: function onClick() {
-	            _this4.changeFormData();
-	          }, value: "test" }),
-	        _react2.default.createElement("input", { type: "button", onClick: function onClick() {
-	            _this4.setState({
-	              edit: false
-	            });
-	          }, value: "test1" })
+	        edit ? _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement("input", { type: "button", onClick: function onClick() {
+	              _this3.setState({
+	                edit: false
+	              });
+	            }, value: "ok" }),
+	          _react2.default.createElement("input", { type: "button", onClick: function onClick() {
+	              _this3.setState({
+	                edit: false
+	              });
+	            }, value: "cancel" })
+	        ) : _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement("input", { type: "button", onClick: function onClick() {
+	              _this3.setState({
+	                edit: true
+	              });
+	            }, value: "edit" })
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement("input", { type: "button", onClick: function onClick() {
+	              _this3.changeFormData();
+	            }, value: "setEmptyValueAsync" })
+	        )
 	      );
 	    }
 	  }]);
