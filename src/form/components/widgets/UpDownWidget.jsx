@@ -17,7 +17,7 @@ const UpDownWidget = (props) => {
   const value = (formValue || offSpringSchema.default);
 
 
-  const valueProps = { value: (value || "") };
+  const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
 
   return <InputNumber

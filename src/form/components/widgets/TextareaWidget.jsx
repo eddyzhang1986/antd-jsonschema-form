@@ -17,11 +17,11 @@ const TextareaWidget = (props) => {
   const value = (formValue || offSpringSchema.default);
 
 
-  const valueProps = { value: (value || "") };
+  const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
 
   return <Input
-     type="textarea"
+    type="textarea"
     {...valueProps}
     onChange={(e) => {
       onChange(e, e.target.value, fieldPath);

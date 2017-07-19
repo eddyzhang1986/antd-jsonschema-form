@@ -51508,7 +51508,7 @@
 	
 	  var value = formValue || offSpringSchema.default;
 	
-	  var valueProps = { value: value || "" };
+	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
 	  return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
@@ -52299,7 +52299,7 @@
 	
 	  var value = formValue || offSpringSchema.default;
 	
-	  var valueProps = { value: value || "" };
+	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
 	  return _react2.default.createElement(_input2.default, _extends({
@@ -52369,7 +52369,7 @@
 	
 	  var value = formValue || offSpringSchema.default;
 	
-	  var valueProps = { value: value || "" };
+	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
 	
 	  return _react2.default.createElement(_inputNumber2.default, _extends({}, valueProps, {
