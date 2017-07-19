@@ -81,7 +81,7 @@ class Demo extends Component {
       formData: {
         "/done": "2017-07-19"
       },
-      edit: false
+      edit: true
     }
   }
 
@@ -123,6 +123,11 @@ class Demo extends Component {
       <input type="button" onClick={() => {
         this.changeFormData();
       }} value="test" />
+      <input type="button" onClick={() => {
+        this.setState({
+          edit: false
+        })
+      }} value="test1" />
     </div>
   }
 

@@ -9,7 +9,7 @@ import { getOffspringSchema, getFormValue } from '../../utils';
 
 
 const TextWidget = (props) => {
-  const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+  const { schema, uiSchema, edit = true, formData, onChange, onBlur, ...otherProps } = props;
   const { fieldPath } = uiSchema;
   const offSpringSchema = getOffspringSchema(schema, fieldPath);
   const formValue = getFormValue(formData, fieldPath);
@@ -19,6 +19,8 @@ const TextWidget = (props) => {
 
   const valueProps = { value: (value || undefined) };
   //console.log(valueProps, "valueProps");
+
+  console.log(edit, 'edit');
 
   return <Input
     {...valueProps}

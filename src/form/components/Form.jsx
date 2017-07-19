@@ -28,12 +28,12 @@ const Field = (props) => {
  * @param {*} props 
  */
 const VisitField = (props) => {
-    const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
-    return <Field schema={schema} uiSchema={uiSchema} formData={formData} onChange={onChange} onBlur={onBlur} />
+    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
+    return <Field schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
 }
 
 const VisitGrid = (props) => {
-    const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
     const { children } = uiSchema;
 
     if (!children) {
@@ -41,20 +41,20 @@ const VisitGrid = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
     }
 
     return <div>
         {
             children.map((item, index) => {
-                return <Visit key={index} schema={schema} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
+                return <Visit key={index} schema={schema} edit={edit} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
             })
         }
     </div>
 }
 
 const VisitRow = (props) => {
-    const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
     const { children } = uiSchema;
 
     if (!children) {
@@ -62,13 +62,13 @@ const VisitRow = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
     }
 
     return <Row>
         {
             children.map((item, index) => {
-                return <Visit key={index} schema={schema} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
+                return <Visit key={index} schema={schema} edit={edit} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
             })
         }
     </Row>
@@ -76,7 +76,7 @@ const VisitRow = (props) => {
 
 
 const VisitCol = (props) => {
-    const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
     const { children } = uiSchema;
 
     if (!children) {
@@ -85,13 +85,13 @@ const VisitCol = (props) => {
 
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
     }
 
     return <Col>
         {
             children.map((item, index) => {
-                return <Visit key={index} schema={schema} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
+                return <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
             })
         }
     </Col>
@@ -100,7 +100,7 @@ const VisitCol = (props) => {
 
 
 const VisitTab = (props) => {
-    const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
     const { children } = uiSchema;
 
     if (!children) {
@@ -108,14 +108,14 @@ const VisitTab = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
     }
 
     return <Tab defaultActiveKey="0">
         {
             children.map((item, index) => {
                 return <TabPane key={index} tab={index} key={index}>
-                    <Visit key={index} schema={schema} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
+                    <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
                 </TabPane>
             })
         }
@@ -123,7 +123,7 @@ const VisitTab = (props) => {
 }
 
 const VisitFieldSet = (props) => {
-    const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
     const { children } = uiSchema;
 
     if (!children) {
@@ -131,13 +131,13 @@ const VisitFieldSet = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Visit schema={schema} uiSchema={children} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
     }
 
     return <div>
         {
             children.map((item, index) => {
-                return <Visit key={index} schema={schema} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
+                return <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
             })
         }
     </div>
@@ -149,30 +149,31 @@ const VisitFieldSet = (props) => {
  */
 const Visit = (props) => {
 
-    const { schema, uiSchema, formData, onChange, onBlur, ...otherProps } = props;
+    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
 
 
     let result = null;
     switch (uiSchema.xType) {
 
         case "grid":
-            result = <VisitGrid schema={schema} uiSchema={uiSchema} formData={formData} onChange={onChange} onBlur={onBlur} />
+            result = <VisitGrid schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
             break;
         case "row":
-            result = <VisitRow schema={schema} uiSchema={uiSchema} formData={formData} onChange={onChange} onBlur={onBlur} />
+            result = <VisitRow schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
             break;
         case "col":
-            result = <VisitCol schema={schema} uiSchema={uiSchema} formData={formData} onChange={onChange} onBlur={onBlur} />
+            result = <VisitCol schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
             break;
         case "tab":
-            result = <VisitTab schema={schema} uiSchema={uiSchema} formData={formData} onChange={onChange} onBlur={onBlur} />
+            result = <VisitTab schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
             break;
         case "fieldset":
-            result = <VisitFieldSet schema={schema} uiSchema={uiSchema} formData={formData} onChange={onChange} onBlur={onBlur} />
+            result = <VisitFieldSet schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
         case "field":
             result = <VisitField
                 schema={schema}
                 uiSchema={uiSchema}
+                edit={edit}
                 formData={formData}
                 onChange={onChange}
                 onBlur={onBlur} />

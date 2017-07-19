@@ -8172,7 +8172,8 @@
 	    _this2.state = {
 	      formData: {
 	        "/done": "2017-07-19"
-	      }
+	      },
+	      edit: true
 	    };
 	    return _this2;
 	  }
@@ -8217,7 +8218,9 @@
 	    value: function render() {
 	      var _this4 = this;
 	
-	      var formData = this.state.formData;
+	      var _state = this.state,
+	          edit = _state.edit,
+	          formData = _state.formData;
 	
 	      return _react2.default.createElement(
 	        "div",
@@ -8225,6 +8228,7 @@
 	        _react2.default.createElement(_index2.default, {
 	          schema: schema,
 	          uiSchema: uiSchema,
+	          edit: edit,
 	          formData: formData,
 	          onChange: function onChange(e, newValue, newData, fieldPath) {
 	            //console.log(newData);
@@ -8240,7 +8244,12 @@
 	        }),
 	        _react2.default.createElement("input", { type: "button", onClick: function onClick() {
 	            _this4.changeFormData();
-	          }, value: "test" })
+	          }, value: "test" }),
+	        _react2.default.createElement("input", { type: "button", onClick: function onClick() {
+	            _this4.setState({
+	              edit: false
+	            });
+	          }, value: "test1" })
 	      );
 	    }
 	  }]);
@@ -29840,21 +29849,23 @@
 	var VisitField = function VisitField(props) {
 	    var schema = props.schema,
 	        uiSchema = props.uiSchema,
+	        edit = props.edit,
 	        formData = props.formData,
 	        onChange = props.onChange,
 	        onBlur = props.onBlur,
-	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
-	    return _react2.default.createElement(Field, { schema: schema, uiSchema: uiSchema, formData: formData, onChange: onChange, onBlur: onBlur });
+	    return _react2.default.createElement(Field, { schema: schema, uiSchema: uiSchema, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	};
 	
 	var VisitGrid = function VisitGrid(props) {
 	    var schema = props.schema,
 	        uiSchema = props.uiSchema,
+	        edit = props.edit,
 	        formData = props.formData,
 	        onChange = props.onChange,
 	        onBlur = props.onBlur,
-	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
 	    var children = uiSchema.children;
 	
@@ -29864,14 +29875,14 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	    }
 	
 	    return _react2.default.createElement(
 	        "div",
 	        null,
 	        children.map(function (item, index) {
-	            return _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
+	            return _react2.default.createElement(Visit, { key: index, schema: schema, edit: edit, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
 	    );
 	};
@@ -29879,10 +29890,11 @@
 	var VisitRow = function VisitRow(props) {
 	    var schema = props.schema,
 	        uiSchema = props.uiSchema,
+	        edit = props.edit,
 	        formData = props.formData,
 	        onChange = props.onChange,
 	        onBlur = props.onBlur,
-	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
 	    var children = uiSchema.children;
 	
@@ -29892,14 +29904,14 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	    }
 	
 	    return _react2.default.createElement(
 	        _row2.default,
 	        null,
 	        children.map(function (item, index) {
-	            return _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
+	            return _react2.default.createElement(Visit, { key: index, schema: schema, edit: edit, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
 	    );
 	};
@@ -29907,10 +29919,11 @@
 	var VisitCol = function VisitCol(props) {
 	    var schema = props.schema,
 	        uiSchema = props.uiSchema,
+	        edit = props.edit,
 	        formData = props.formData,
 	        onChange = props.onChange,
 	        onBlur = props.onBlur,
-	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
 	    var children = uiSchema.children;
 	
@@ -29920,14 +29933,14 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	    }
 	
 	    return _react2.default.createElement(
 	        _col2.default,
 	        null,
 	        children.map(function (item, index) {
-	            return _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
+	            return _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
 	    );
 	};
@@ -29935,10 +29948,11 @@
 	var VisitTab = function VisitTab(props) {
 	    var schema = props.schema,
 	        uiSchema = props.uiSchema,
+	        edit = props.edit,
 	        formData = props.formData,
 	        onChange = props.onChange,
 	        onBlur = props.onBlur,
-	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
 	    var children = uiSchema.children;
 	
@@ -29948,7 +29962,7 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	    }
 	
 	    return _react2.default.createElement(
@@ -29958,7 +29972,7 @@
 	            return _react2.default.createElement(
 	                TabPane,
 	                _defineProperty({ key: index, tab: index }, "key", index),
-	                _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur })
+	                _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur })
 	            );
 	        })
 	    );
@@ -29967,10 +29981,11 @@
 	var VisitFieldSet = function VisitFieldSet(props) {
 	    var schema = props.schema,
 	        uiSchema = props.uiSchema,
+	        edit = props.edit,
 	        formData = props.formData,
 	        onChange = props.onChange,
 	        onBlur = props.onBlur,
-	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
 	    var children = uiSchema.children;
 	
@@ -29980,14 +29995,14 @@
 	    }
 	
 	    if (!Array.isArray(children)) {
-	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, formData: formData, onChange: onChange, onBlur: onBlur });
+	        return _react2.default.createElement(Visit, { schema: schema, uiSchema: children, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	    }
 	
 	    return _react2.default.createElement(
 	        "div",
 	        null,
 	        children.map(function (item, index) {
-	            return _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, formData: formData, onChange: onChange, onBlur: onBlur });
+	            return _react2.default.createElement(Visit, { key: index, schema: schema, uiSchema: item, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	        })
 	    );
 	};
@@ -29999,32 +30014,34 @@
 	var Visit = function Visit(props) {
 	    var schema = props.schema,
 	        uiSchema = props.uiSchema,
+	        edit = props.edit,
 	        formData = props.formData,
 	        onChange = props.onChange,
 	        onBlur = props.onBlur,
-	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	        otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
 	    var result = null;
 	    switch (uiSchema.xType) {
 	
 	        case "grid":
-	            result = _react2.default.createElement(VisitGrid, { schema: schema, uiSchema: uiSchema, formData: formData, onChange: onChange, onBlur: onBlur });
+	            result = _react2.default.createElement(VisitGrid, { schema: schema, uiSchema: uiSchema, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	            break;
 	        case "row":
-	            result = _react2.default.createElement(VisitRow, { schema: schema, uiSchema: uiSchema, formData: formData, onChange: onChange, onBlur: onBlur });
+	            result = _react2.default.createElement(VisitRow, { schema: schema, uiSchema: uiSchema, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	            break;
 	        case "col":
-	            result = _react2.default.createElement(VisitCol, { schema: schema, uiSchema: uiSchema, formData: formData, onChange: onChange, onBlur: onBlur });
+	            result = _react2.default.createElement(VisitCol, { schema: schema, uiSchema: uiSchema, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	            break;
 	        case "tab":
-	            result = _react2.default.createElement(VisitTab, { schema: schema, uiSchema: uiSchema, formData: formData, onChange: onChange, onBlur: onBlur });
+	            result = _react2.default.createElement(VisitTab, { schema: schema, uiSchema: uiSchema, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	            break;
 	        case "fieldset":
-	            result = _react2.default.createElement(VisitFieldSet, { schema: schema, uiSchema: uiSchema, formData: formData, onChange: onChange, onBlur: onBlur });
+	            result = _react2.default.createElement(VisitFieldSet, { schema: schema, uiSchema: uiSchema, edit: edit, formData: formData, onChange: onChange, onBlur: onBlur });
 	        case "field":
 	            result = _react2.default.createElement(VisitField, {
 	                schema: schema,
 	                uiSchema: uiSchema,
+	                edit: edit,
 	                formData: formData,
 	                onChange: onChange,
 	                onBlur: onBlur });
@@ -30067,6 +30084,7 @@
 	            var _props = this.props,
 	                schema = _props.schema,
 	                uiSchema = _props.uiSchema,
+	                edit = _props.edit,
 	                _onChange = _props.onChange,
 	                _onBlur = _props.onBlur;
 	            var formData = this.state.formData;
@@ -30078,6 +30096,7 @@
 	                _react2.default.createElement(Visit, { schema: schema,
 	                    uiSchema: uiSchema,
 	                    formData: formData,
+	                    edit: edit,
 	                    onChange: function onChange(e, newValue, fieldPath) {
 	                        //console.log(fieldPath);
 	                        //console.log(e.target.value, "onChange");
@@ -51465,7 +51484,7 @@
 	
 	var Widget = function Widget(props) {
 	
-	    var WidgetImpl = widgetMap["date-time"];
+	    var WidgetImpl = widgetMap["text"];
 	    return _react2.default.createElement(WidgetImpl, props);
 	};
 	
@@ -51506,10 +51525,12 @@
 	var TextWidget = function TextWidget(props) {
 	  var schema = props.schema,
 	      uiSchema = props.uiSchema,
+	      _props$edit = props.edit,
+	      edit = _props$edit === undefined ? true : _props$edit,
 	      formData = props.formData,
 	      _onChange = props.onChange,
 	      _onBlur = props.onBlur,
-	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "edit", "formData", "onChange", "onBlur"]);
 	
 	  var fieldPath = uiSchema.fieldPath;
 	
@@ -51520,6 +51541,8 @@
 	
 	  var valueProps = { value: value || undefined };
 	  //console.log(valueProps, "valueProps");
+	
+	  console.log(edit, 'edit');
 	
 	  return _react2.default.createElement(_input2.default, _extends({}, valueProps, {
 	    onChange: function onChange(e) {

@@ -20,7 +20,7 @@ const widgetMap = {
 
 const Widget = (props) => {
 
-    let WidgetImpl = widgetMap["date-time"];
+    let WidgetImpl = widgetMap["text"];
     return <WidgetImpl {...props} />
 }
 
