@@ -19,8 +19,9 @@ const TabPane = Tabs.TabPane;
  * @param {*} props 
  */
 const Field = (props) => {
+    const { uiSchema } = props;
     return <div>
-        <span>title</span>
+        <span>{uiSchema.fieldPath}</span>
         <span><Widget {...props} /></span>
     </div>
 }

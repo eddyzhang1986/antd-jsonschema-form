@@ -8098,10 +8098,13 @@
 	
 	var uiSchema = {
 	  "xType": "grid",
+	  "layoutProps": {},
 	  "children": [{
 	    "xType": "row",
+	    "layoutProps": {},
 	    "children": {
 	      "xType": "col",
+	      "layoutProps": {},
 	      "children": {
 	        "xType": "field",
 	        "fieldPath": "/title"
@@ -8111,8 +8114,10 @@
 	
 	  }, {
 	    "xType": "row",
+	    "layoutProps": {},
 	    "children": {
 	      "xType": "col",
+	      "layoutProps": {},
 	      "children": [{
 	        "xType": "field",
 	        "fieldPath": "/done"
@@ -29839,13 +29844,15 @@
 	 * @param {*} props 
 	 */
 	var Field = function Field(props) {
+	    var uiSchema = props.uiSchema;
+	
 	    return _react2.default.createElement(
 	        "div",
 	        null,
 	        _react2.default.createElement(
 	            "span",
 	            null,
-	            "title"
+	            uiSchema.fieldPath
 	        ),
 	        _react2.default.createElement(
 	            "span",
