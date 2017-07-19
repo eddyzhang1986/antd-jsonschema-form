@@ -35,7 +35,7 @@ const ColorWidget = (props) => {
 
 
 // if (process.env.NODE_ENV !== "production") {
-//   TextWidget.propTypes = {
+//   ColorWidget.propTypes = {
 //     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 //   };
 // }

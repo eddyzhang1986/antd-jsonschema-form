@@ -5,6 +5,7 @@ import TextWidget from './TextWidget'
 import TextareaWidget from './TextareaWidget'
 import UpDownWidget from './UpDownWidget'
 import DateWidget from './DateWidget'
+import DateTimeWidget from './DateTimeWidget'
 import ColorWidget from './ColorWidget'
 
 
@@ -13,12 +14,13 @@ const widgetMap = {
     "textarea": TextareaWidget,
     "updown": UpDownWidget,
     "date": DateWidget,
+    "date-time": DateTimeWidget,
     "color": ColorWidget
 }
 
 const Widget = (props) => {
 
-    let WidgetImpl = widgetMap["color"];
+    let WidgetImpl = widgetMap["date-time"];
     return <WidgetImpl {...props} />
 }
 

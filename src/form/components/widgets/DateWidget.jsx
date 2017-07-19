@@ -35,7 +35,7 @@ const DateWidget = (props) => {
 
 
 // if (process.env.NODE_ENV !== "production") {
-//   TextWidget.propTypes = {
+//   DateWidget.propTypes = {
 //     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 //   };
 // }

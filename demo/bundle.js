@@ -51444,7 +51444,11 @@
 	
 	var _DateWidget2 = _interopRequireDefault(_DateWidget);
 	
-	var _ColorWidget = __webpack_require__(846);
+	var _DateTimeWidget = __webpack_require__(846);
+	
+	var _DateTimeWidget2 = _interopRequireDefault(_DateTimeWidget);
+	
+	var _ColorWidget = __webpack_require__(847);
 	
 	var _ColorWidget2 = _interopRequireDefault(_ColorWidget);
 	
@@ -51455,12 +51459,13 @@
 	    "textarea": _TextareaWidget2.default,
 	    "updown": _UpDownWidget2.default,
 	    "date": _DateWidget2.default,
+	    "date-time": _DateTimeWidget2.default,
 	    "color": _ColorWidget2.default
 	};
 	
 	var Widget = function Widget(props) {
 	
-	    var WidgetImpl = widgetMap["color"];
+	    var WidgetImpl = widgetMap["date-time"];
 	    return _react2.default.createElement(WidgetImpl, props);
 	};
 	
@@ -81631,6 +81636,86 @@
 
 /***/ }),
 /* 846 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _css = __webpack_require__(630);
+	
+	var _datePicker = __webpack_require__(636);
+	
+	var _datePicker2 = _interopRequireDefault(_datePicker);
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(298);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(478);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _utils = __webpack_require__(602);
+	
+	var _moment = __webpack_require__(643);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var DateTimeWidget = function DateTimeWidget(props) {
+	  var schema = props.schema,
+	      uiSchema = props.uiSchema,
+	      formData = props.formData,
+	      _onChange = props.onChange,
+	      _onBlur = props.onBlur,
+	      otherProps = _objectWithoutProperties(props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	
+	  var fieldPath = uiSchema.fieldPath;
+	
+	  var offSpringSchema = (0, _utils.getOffspringSchema)(schema, fieldPath);
+	  var formValue = (0, _utils.getFormValue)(formData, fieldPath);
+	
+	  var value = formValue || offSpringSchema.default;
+	
+	  var valueProps = { value: value ? (0, _moment2.default)(value) : undefined };
+	  //console.log(valueProps, "valueProps");
+	
+	  return _react2.default.createElement(_datePicker2.default, _extends({
+	    showTime: true,
+	    format: "YYYY-MM-DD HH:mm:ss",
+	    placeholder: "Select Time"
+	
+	  }, valueProps, {
+	    onChange: function onChange(e) {
+	      _onChange(e, e ? e.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
+	    },
+	    onBlur: function onBlur(e) {
+	      _onBlur(e, e ? e.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
+	    },
+	    onOk: function onOk(value) {
+	      _onChange(value, value ? value.format("YYYY-MM-DD HH:mm:ss") : undefined, fieldPath);
+	    }
+	  }));
+	};
+	
+	// if (process.env.NODE_ENV !== "production") {
+	//   TextWidget.propTypes = {
+	//     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	//   };
+	// }
+	
+	exports.default = DateTimeWidget;
+
+/***/ }),
+/* 847 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";

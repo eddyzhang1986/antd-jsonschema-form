@@ -35,7 +35,7 @@ const TextareaWidget = (props) => {
 
 
 // if (process.env.NODE_ENV !== "production") {
-//   TextWidget.propTypes = {
+//   TextareaWidget.propTypes = {
 //     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 //   };
 // }
