@@ -8223,7 +8223,7 @@
 	      },
 	      "children": {
 	        "xType": "field",
-	        "widget": "date",
+	        "widget": "date-time",
 	        "fieldPath": "/fields/birthDay"
 	      }
 	    }, {
@@ -8335,7 +8335,7 @@
 	
 	    _this.state = {
 	      formData: {
-	        "/fields/birthDay": "2017-07-19",
+	        "/fields/birthDay": "2017-07-19 10:10:10",
 	        "/fields/dateRange": {
 	          beginDate: "2017-07-07",
 	          endDate: "2017-07-07"
