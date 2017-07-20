@@ -8085,6 +8085,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
 	var schema = {
 	
 	  "type": "object",
@@ -8109,11 +8111,11 @@
 	      "layoutProps": {
 	        "span": 6
 	      },
-	      "children": {
+	      "children": _defineProperty({
 	        "xType": "field",
 	        "widget": "text",
 	        "fieldPath": "/fields/dateRange"
-	      }
+	      }, "widget", "date-range")
 	    }, {
 	      "xType": "col",
 	      "layoutProps": {
@@ -8355,7 +8357,12 @@
 	
 	              case 2:
 	                this.setState({
-	                  formData: {}
+	                  formData: {
+	                    "/fields/dateRange": {
+	                      beginDate: "2017-07-07",
+	                      endDate: "2017-07-07"
+	                    }
+	                  }
 	                }, function () {
 	                  console.log(_this2.state.formData, "setFormData");
 	                });
@@ -51698,6 +51705,10 @@
 	
 	var _ColorWidget2 = _interopRequireDefault(_ColorWidget);
 	
+	var _DateRangeWidget = __webpack_require__(860);
+	
+	var _DateRangeWidget2 = _interopRequireDefault(_DateRangeWidget);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var widgetMap = {
@@ -51706,7 +51717,8 @@
 	    "updown": _UpDownWidget2.default,
 	    "date": _DateWidget2.default,
 	    "date-time": _DateTimeWidget2.default,
-	    "color": _ColorWidget2.default
+	    "color": _ColorWidget2.default,
+	    "date-range": _DateRangeWidget2.default
 	};
 	
 	var Widget = function Widget(props) {
@@ -82645,6 +82657,376 @@
 	// }
 	
 	exports.default = ColorWidgetDisplay;
+
+/***/ }),
+/* 860 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(298);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(478);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _DateRangeWidgetEdit = __webpack_require__(861);
+	
+	var _DateRangeWidgetEdit2 = _interopRequireDefault(_DateRangeWidgetEdit);
+	
+	var _DateRangeWidgetDisplay = __webpack_require__(862);
+	
+	var _DateRangeWidgetDisplay2 = _interopRequireDefault(_DateRangeWidgetDisplay);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var DateRangeWidget = function DateRangeWidget(props) {
+	    var _props$edit = props.edit,
+	        edit = _props$edit === undefined ? true : _props$edit;
+	
+	    return edit ? _react2.default.createElement(_DateRangeWidgetEdit2.default, props) : _react2.default.createElement(_DateRangeWidgetDisplay2.default, props);
+	};
+	
+	// if (process.env.NODE_ENV !== "production") {
+	//   DateRangeWidget.propTypes = {
+	//     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	//   };
+	// }
+	
+	exports.default = DateRangeWidget;
+
+/***/ }),
+/* 861 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _css = __webpack_require__(637);
+	
+	var _datePicker = __webpack_require__(643);
+	
+	var _datePicker2 = _interopRequireDefault(_datePicker);
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(298);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(478);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _utils = __webpack_require__(602);
+	
+	var _moment = __webpack_require__(650);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/**
+	 * DateRangeWidgetEdit时间日期区域选择控件
+	 */
+	var DateRangeWidgetEdit = function (_Component) {
+	    _inherits(DateRangeWidgetEdit, _Component);
+	
+	    /**
+	         * constructor - 构造函数,初始化开始结束时间和endOpen的state
+	         *
+	         * @param  {type} props description
+	         * @return {type}       description
+	         */
+	    function DateRangeWidgetEdit(props) {
+	        _classCallCheck(this, DateRangeWidgetEdit);
+	
+	        var _this = _possibleConstructorReturn(this, (DateRangeWidgetEdit.__proto__ || Object.getPrototypeOf(DateRangeWidgetEdit)).call(this, props));
+	
+	        _this.state = {
+	            endOpen: false
+	        };
+	        return _this;
+	    }
+	
+	    /**
+	     * 禁用开始日期
+	     */
+	
+	
+	    _createClass(DateRangeWidgetEdit, [{
+	        key: "disabledBeginDate",
+	        value: function disabledBeginDate(beginDate) {
+	            var endDate = this.state.endDate;
+	            if (!(0, _moment2.default)(beginDate) || !(0, _moment2.default)(endDate)) {
+	                return false;
+	            }
+	            return (0, _moment2.default)(beginDate).valueOf() > (0, _moment2.default)(endDate).valueOf();
+	        }
+	
+	        /**
+	         * 禁用结束日期
+	         */
+	
+	    }, {
+	        key: "disabledEndDate",
+	        value: function disabledEndDate(endDate) {
+	            var beginDate = this.state.beginDate;
+	            if (!(0, _moment2.default)(endDate) || !(0, _moment2.default)(beginDate)) {
+	                return false;
+	            }
+	            return (0, _moment2.default)(endDate).valueOf() <= (0, _moment2.default)(beginDate).valueOf();
+	        }
+	
+	        /**
+	         * 日期改变时,未使用
+	         */
+	
+	    }, {
+	        key: "onChange",
+	        value: function onChange(field, value, dateStr) {
+	            var _this2 = this;
+	
+	            this.setState(_defineProperty({}, field, dateStr), function () {
+	                if (_this2.props.onChange) {
+	                    console.log(field);
+	                    //this.props.onChange(this.state);
+	                }
+	            });
+	        }
+	
+	        /**
+	         * 开始日期改变未使用
+	         */
+	
+	    }, {
+	        key: "onBeginChange",
+	        value: function onBeginChange(value, dateStr) {
+	            this.onChange('beginDate', value, dateStr);
+	        }
+	
+	        /**
+	         * 结束日期改变未使用
+	         */
+	
+	    }, {
+	        key: "onEndChange",
+	        value: function onEndChange(value, dateStr) {
+	            this.onChange('endDate', value, dateStr);
+	        }
+	
+	        /**
+	         * 处理选择开始日期时窗口的变化
+	         */
+	
+	    }, {
+	        key: "handleBeginOpenChange",
+	        value: function handleBeginOpenChange(open) {
+	            if (!open) {
+	                this.setState({ endOpen: true });
+	            }
+	            if (this.props.onBeginOpenChange) {
+	                this.props.onBeginOpenChange(open);
+	            }
+	        }
+	
+	        /**
+	         * 处理选择结束日期时窗体的变化
+	         */
+	
+	    }, {
+	        key: "handleEndOpenChange",
+	        value: function handleEndOpenChange(open) {
+	            this.setState({ endOpen: open });
+	            if (this.props.onEndOpenChange) {
+	                this.props.onEndOpenChange(open);
+	            }
+	        }
+	
+	        /**
+	         * render - 渲染组件
+	         *
+	         * @return {type}  description
+	         */
+	
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            var _props = this.props,
+	                schema = _props.schema,
+	                uiSchema = _props.uiSchema,
+	                formData = _props.formData,
+	                onChange = _props.onChange,
+	                onBlur = _props.onBlur,
+	                otherProps = _objectWithoutProperties(_props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	
+	            var fieldPath = uiSchema.fieldPath;
+	
+	            var offSpringSchema = (0, _utils.getOffspringSchema)(schema, fieldPath);
+	            var formValue = (0, _utils.getFormValue)(formData, fieldPath);
+	
+	            var value = formValue || offSpringSchema.default;
+	
+	            var _ref = value || {},
+	                _ref$beginDate = _ref.beginDate,
+	                beginDate = _ref$beginDate === undefined ? undefined : _ref$beginDate,
+	                _ref$endDate = _ref.endDate,
+	                endDate = _ref$endDate === undefined ? undefined : _ref$endDate;
+	
+	            var beginDateProps = { value: beginDate ? (0, _moment2.default)(beginDate) : undefined };
+	            var endDateProps = { value: endDate ? (0, _moment2.default)(endDate) : undefined };
+	
+	            var endOpen = this.state.endOpen;
+	
+	
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(_datePicker2.default, _extends({
+	
+	                    disabledDate: this.disabledBeginDate.bind(this),
+	                    onChange: this.onBeginChange.bind(this),
+	                    onOpenChange: this.handleBeginOpenChange.bind(this)
+	                }, beginDateProps)),
+	                "--",
+	                _react2.default.createElement(_datePicker2.default, _extends({
+	
+	                    disabledDate: this.disabledEndDate.bind(this),
+	                    onChange: this.onEndChange.bind(this),
+	                    onOpenChange: this.handleEndOpenChange.bind(this),
+	                    open: endOpen
+	                }, endDateProps))
+	            );
+	        }
+	    }]);
+	
+	    return DateRangeWidgetEdit;
+	}(_react.Component);
+	
+	exports.default = DateRangeWidgetEdit;
+
+/***/ }),
+/* 862 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(298);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(478);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _utils = __webpack_require__(602);
+	
+	var _moment = __webpack_require__(650);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/**
+	 * DateRangeWidgetDisplay时间日期区域选择控件
+	 */
+	var DateRangeWidgetDisplay = function (_Component) {
+	    _inherits(DateRangeWidgetDisplay, _Component);
+	
+	    function DateRangeWidgetDisplay() {
+	        _classCallCheck(this, DateRangeWidgetDisplay);
+	
+	        return _possibleConstructorReturn(this, (DateRangeWidgetDisplay.__proto__ || Object.getPrototypeOf(DateRangeWidgetDisplay)).apply(this, arguments));
+	    }
+	
+	    _createClass(DateRangeWidgetDisplay, [{
+	        key: "render",
+	
+	
+	        /**
+	         * render - 渲染组件
+	         *
+	         * @return {type}  description
+	         */
+	        value: function render() {
+	            var _props = this.props,
+	                schema = _props.schema,
+	                uiSchema = _props.uiSchema,
+	                formData = _props.formData,
+	                onChange = _props.onChange,
+	                onBlur = _props.onBlur,
+	                otherProps = _objectWithoutProperties(_props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	
+	            var fieldPath = uiSchema.fieldPath;
+	
+	            var offSpringSchema = (0, _utils.getOffspringSchema)(schema, fieldPath);
+	            var formValue = (0, _utils.getFormValue)(formData, fieldPath);
+	
+	            var value = formValue || offSpringSchema.default;
+	
+	            var _ref = value || {},
+	                _ref$beginDate = _ref.beginDate,
+	                beginDate = _ref$beginDate === undefined ? undefined : _ref$beginDate,
+	                _ref$endDate = _ref.endDate,
+	                endDate = _ref$endDate === undefined ? undefined : _ref$endDate;
+	
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                beginDate ? _react2.default.createElement(
+	                    "span",
+	                    null,
+	                    beginDate.format("YYYY-MM-dd")
+	                ) : _react2.default.createElement("span", null),
+	                "--",
+	                endDate ? _react2.default.createElement(
+	                    "span",
+	                    null,
+	                    endDate.format("YYYY-MM-dd")
+	                ) : _react2.default.createElement("span", null)
+	            );
+	        }
+	    }]);
+	
+	    return DateRangeWidgetDisplay;
+	}(_react.Component);
+	
+	exports.default = DateRangeWidgetDisplay;
 
 /***/ })
 /******/ ]);

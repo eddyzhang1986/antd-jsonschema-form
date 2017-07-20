@@ -7,6 +7,7 @@ import UpDownWidget from './UpDownWidget'
 import DateWidget from './DateWidget'
 import DateTimeWidget from './DateTimeWidget'
 import ColorWidget from './ColorWidget'
+import DateRangeWidget from './DateRangeWidget'
 
 
 const widgetMap = {
@@ -15,7 +16,8 @@ const widgetMap = {
     "updown": UpDownWidget,
     "date": DateWidget,
     "date-time": DateTimeWidget,
-    "color": ColorWidget
+    "color": ColorWidget,
+    "date-range": DateRangeWidget
 }
 
 const Widget = (props) => {
