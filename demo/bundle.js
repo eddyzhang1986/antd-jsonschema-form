@@ -8335,7 +8335,11 @@
 	
 	    _this.state = {
 	      formData: {
-	        "/fields/birthDay": "2017-07-19"
+	        "/fields/birthDay": "2017-07-19",
+	        "/fields/dateRange": {
+	          beginDate: "2017-07-07",
+	          endDate: "2017-07-07"
+	        }
 	      },
 	      edit: true
 	    };
@@ -8357,12 +8361,7 @@
 	
 	              case 2:
 	                this.setState({
-	                  formData: {
-	                    "/fields/dateRange": {
-	                      beginDate: "2017-07-07",
-	                      endDate: "2017-07-07"
-	                    }
-	                  }
+	                  formData: {}
 	                }, function () {
 	                  console.log(_this2.state.formData, "setFormData");
 	                });
@@ -82729,6 +82728,10 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
+	var _reactAddonsUpdate = __webpack_require__(601);
+	
+	var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
+	
 	var _utils = __webpack_require__(602);
 	
 	var _moment = __webpack_require__(650);
@@ -82806,14 +82809,27 @@
 	    }, {
 	        key: "onChange",
 	        value: function onChange(field, value, dateStr) {
-	            var _this2 = this;
+	            var _props = this.props,
+	                schema = _props.schema,
+	                uiSchema = _props.uiSchema,
+	                formData = _props.formData,
+	                onChange = _props.onChange;
 	
-	            this.setState(_defineProperty({}, field, dateStr), function () {
-	                if (_this2.props.onChange) {
-	                    console.log(field);
-	                    //this.props.onChange(this.state);
-	                }
-	            });
+	
+	            if (onChange) {
+	                var fieldPath = uiSchema.fieldPath;
+	
+	
+	                var offSpringSchema = (0, _utils.getOffspringSchema)(schema, fieldPath);
+	                var formValue = (0, _utils.getFormValue)(formData, fieldPath);
+	
+	                var _value = formValue || offSpringSchema.default;
+	                var data = _value || {};
+	
+	                var newData = (0, _reactAddonsUpdate2.default)(data, _defineProperty({}, field, { $set: dateStr || undefined }));
+	
+	                onChange(newData, newData, fieldPath);
+	            }
 	        }
 	
 	        /**
@@ -82873,13 +82889,13 @@
 	    }, {
 	        key: "render",
 	        value: function render() {
-	            var _props = this.props,
-	                schema = _props.schema,
-	                uiSchema = _props.uiSchema,
-	                formData = _props.formData,
-	                onChange = _props.onChange,
-	                onBlur = _props.onBlur,
-	                otherProps = _objectWithoutProperties(_props, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
+	            var _props2 = this.props,
+	                schema = _props2.schema,
+	                uiSchema = _props2.uiSchema,
+	                formData = _props2.formData,
+	                onChange = _props2.onChange,
+	                onBlur = _props2.onBlur,
+	                otherProps = _objectWithoutProperties(_props2, ["schema", "uiSchema", "formData", "onChange", "onBlur"]);
 	
 	            var fieldPath = uiSchema.fieldPath;
 	
@@ -83011,13 +83027,13 @@
 	                beginDate ? _react2.default.createElement(
 	                    "span",
 	                    null,
-	                    beginDate.format("YYYY-MM-dd")
+	                    beginDate
 	                ) : _react2.default.createElement("span", null),
 	                "--",
 	                endDate ? _react2.default.createElement(
 	                    "span",
 	                    null,
-	                    endDate.format("YYYY-MM-dd")
+	                    endDate
 	                ) : _react2.default.createElement("span", null)
 	            );
 	        }

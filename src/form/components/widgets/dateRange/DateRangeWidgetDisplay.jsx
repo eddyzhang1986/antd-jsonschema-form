@@ -30,9 +30,9 @@ class DateRangeWidgetDisplay extends Component {
 
         return (
             <div>
-                {beginDate ? <span>{beginDate.format("YYYY-MM-dd")}</span> : <span></span>}
+                {beginDate ? <span>{beginDate}</span> : <span></span>}
                 --
-                {endDate ? <span>{endDate.format("YYYY-MM-dd")}</span> : <span></span>}
+                {endDate ? <span>{endDate}</span> : <span></span>}
             </div>
         );
     }

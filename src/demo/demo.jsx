@@ -256,7 +256,11 @@ class Demo extends Component {
     super(props);
     this.state = {
       formData: {
-        "/fields/birthDay": "2017-07-19"
+        "/fields/birthDay": "2017-07-19",
+        "/fields/dateRange": {
+          beginDate: "2017-07-07",
+          endDate: "2017-07-07"
+        }
       },
       edit: true
     }
@@ -267,10 +271,7 @@ class Demo extends Component {
     await sleep(1000);
     this.setState({
       formData: {
-        "/fields/dateRange": {
-          beginDate: "2017-07-07",
-          endDate: "2017-07-07"
-        }
+
       }
     }, () => {
       console.log(this.state.formData, "setFormData");

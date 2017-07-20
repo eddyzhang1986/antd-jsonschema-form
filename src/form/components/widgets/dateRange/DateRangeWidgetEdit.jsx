@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { DatePicker } from "antd";
+import update from 'react-addons-update';
 import { getOffspringSchema, getFormValue } from '../../../utils';
 import moment from 'moment';
 
@@ -52,14 +53,25 @@ class DateRangeWidgetEdit extends Component {
      * 日期改变时,未使用
      */
     onChange(field, value, dateStr) {
-        this.setState({
-            [field]: dateStr
-        }, () => {
-            if (this.props.onChange) {
-                console.log(field);
-                //this.props.onChange(this.state);
-            }
-        })
+
+        const { schema, uiSchema, formData, onChange } = this.props;
+
+        if (onChange) {
+            const { fieldPath } = uiSchema;
+
+            const offSpringSchema = getOffspringSchema(schema, fieldPath);
+            const formValue = getFormValue(formData, fieldPath);
+
+            const value = (formValue || offSpringSchema.default);
+            const data = (value || {});
+
+            const newData = update(data, {
+                [field]: { $set: (dateStr || undefined) }
+            });
+
+            onChange(newData, newData, fieldPath);
+
+        }
 
     }
 
