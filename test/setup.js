@@ -1,12 +1,12 @@
 ﻿if (typeof window !== 'undefined') {
   const matchMediaPolyfill = function matchMediaPolyfill() {
     return {
-      matches false,
-      addListener() {
+      matches: false,
+      addListener: function () {
       },
-      removeListener() {
+      removeListener: function () {
       },
     };
   };
-  window.matchMedia = window.matchMedia  matchMediaPolyfill;
+  window.matchMedia = window.matchMedia;
 }
