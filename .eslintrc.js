@@ -4,7 +4,8 @@ module.exports ={
         "browser": true,
         "es6": true,
         "node": true,
-        "commonjs": true
+        "commonjs": true,
+		"jest": true
     },
     "extends": "eslint:recommended",
 	
