@@ -27,6 +27,21 @@ const uiSchema = {
     "children": [{
       "xType": "col",
       "layoutProps": {
+        "span": 18
+      }
+    },{
+      "xType": "col",
+      "layoutProps": {
+        "span": 6
+      },
+      "children": {
+        "xType": "field",
+        "widget":"text",
+        "fieldPath": "/fields/dateRange"
+      }
+    },{
+      "xType": "col",
+      "layoutProps": {
         "span": 6
       },
       "children": {

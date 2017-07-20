@@ -41,7 +41,8 @@ const VisitGrid = (props) => {
     const { children } = uiSchema;
 
     if (!children) {
-        return null;
+        return <div  {...(uiSchema.layoutProps || {}) }>
+        </div>
     }
 
     if (!Array.isArray(children)) {
@@ -64,7 +65,8 @@ const VisitRow = (props) => {
     const { children } = uiSchema;
 
     if (!children) {
-        return null;
+        return  <Row {...(uiSchema.layoutProps || {}) }>
+        </Row>
     }
 
     if (!Array.isArray(children)) {
@@ -88,7 +90,8 @@ const VisitCol = (props) => {
     const { children } = uiSchema;
 
     if (!children) {
-        return null;
+        return <Col {...(uiSchema.layoutProps || {}) }>
+        </Col>
     }
 
 
@@ -113,6 +116,9 @@ const VisitTab = (props) => {
     const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
     const { children } = uiSchema;
 
+    /**
+     * 没有子元素的Tab直接不存在这tabs
+     */
     if (!children) {
         return null;
     }
@@ -141,7 +147,8 @@ const VisitFieldSet = (props) => {
     const { children } = uiSchema;
 
     if (!children) {
-        return null;
+        return <div  {...(uiSchema.layoutProps || {}) }>
+        </div>
     }
 
     if (!Array.isArray(children)) {

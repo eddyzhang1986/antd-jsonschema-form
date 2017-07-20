@@ -8102,6 +8102,21 @@
 	    "children": [{
 	      "xType": "col",
 	      "layoutProps": {
+	        "span": 18
+	      }
+	    }, {
+	      "xType": "col",
+	      "layoutProps": {
+	        "span": 6
+	      },
+	      "children": {
+	        "xType": "field",
+	        "widget": "text",
+	        "fieldPath": "/fields/dateRange"
+	      }
+	    }, {
+	      "xType": "col",
+	      "layoutProps": {
 	        "span": 6
 	      },
 	      "children": {
@@ -30056,7 +30071,7 @@
 	
 	
 	    if (!children) {
-	        return null;
+	        return _react2.default.createElement("div", uiSchema.layoutProps || {});
 	    }
 	
 	    if (!Array.isArray(children)) {
@@ -30089,7 +30104,7 @@
 	
 	
 	    if (!children) {
-	        return null;
+	        return _react2.default.createElement(_row2.default, uiSchema.layoutProps || {});
 	    }
 	
 	    if (!Array.isArray(children)) {
@@ -30122,7 +30137,7 @@
 	
 	
 	    if (!children) {
-	        return null;
+	        return _react2.default.createElement(_col2.default, uiSchema.layoutProps || {});
 	    }
 	
 	    if (!Array.isArray(children)) {
@@ -30153,6 +30168,9 @@
 	
 	    var children = uiSchema.children;
 	
+	    /**
+	     * 没有子元素的Tab直接不存在这tabs
+	     */
 	
 	    if (!children) {
 	        return null;
@@ -30196,7 +30214,7 @@
 	
 	
 	    if (!children) {
-	        return null;
+	        return _react2.default.createElement("div", uiSchema.layoutProps || {});
 	    }
 	
 	    if (!Array.isArray(children)) {
