@@ -192,6 +192,7 @@ const Visit = (props) => {
             break;
         case "fieldset":
             result = <VisitFieldSet schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+			break;
         case "field":
             result = <VisitField
                 schema={schema}

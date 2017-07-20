@@ -36,9 +36,8 @@ const uiSchema = {
       },
       "children": {
         "xType": "field",
-        "widget": "text",
-        "fieldPath": "/fields/dateRange",
-        "widget": "date-range"
+        "widget": "date-range",
+        "fieldPath": "/fields/dateRange"      
       }
     }, {
       "xType": "col",

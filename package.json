@@ -10,7 +10,7 @@
     "test": "jest --config .jest.js",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile",
-    "lint": "eslint src test"
+    "lint": "eslint src/** test/**"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
