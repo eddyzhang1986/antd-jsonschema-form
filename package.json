@@ -9,7 +9,8 @@
     "dist": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.dist.js --optimize-minimize",
     "test": "jest --config .jest.js",
     "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "lint": "eslint src test"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
@@ -53,6 +54,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
     "babel-plugin-import": "^1.2.1",
@@ -65,6 +67,7 @@
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
     "eslint": "^4.2.0",
+    "eslint-plugin-react": "^7.1.0",
     "file-loader": "^0.11.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
