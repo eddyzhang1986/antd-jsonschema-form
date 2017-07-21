@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { DatePicker } from 'antd';
 
 import Form from '../form/index.jsx';
-
+import TestTabs from './tabtest/TabTest'
 
 const schema = {
 
@@ -321,6 +321,7 @@ class Demo extends Component {
           this.changeFormData();
         }} value="setEmptyValueAsync" />
       </div>
+      <TestTabs/>
     </div>
   }
 
