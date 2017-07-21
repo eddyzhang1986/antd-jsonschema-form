@@ -37,6 +37,23 @@ export default class TabTest extends Component {
 
             }} />
             <MainView pages={pages} activeCode={activeCode}
+                onDelete={(targetKey) => {
+                    let newPages = [];
+                    for (let item of pages) {
+                        if (targetKey !== item) {
+                            newPages.push(item)
+                        }
+                    }
+                    let newActiveCode = undefined;
+                    if (newPages.length > 0) {
+                        newActiveCode = (newPages[newPages.length - 1] || undefined)
+                    }
+                    this.setState({
+                        pages: newPages,
+                        activeCode: newActiveCode
+                    })
+
+                }}
                 onActiveChange={(page) => {
                     this.setState({
                         activeCode: page

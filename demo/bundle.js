@@ -83128,6 +83128,44 @@
 	                        }
 	                    } }),
 	                _react2.default.createElement(_MainView2.default, { pages: pages, activeCode: activeCode,
+	                    onDelete: function onDelete(targetKey) {
+	                        var newPages = [];
+	                        var _iteratorNormalCompletion = true;
+	                        var _didIteratorError = false;
+	                        var _iteratorError = undefined;
+	
+	                        try {
+	                            for (var _iterator = pages[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                                var item = _step.value;
+	
+	                                if (targetKey !== item) {
+	                                    newPages.push(item);
+	                                }
+	                            }
+	                        } catch (err) {
+	                            _didIteratorError = true;
+	                            _iteratorError = err;
+	                        } finally {
+	                            try {
+	                                if (!_iteratorNormalCompletion && _iterator.return) {
+	                                    _iterator.return();
+	                                }
+	                            } finally {
+	                                if (_didIteratorError) {
+	                                    throw _iteratorError;
+	                                }
+	                            }
+	                        }
+	
+	                        var newActiveCode = undefined;
+	                        if (newPages.length > 0) {
+	                            newActiveCode = newPages[newPages.length - 1] || undefined;
+	                        }
+	                        _this2.setState({
+	                            pages: newPages,
+	                            activeCode: newActiveCode
+	                        });
+	                    },
 	                    onActiveChange: function onActiveChange(page) {
 	                        _this2.setState({
 	                            activeCode: page
@@ -83219,19 +83257,27 @@
 	            var _props = this.props,
 	                pages = _props.pages,
 	                activeCode = _props.activeCode,
-	                onActiveChange = _props.onActiveChange;
+	                onActiveChange = _props.onActiveChange,
+	                onDelete = _props.onDelete;
 	
 	            var active = activeCode ? { activeKey: activeCode } : {};
 	            return _react2.default.createElement(
 	                _tabs2.default,
 	                _extends({}, active, {
+	                    hideAdd: true,
+	                    onEdit: function onEdit(targetKey, action) {
+	                        if (action === "remove") {
+	                            onDelete(targetKey);
+	                        }
+	                    },
+	                    type: 'editable-card',
 	                    onChange: function onChange(page) {
 	                        onActiveChange(page);
 	                    } }),
 	                pages.map(function (item, index) {
 	                    return _react2.default.createElement(
 	                        TabPane,
-	                        { key: item, code: item, tab: item },
+	                        { key: item, code: item, tab: item, closable: true },
 	                        findCompoment(item)
 	                    );
 	                })

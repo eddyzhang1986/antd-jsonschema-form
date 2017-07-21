@@ -37,15 +37,22 @@ export default class MainView extends Component {
 
     render() {
 
-        const { pages, activeCode, onActiveChange } = this.props;
+        const { pages, activeCode, onActiveChange, onDelete } = this.props;
         const active = (activeCode ? { activeKey: activeCode } : {});
         return <Tabs {...active}
+            hideAdd
+            onEdit={(targetKey, action) => {
+                if (action === "remove") {
+                    onDelete(targetKey);
+                }
+            }}
+            type="editable-card"
             onChange={(page) => {
                 onActiveChange(page)
             }}>
             {
                 pages.map((item, index) => {
-                    return <TabPane key={item} code={item} tab={item}>
+                    return <TabPane key={item} code={item} tab={item} closable={true} >
                         {findCompoment(item)}
                     </TabPane>
                 })
