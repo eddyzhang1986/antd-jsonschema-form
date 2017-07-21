@@ -5,12 +5,12 @@ import React, { Component } from "react";
 export default class Test2 extends Component {
 
 
-    constructor(props){
+    constructor(props) {
         super(props);
         console.log("Test2 did constructor")
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log("Test2 did mount")
     }
 

@@ -83317,13 +83317,21 @@
 	var Test1 = function (_Component) {
 	    _inherits(Test1, _Component);
 	
-	    function Test1() {
+	    function Test1(props) {
 	        _classCallCheck(this, Test1);
 	
-	        return _possibleConstructorReturn(this, (Test1.__proto__ || Object.getPrototypeOf(Test1)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (Test1.__proto__ || Object.getPrototypeOf(Test1)).call(this, props));
+	
+	        console.log("Test1 did constructor");
+	        return _this;
 	    }
 	
 	    _createClass(Test1, [{
+	        key: "componentDidMount",
+	        value: function componentDidMount() {
+	            console.log("Test1 did mount");
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	
@@ -83367,13 +83375,21 @@
 	var Test2 = function (_Component) {
 	    _inherits(Test2, _Component);
 	
-	    function Test2() {
+	    function Test2(props) {
 	        _classCallCheck(this, Test2);
 	
-	        return _possibleConstructorReturn(this, (Test2.__proto__ || Object.getPrototypeOf(Test2)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (Test2.__proto__ || Object.getPrototypeOf(Test2)).call(this, props));
+	
+	        console.log("Test2 did constructor");
+	        return _this;
 	    }
 	
 	    _createClass(Test2, [{
+	        key: "componentDidMount",
+	        value: function componentDidMount() {
+	            console.log("Test2 did mount");
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	
@@ -83417,13 +83433,21 @@
 	var Test3 = function (_Component) {
 	    _inherits(Test3, _Component);
 	
-	    function Test3() {
+	    function Test3(props) {
 	        _classCallCheck(this, Test3);
 	
-	        return _possibleConstructorReturn(this, (Test3.__proto__ || Object.getPrototypeOf(Test3)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (Test3.__proto__ || Object.getPrototypeOf(Test3)).call(this, props));
+	
+	        console.log("Test3 did constructor");
+	        return _this;
 	    }
 	
 	    _createClass(Test3, [{
+	        key: "componentDidMount",
+	        value: function componentDidMount() {
+	            console.log("Test3 did mount");
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	

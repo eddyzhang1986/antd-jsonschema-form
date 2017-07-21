@@ -4,12 +4,12 @@ import React, { Component } from "react";
 
 export default class Test1 extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         console.log("Test1 did constructor")
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log("Test1 did mount")
     }
 
