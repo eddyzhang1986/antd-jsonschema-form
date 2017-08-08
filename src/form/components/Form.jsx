@@ -10,6 +10,29 @@ const TabPane = Tabs.TabPane;
 
 
 
+const VisitGrid = (props) => {
+    const { uiSchema, ...otherProps } = props;
+    const { children, xType, ...otherConfig } = uiSchema;
+
+    if (!children) {
+        return <div  {...otherConfig} >
+        </div>
+    }
+
+    if (!Array.isArray(children)) {
+        return <div  {...otherConfig}>
+            <Visit {...otherProps} uiSchema={children} />
+        </div>
+    }
+
+    return <div  {...otherConfig}>
+        {
+            children.map((item, index) => {
+                return <Visit key={index} {...otherProps} uiSchema={item} />
+            })
+        }
+    </div>
+}
 
 
 
@@ -32,79 +55,60 @@ const Field = (props) => {
  * @param {*} props 
  */
 const VisitField = (props) => {
-    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
-    return <Field schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+    const { uiSchema, ...otherProps } = props;
+    return <Field {...otherProps} uiSchema={uiSchema} />
 }
 
-const VisitGrid = (props) => {
-    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
-    const { children } = uiSchema;
 
-    if (!children) {
-        return <div  {...(uiSchema.layoutProps || {}) }>
-        </div>
-    }
-
-    if (!Array.isArray(children)) {
-        return <div  {...(uiSchema.layoutProps || {}) }>
-            <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
-        </div>
-    }
-
-    return <div  {...(uiSchema.layoutProps || {}) }>
-        {
-            children.map((item, index) => {
-                return <Visit key={index} schema={schema} edit={edit} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
-            })
-        }
-    </div>
-}
 
 const VisitRow = (props) => {
-    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
-    const { children } = uiSchema;
+
+    const { uiSchema, ...otherProps } = props;
+    const { children, xType, ...otherConfig } = uiSchema;
+
 
     if (!children) {
-        return  <Row {...(uiSchema.layoutProps || {}) }>
+        return <Row {...otherConfig}>
         </Row>
     }
 
     if (!Array.isArray(children)) {
-        return <Row {...(uiSchema.layoutProps || {}) }>
-            <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Row {...otherConfig}>
+            <Visit  {...otherProps} uiSchema={children} />
         </Row>
     }
 
-    return <Row {...(uiSchema.layoutProps || {}) }>
+    return <Row  {...otherConfig}>
         {
             children.map((item, index) => {
-                return <Visit key={index} schema={schema} edit={edit} uiSchema={item} formData={formData} onChange={onChange} onBlur={onBlur} />
+                return <Visit key={index} {...otherProps} uiSchema={item} />
             })
         }
     </Row>
 }
 
 
+
 const VisitCol = (props) => {
-    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
-    const { children } = uiSchema;
+    const { uiSchema, ...otherProps } = props;
+    const { children, xType, ...otherConfig } = uiSchema;
+
 
     if (!children) {
-        return <Col {...(uiSchema.layoutProps || {}) }>
+        return <Col {...otherConfig}>
         </Col>
     }
-
 
     if (!Array.isArray(children)) {
-        return <Col {...(uiSchema.layoutProps || {}) }>
-            <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Col {...otherConfig}>
+            <Visit  {...otherProps} uiSchema={children} />
         </Col>
     }
 
-    return <Col {...(uiSchema.layoutProps || {}) }>
+    return <Col  {...otherConfig}>
         {
             children.map((item, index) => {
-                return <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+                return <Visit key={index} {...otherProps} uiSchema={item} />
             })
         }
     </Col>
@@ -113,8 +117,9 @@ const VisitCol = (props) => {
 
 
 const VisitTab = (props) => {
-    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
-    const { children } = uiSchema;
+    const { uiSchema, ...otherProps } = props;
+    const { children, xType, tabProps = {}, panelProps = {} } = uiSchema;
+
 
     /**
      * 没有子元素的Tab直接不存在这tabs
@@ -124,91 +129,129 @@ const VisitTab = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Tab  {...(uiSchema.layoutProps || {}) } defaultActiveKey="0">
-            <TabPane {...children.tabPanelProps || {}} key={"0"} tab={"0"} key={"0"} >
-                <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <Tab {...tabProps}>
+            <TabPane {...panelProps} >
+                <Visit key={index} {...otherProps} uiSchema={children} />
             </TabPane>
         </Tab>
     }
 
-    return <Tab  {...(uiSchema.layoutProps || {}) } defaultActiveKey="0">
+    return <Tab {...tabProps}>
         {
             children.map((item, index) => {
-                return <TabPane {...item.tabPanelProps || {}} key={index} tab={index} key={index}>
-                    <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+                return <TabPane {...panelProps} >
+                    <Visit key={index} {...otherProps} uiSchema={item} />
                 </TabPane>
             })
         }
     </Tab>
 }
 
+
 const VisitFieldSet = (props) => {
-    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
-    const { children } = uiSchema;
+    const { uiSchema, ...otherProps } = props;
+    const { children, xType, ...otherConfig } = uiSchema;
 
     if (!children) {
-        return <div  {...(uiSchema.layoutProps || {}) }>
+        return <div  {...otherConfig} >
         </div>
     }
 
     if (!Array.isArray(children)) {
-        return <div  {...(uiSchema.layoutProps || {}) }>
-            <Visit schema={schema} uiSchema={children} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+        return <div  {...otherConfig}>
+            <Visit {...otherProps} uiSchema={children} />
         </div>
     }
 
-    return <div  {...(uiSchema.layoutProps || {}) }>
+    return <div  {...otherConfig}>
         {
             children.map((item, index) => {
-                return <Visit key={index} schema={schema} uiSchema={item} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+                return <Visit key={index} {...otherProps} uiSchema={item} />
             })
         }
     </div>
 }
 
-/**
- * visit ui schema
- * @param {*} props 
- */
+
+
+let visits = [{
+    "type": "grid",
+    "visit": VisitGrid
+}, {
+    "type": "row",
+    "visit": VisitRow
+}, {
+    "type": "col",
+    "visit": VisitCol
+}, {
+    "type": "tab",
+    "visit": VisitTab
+}, {
+    "type": "fieldset",
+    "visit": VisitFieldSet
+}, {
+    "type": "field",
+    "visit": VisitField
+}];
+
+const getComponentVisit = (type) => {
+    let ComponentVisit = visits.find(v => v.type === type);
+    return ComponentVisit;
+}
+
+
 const Visit = (props) => {
 
-    const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
-
-
-    let result = null;
-    switch (uiSchema.xType) {
-
-        case "grid":
-            result = <VisitGrid schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
-            break;
-        case "row":
-            result = <VisitRow schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
-            break;
-        case "col":
-            result = <VisitCol schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
-            break;
-        case "tab":
-            result = <VisitTab schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
-            break;
-        case "fieldset":
-            result = <VisitFieldSet schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
-			break;
-        case "field":
-            result = <VisitField
-                schema={schema}
-                uiSchema={uiSchema}
-                edit={edit}
-                formData={formData}
-                onChange={onChange}
-                onBlur={onBlur} />
-            break;
-        default:
-            break;
-    }
-
-    return result;
+    const { uiSchema, ...otherProps } = props;
+    console.log('ComponentVisit','ComponentVisit');
+    let ComponentVisit = getComponentVisit(uiSchema.type);
+    return <ComponentVisit uiSchema={uiSchema} {...otherProps} />
 
 }
+
+// /**
+//  * visit ui schema
+//  * @param {*} props 
+//  */
+// const Visit = (props) => {
+
+//     const { schema, uiSchema, edit, formData, onChange, onBlur, ...otherProps } = props;
+
+
+//     let result = null;
+//     switch (uiSchema.xType) {
+
+//         case "grid":
+//             result = <VisitGrid schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+//             break;
+//         case "row":
+//             result = <VisitRow schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+//             break;
+//         case "col":
+//             result = <VisitCol schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+//             break;
+//         case "tab":
+//             result = <VisitTab schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+//             break;
+//         case "fieldset":
+//             result = <VisitFieldSet schema={schema} uiSchema={uiSchema} edit={edit} formData={formData} onChange={onChange} onBlur={onBlur} />
+//             break;
+//         case "field":
+//             result = <VisitField
+//                 schema={schema}
+//                 uiSchema={uiSchema}
+//                 edit={edit}
+//                 formData={formData}
+//                 onChange={onChange}
+//                 onBlur={onBlur} />
+//             break;
+//         default:
+//             break;
+//     }
+
+//     return result;
+
+// }
 
 export default class Form extends Component {
 
@@ -269,3 +312,4 @@ export default class Form extends Component {
         </div>
     }
 }
+

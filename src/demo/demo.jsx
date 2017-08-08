@@ -21,29 +21,21 @@ const uiSchema = {
   "xType": "grid",
   "children": [{
     "xType": "row",
-    "layoutProps": {
-      "gutter": 16
-    },
+    "gutter": 16,
     "children": [{
       "xType": "col",
-      "layoutProps": {
-        "span": 18
-      }
+      "span": 18
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "date-range",
-        "fieldPath": "/fields/dateRange"      
+        "fieldPath": "/fields/dateRange"
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -51,9 +43,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -61,9 +51,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -71,9 +59,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -81,9 +67,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -91,9 +75,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -101,9 +83,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -111,9 +91,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -121,9 +99,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -131,9 +107,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -141,9 +115,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "date-time",
@@ -151,9 +123,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "updown",
@@ -161,9 +131,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -171,9 +139,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -181,9 +147,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -191,9 +155,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -201,9 +163,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -211,9 +171,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "text",
@@ -221,9 +179,7 @@ const uiSchema = {
       }
     }, {
       "xType": "col",
-      "layoutProps": {
-        "span": 6
-      },
+      "span": 6,
       "children": {
         "xType": "field",
         "widget": "textarea",
@@ -279,6 +235,7 @@ class Demo extends Component {
 
   render() {
     const { edit, formData } = this.state;
+    console.log('test', 'test');
     return <div>
       <Form
         schema={schema}
@@ -321,7 +278,7 @@ class Demo extends Component {
           this.changeFormData();
         }} value="setEmptyValueAsync" />
       </div>
-      <TestTabs/>
+      <TestTabs />
     </div>
   }
 
@@ -329,6 +286,7 @@ class Demo extends Component {
 
 render((
   <div>
+    <div>test</div>
     <Demo />
   </div>
 ), document.getElementById("main"));

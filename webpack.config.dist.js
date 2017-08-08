@@ -7,14 +7,14 @@ module.exports = {
   // },
   cache: true,
   output: {
-    path: "./dist/",
+    path: __dirname + "/dist/",
     publicPath: "/dist/",
     filename: "form.js",
     library: "AntdJSONSchemaForm",
     libraryTarget: "umd"
   },
   resolve: {
-    extensions: ["", ".js", ".jsx", ".css"]
+    extensions: [".js", ".jsx", ".css"]
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -33,10 +33,40 @@ module.exports = {
     }
   },
   module: {
-    loaders: [
-      { test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" },
-	    { test: /\.css$/, loader: 'style-loader!css-loader' },
-	    {test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader"}
-    ]
+    rules: [{
+      test: /\.(jsx)$/,
+      exclude: /(node_modules)/,
+      use: [{
+        loader: 'babel-loader',
+      }]
+    },
+    {
+      test: /\.css$/,
+      use: ["style-loader", "css-loader"]
+    },
+    {
+      test: /\.less/,
+      loader: ["style-loader", "css-loader", "less-loader"]
+    },
+    {
+      test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+      loader: "file-loader"
+    },
+    {
+      test: /\.(png|jpg)/,
+      loader: [{ loader: "url-loader", options: { limit: 8192, name: "images/[hash:8].[ext]" } }]
+    },
+    {
+      test: /\.(gif)/,
+      loader: [{ loader: "url-loader", options: { limit: 1, name: "images/[hash:8].[ext]" } }]
+    },
+    {
+      test: /\.xml$/,
+      loader: 'raw-loader'
+    },
+    {
+      test: /\.html$/,
+      loader: 'html-withimg-loader'
+    }]
   }
 }
