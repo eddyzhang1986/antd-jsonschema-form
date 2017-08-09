@@ -3,8 +3,13 @@ import { render } from "react-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { DatePicker } from 'antd';
 
+
 import { Input } from 'antd';
 const { TextArea } = Input;
+
+import Codemirror from "react-codemirror";
+import "codemirror/mode/javascript/javascript";
+import "codemirror/theme/eclipse.css";
 
 import Form from '../form/index.jsx';
 //import TestTabs from './tabtest/TabTest'
@@ -285,34 +290,34 @@ class Demo extends Component {
 
       <div>
        <div>schema</div>
-       <div><TextArea rows={4} cols={20}
+       <div><TextArea 
        onChange={
-         (e)=>{
+         (code)=>{
            this.setState({
-              schema:JSON.parse(e.target.value)
+              schema:JSON.parse(code)
            });           
          }
        } value={JSON.stringify(this.state.schema)}/></div>
       </div>
       <div>
        <div>uiSchema</div>
-       <div><TextArea rows={4} cols={20}
+       <div><TextArea 
         onChange={
-         (e)=>{
-           //console.log(e.target.value,'e.target.value')
+         (code)=>{
+           //console.log(code,'code')
            this.setState({
-              uiSchema:JSON.parse(e.target.value)
+              uiSchema:JSON.parse(code)
            });           
          }
        } value={JSON.stringify(this.state.uiSchema)}/></div>
       </div>
       <div>
        <div>formData</div>
-       <div><TextArea rows={4}  cols={20}
+       <div><TextArea 
         onChange={
-         (e)=>{
+         (code)=>{
            this.setState({
-              formData:JSON.parse(e.target.value)
+              formData:JSON.parse(code)
            });           
          }
        } value={JSON.stringify(formData)}/></div>

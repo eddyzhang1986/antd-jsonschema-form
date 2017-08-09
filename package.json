@@ -73,6 +73,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "react-addons-test-utils": "^15.6.0",
+    "react-codemirror": "^1.0.0",
     "react-test-renderer": "^15.6.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.3.0"
