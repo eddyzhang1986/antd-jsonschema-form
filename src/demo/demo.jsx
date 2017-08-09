@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { DatePicker } from 'antd';
 
 import Form from '../form/index.jsx';
-import TestTabs from './tabtest/TabTest'
+//import TestTabs from './tabtest/TabTest'
 
 const schema = {
 
@@ -315,7 +315,7 @@ class Demo extends Component {
        } value={JSON.stringify(formData)}/></div>
       </div>
     
-      <TestTabs />
+
     </div>
   }
 
