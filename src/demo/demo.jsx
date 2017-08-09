@@ -1,15 +1,25 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import { DatePicker } from 'antd';
 
 
-import { Input } from 'antd';
-const { TextArea } = Input;
+// import { Input } from 'antd';
+// const { TextArea } = Input;
 
 import Codemirror from "react-codemirror";
 import "codemirror/mode/javascript/javascript";
-import "codemirror/theme/eclipse.css";
+
+
+import "codemirror/lib/codemirror.css";
+
+// import "codemirror/theme/dracula.css";
+// import "codemirror/theme/blackboard.css";
+// import "codemirror/theme/mbo.css";
+// import "codemirror/theme/ttcn.css";
+// import "codemirror/theme/solarized.css";
+ import "codemirror/theme/monokai.css";
+// import "codemirror/theme/eclipse.css";
 
 import Form from '../form/index.jsx';
 //import TestTabs from './tabtest/TabTest'
@@ -218,8 +228,8 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      schema:schema,
-      uiSchema:uiSchema,
+      schema: schema,
+      uiSchema: uiSchema,
       formData: {
         "/fields/birthDay": "2017-07-19 10:10:10",
         "/fields/dateRange": {
@@ -244,6 +254,20 @@ class Demo extends Component {
   }
 
   render() {
+    const cmOptions = {
+      theme: "monokai",
+      height: "auto",
+      viewportMargin: Infinity,
+      mode: {
+        name: "javascript",
+        json: true,
+        statementIndent: 2,
+      },
+      lineNumbers: true,
+      lineWrapping: true,
+      indentWithTabs: false,
+      tabSize: 2,
+    }
     const { edit, formData } = this.state;
     return <div>
       <Form
@@ -289,46 +313,43 @@ class Demo extends Component {
       </div>
 
       <div>
-       <div>schema</div>
-       <div><textarea 
-       rows={10}
-       cols={200}
-       onChange={
-         (e)=>{
-           this.setState({
-              schema:JSON.parse(e.target.value)
-           });           
-         }
-       } value={JSON.stringify(this.state.schema)}/></div>
+        <div>schema</div>
+        <div><Codemirror
+          options={cmOptions}
+          onChange={
+            (code) => {
+              this.setState({
+                schema: JSON.parse(code)
+              });
+            }
+          } value={JSON.stringify(this.state.schema)} /></div>
       </div>
       <div>
-       <div>uiSchema</div>
-       <div><textarea 
-        rows={10}
-        cols={200}
-        onChange={
-         (e)=>{
-           //console.log(e.target.value,'e.target.value')
-           this.setState({
-              uiSchema:JSON.parse(e.target.value)
-           });           
-         }
-       } value={JSON.stringify(this.state.uiSchema)}/></div>
+        <div>uiSchema</div>
+        <div><Codemirror
+          options={cmOptions}
+          onChange={
+            (code) => {
+              //console.log(code,'code')
+              this.setState({
+                uiSchema: JSON.parse(code)
+              });
+            }
+          } value={JSON.stringify(this.state.uiSchema)} /></div>
       </div>
       <div>
-       <div>formData</div>
-       <div><textarea 
-        rows={10}
-        cols={200}
-        onChange={
-         (e)=>{
-           this.setState({
-              formData:JSON.parse(e.target.value)
-           });           
-         }
-       } value={JSON.stringify(formData)}/></div>
+        <div>formData</div>
+        <div><Codemirror
+          options={cmOptions}
+          onChange={
+            (code) => {
+              this.setState({
+                formData: JSON.parse(code)
+              });
+            }
+          } value={JSON.stringify(formData)} /></div>
       </div>
-    
+
 
     </div>
   }
