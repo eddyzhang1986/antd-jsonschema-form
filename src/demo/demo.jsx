@@ -289,7 +289,7 @@ class Demo extends Component {
               schema:JSON.parse(e.target.value)
            });           
          }
-       }>{JSON.stringify(this.state.schema)}</textarea></div>
+       } value={JSON.stringify(this.state.schema)}/></div>
       </div>
       <div>
        <div>uiSchema</div>
@@ -301,7 +301,7 @@ class Demo extends Component {
               uiSchema:JSON.parse(e.target.value)
            });           
          }
-       }>{JSON.stringify(this.state.uiSchema)}</textarea></div>
+       } value={JSON.stringify(this.state.uiSchema)}/></div>
       </div>
       <div>
        <div>formData</div>
@@ -312,7 +312,7 @@ class Demo extends Component {
               formData:JSON.parse(e.target.value)
            });           
          }
-       }>{JSON.stringify(formData)}</textarea></div>
+       } value={JSON.stringify(formData)}/></div>
       </div>
     
       <TestTabs />
