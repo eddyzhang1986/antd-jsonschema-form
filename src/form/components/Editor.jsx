@@ -6,12 +6,12 @@ import "codemirror/mode/javascript/javascript";
 
 import "codemirror/lib/codemirror.css";
 
-// import "codemirror/theme/dracula.css";
-// import "codemirror/theme/blackboard.css";
+ import "codemirror/theme/dracula.css";
+ //import "codemirror/theme/blackboard.css";
 // import "codemirror/theme/mbo.css";
 // import "codemirror/theme/ttcn.css";
 // import "codemirror/theme/solarized.css";
-import "codemirror/theme/monokai.css";
+//import "codemirror/theme/monokai.css";
 // import "codemirror/theme/eclipse.css";
 
 
@@ -36,7 +36,7 @@ Codemirror.prototype.componentWillReceiveProps = function (nextProps) {
 
 
 const cmOptions = {
-    theme: "monokai",
+    theme: "dracula",
     height: "auto",
     viewportMargin: Infinity,
     mode: {

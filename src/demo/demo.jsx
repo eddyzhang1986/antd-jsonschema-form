@@ -298,7 +298,7 @@ class Demo extends Component {
                 schema: JSON.parse(code)
               });
             }
-          } value={JSON.stringify(this.state.schema)} /></div>
+          } value={JSON.stringify(this.state.schema,null, 2)} /></div>
       </div>
       <div>
         <div>uiSchema</div>
@@ -310,7 +310,7 @@ class Demo extends Component {
                 uiSchema: JSON.parse(code)
               });
             }
-          } value={JSON.stringify(this.state.uiSchema)} /></div>
+          } value={JSON.stringify(this.state.uiSchema,null, 2)} /></div>
       </div>
       <div>
         <div>formData</div>
@@ -322,7 +322,7 @@ class Demo extends Component {
                 formData: JSON.parse(code)
               });
             }
-          } value={JSON.stringify(formData)} /></div>
+          } value={JSON.stringify(formData,null, 2)} /></div>
       </div>
 
 
