@@ -3,6 +3,9 @@ import { render } from "react-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { DatePicker } from 'antd';
 
+import { Input } from 'antd';
+const { TextArea } = Input;
+
 import Form from '../form/index.jsx';
 //import TestTabs from './tabtest/TabTest'
 
@@ -282,7 +285,7 @@ class Demo extends Component {
 
       <div>
        <div>schema</div>
-       <div><textarea 
+       <div><TextArea rows={4} cols={20}
        onChange={
          (e)=>{
            this.setState({
@@ -293,7 +296,7 @@ class Demo extends Component {
       </div>
       <div>
        <div>uiSchema</div>
-       <div><textarea
+       <div><TextArea rows={4} cols={20}
         onChange={
          (e)=>{
            //console.log(e.target.value,'e.target.value')
@@ -305,7 +308,7 @@ class Demo extends Component {
       </div>
       <div>
        <div>formData</div>
-       <div><textarea
+       <div><TextArea rows={4}  cols={20}
         onChange={
          (e)=>{
            this.setState({
