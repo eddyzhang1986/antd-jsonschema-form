@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "ci": "npm run demo && npm run dist",
+    "debug": "rimraf demo && cross-env NODE_ENV=development webpack --config webpack.config.demo.js",
     "demo": "rimraf demo && cross-env NODE_ENV=production webpack --config webpack.config.demo.js --optimize-minimize",
     "dist": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.dist.js --optimize-minimize",
     "test": "jest --config .jest.js",

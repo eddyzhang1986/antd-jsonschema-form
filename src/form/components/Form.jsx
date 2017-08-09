@@ -175,27 +175,27 @@ const VisitFieldSet = (props) => {
 
 
 let visits = [{
-    "type": "grid",
+    "xType": "grid",
     "visit": VisitGrid
 }, {
-    "type": "row",
+    "xType": "row",
     "visit": VisitRow
 }, {
-    "type": "col",
+    "xType": "col",
     "visit": VisitCol
 }, {
-    "type": "tab",
+    "xType": "tab",
     "visit": VisitTab
 }, {
-    "type": "fieldset",
+    "xType": "fieldset",
     "visit": VisitFieldSet
 }, {
-    "type": "field",
+    "xType": "field",
     "visit": VisitField
 }];
 
-const getComponentVisit = (type) => {
-    let ComponentVisit = visits.find(v => v.type === type);
+const getComponentVisit = (xType) => {
+    let ComponentVisit = visits.find(v => v.xType === xType);
     return ComponentVisit;
 }
 
@@ -204,7 +204,7 @@ const Visit = (props) => {
 
     const { uiSchema, ...otherProps } = props;
     console.log('ComponentVisit', 'ComponentVisit');
-    let ComponentVisit = getComponentVisit(uiSchema.type);
+    let ComponentVisit = getComponentVisit(uiSchema.xType).visit;
     return <ComponentVisit uiSchema={uiSchema} {...otherProps} />
 
 }
@@ -272,7 +272,7 @@ export default class Form extends Component {
 
         const { schema, uiSchema, edit, onChange, onBlur } = this.props;
         const { formData } = this.state;
-
+        console.log('test');
         return <div>
             <Visit schema={schema}
                 uiSchema={uiSchema}
