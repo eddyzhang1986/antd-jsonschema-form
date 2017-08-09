@@ -290,7 +290,9 @@ class Demo extends Component {
 
       <div>
        <div>schema</div>
-       <div><TextArea 
+       <div><textarea 
+       rows={10}
+       cols={200}
        onChange={
          (e)=>{
            this.setState({
@@ -301,7 +303,9 @@ class Demo extends Component {
       </div>
       <div>
        <div>uiSchema</div>
-       <div><TextArea 
+       <div><textarea 
+        rows={10}
+        cols={200}
         onChange={
          (e)=>{
            //console.log(e.target.value,'e.target.value')
@@ -313,7 +317,9 @@ class Demo extends Component {
       </div>
       <div>
        <div>formData</div>
-       <div><TextArea 
+       <div><textarea 
+        rows={10}
+        cols={200}
         onChange={
          (e)=>{
            this.setState({
