@@ -2,24 +2,12 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import { DatePicker } from 'antd';
-
+import Editor from '../form/components/Editor'
 
 // import { Input } from 'antd';
 // const { TextArea } = Input;
 
-import Codemirror from "react-codemirror";
-import "codemirror/mode/javascript/javascript";
 
-
-import "codemirror/lib/codemirror.css";
-
-// import "codemirror/theme/dracula.css";
-// import "codemirror/theme/blackboard.css";
-// import "codemirror/theme/mbo.css";
-// import "codemirror/theme/ttcn.css";
-// import "codemirror/theme/solarized.css";
- import "codemirror/theme/monokai.css";
-// import "codemirror/theme/eclipse.css";
 
 import Form from '../form/index.jsx';
 //import TestTabs from './tabtest/TabTest'
@@ -33,6 +21,8 @@ const schema = {
   }
 
 }
+
+
 
 
 const uiSchema = {
@@ -254,20 +244,7 @@ class Demo extends Component {
   }
 
   render() {
-    const cmOptions = {
-      theme: "monokai",
-      height: "auto",
-      viewportMargin: Infinity,
-      mode: {
-        name: "javascript",
-        json: true,
-        statementIndent: 2,
-      },
-      lineNumbers: true,
-      lineWrapping: true,
-      indentWithTabs: false,
-      tabSize: 2,
-    }
+
     const { edit, formData } = this.state;
     return <div>
       <Form
@@ -314,8 +291,7 @@ class Demo extends Component {
 
       <div>
         <div>schema</div>
-        <div><Codemirror
-          options={cmOptions}
+        <div><Editor
           onChange={
             (code) => {
               this.setState({
@@ -326,8 +302,7 @@ class Demo extends Component {
       </div>
       <div>
         <div>uiSchema</div>
-        <div><Codemirror
-          options={cmOptions}
+        <div><Editor
           onChange={
             (code) => {
               //console.log(code,'code')
@@ -339,10 +314,10 @@ class Demo extends Component {
       </div>
       <div>
         <div>formData</div>
-        <div><Codemirror
-          options={cmOptions}
+        <div><Editor
           onChange={
             (code) => {
+              console.log(code, 'code');
               this.setState({
                 formData: JSON.parse(code)
               });
