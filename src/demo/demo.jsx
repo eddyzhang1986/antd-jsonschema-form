@@ -210,6 +210,8 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      schema:schema,
+      uiSchema:uiSchema,
       formData: {
         "/fields/birthDay": "2017-07-19 10:10:10",
         "/fields/dateRange": {
@@ -237,8 +239,8 @@ class Demo extends Component {
     const { edit, formData } = this.state;
     return <div>
       <Form
-        schema={schema}
-        uiSchema={uiSchema}
+        schema={this.state.schema}
+        uiSchema={this.state.uiSchema}
         edit={edit}
         formData={formData}
         onChange={(e, newValue, newData, fieldPath) => {
@@ -277,6 +279,42 @@ class Demo extends Component {
           this.changeFormData();
         }} value="setEmptyValueAsync" />
       </div>
+
+      <div>
+       <div>schema</div>
+       <div><textarea 
+       onChange={
+         (e)=>{
+           this.setState({
+              schema:JSON.parse(e.target.value)
+           });           
+         }
+       }>{JSON.stringify(this.state.schema)}</textarea></div>
+      </div>
+      <div>
+       <div>uiSchema</div>
+       <div><textarea
+        onChange={
+         (e)=>{
+           //console.log(e.target.value,'e.target.value')
+           this.setState({
+              uiSchema:JSON.parse(e.target.value)
+           });           
+         }
+       }>{JSON.stringify(this.state.uiSchema)}</textarea></div>
+      </div>
+      <div>
+       <div>formData</div>
+       <div><textarea
+        onChange={
+         (e)=>{
+           this.setState({
+              formData:JSON.parse(e.target.value)
+           });           
+         }
+       }>{JSON.stringify(formData)}</textarea></div>
+      </div>
+    
       <TestTabs />
     </div>
   }
