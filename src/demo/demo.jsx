@@ -235,7 +235,6 @@ class Demo extends Component {
 
   render() {
     const { edit, formData } = this.state;
-    console.log('test', 'test');
     return <div>
       <Form
         schema={schema}
@@ -286,7 +285,6 @@ class Demo extends Component {
 
 render((
   <div>
-    <div>test</div>
     <Demo />
   </div>
 ), document.getElementById("main"));
