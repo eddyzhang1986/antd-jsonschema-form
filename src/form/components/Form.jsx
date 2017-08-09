@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { setimmediate } from '../utils';
 import _ from 'lodash';
 
-import Widget from './widgets/Widget';
 
 
 export default class Form extends Component {
