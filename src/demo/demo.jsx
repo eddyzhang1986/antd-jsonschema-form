@@ -292,9 +292,9 @@ class Demo extends Component {
        <div>schema</div>
        <div><TextArea 
        onChange={
-         (code)=>{
+         (e)=>{
            this.setState({
-              schema:JSON.parse(code)
+              schema:JSON.parse(e.target.value)
            });           
          }
        } value={JSON.stringify(this.state.schema)}/></div>
@@ -303,10 +303,10 @@ class Demo extends Component {
        <div>uiSchema</div>
        <div><TextArea 
         onChange={
-         (code)=>{
-           //console.log(code,'code')
+         (e)=>{
+           //console.log(e.target.value,'e.target.value')
            this.setState({
-              uiSchema:JSON.parse(code)
+              uiSchema:JSON.parse(e.target.value)
            });           
          }
        } value={JSON.stringify(this.state.uiSchema)}/></div>
@@ -315,9 +315,9 @@ class Demo extends Component {
        <div>formData</div>
        <div><TextArea 
         onChange={
-         (code)=>{
+         (e)=>{
            this.setState({
-              formData:JSON.parse(code)
+              formData:JSON.parse(e.target.value)
            });           
          }
        } value={JSON.stringify(formData)}/></div>
