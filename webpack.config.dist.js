@@ -1,7 +1,9 @@
 var webpack = require("webpack");
 
 module.exports = {
-  entry: ['babel-polyfill', './src/form/index.jsx'],
+  entry: {
+    form: ['babel-polyfill', './src/demo/demo.jsx']
+  },
   // node: {
   //     setImmediate: true
   // },
@@ -9,7 +11,7 @@ module.exports = {
   output: {
     path: __dirname + "/dist/",
     publicPath: "/dist/",
-    filename: "form.js",
+    filename: "[name].js",
     library: "AntdJSONSchemaForm",
     libraryTarget: "umd"
   },

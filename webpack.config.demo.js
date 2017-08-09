@@ -1,14 +1,16 @@
 var webpack = require("webpack");
 
 module.exports = {
-    entry: ['babel-polyfill', './src/demo/demo.jsx'],
+    entry: {
+        bundle: ['babel-polyfill', './src/demo/demo.jsx']
+    },
     // node: {
     //     setImmediate: true
     // },
     output: {
         path: __dirname + "/demo/",
         publicPath: "/demo/",
-        filename: "bundle.js"//,
+        filename: "[name].js"//,
         // library: "AntdJSONSchemaForm",
         // libraryTarget: "umd"
     },

@@ -131,7 +131,7 @@ const VisitTab = (props) => {
     if (!Array.isArray(children)) {
         return <Tab {...tabProps}>
             <TabPane {...panelProps} >
-                <Visit key={index} {...otherProps} uiSchema={children} />
+                <Visit {...otherProps} uiSchema={children} />
             </TabPane>
         </Tab>
     }
@@ -203,7 +203,7 @@ const getComponentVisit = (type) => {
 const Visit = (props) => {
 
     const { uiSchema, ...otherProps } = props;
-    console.log('ComponentVisit','ComponentVisit');
+    console.log('ComponentVisit', 'ComponentVisit');
     let ComponentVisit = getComponentVisit(uiSchema.type);
     return <ComponentVisit uiSchema={uiSchema} {...otherProps} />
 
