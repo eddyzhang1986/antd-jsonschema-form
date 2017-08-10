@@ -278,6 +278,9 @@ class Demo extends Component {
       schema: schema,
       uiSchema: uiSchema,
       formData: {
+        "/fields/groupNo": "0001",
+        "/fields/empNo": "0003",
+        "/fields/age": 20,
         "/fields/birthDay": "2017-07-19 10:10:10",
         "/fields/dateRange": {
           beginDate: "2017-07-07",
@@ -355,7 +358,7 @@ class Demo extends Component {
                 schema: JSON.parse(code)
               });
             }
-          } value={JSON.stringify(this.state.schema,null, 2)} /></div>
+          } value={JSON.stringify(this.state.schema, null, 2)} /></div>
       </div>
       <div>
         <div>uiSchema</div>
@@ -367,7 +370,7 @@ class Demo extends Component {
                 uiSchema: JSON.parse(code)
               });
             }
-          } value={JSON.stringify(this.state.uiSchema,null, 2)} /></div>
+          } value={JSON.stringify(this.state.uiSchema, null, 2)} /></div>
       </div>
       <div>
         <div>formData</div>
@@ -379,7 +382,7 @@ class Demo extends Component {
                 formData: JSON.parse(code)
               });
             }
-          } value={JSON.stringify(formData,null, 2)} /></div>
+          } value={JSON.stringify(formData, null, 2)} /></div>
       </div>
 
 
