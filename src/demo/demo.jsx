@@ -16,8 +16,65 @@ const schema = {
 
   "type": "object",
   "properties": {
-
-
+    "fields": {
+      "dateRange": {
+        "type": "object"
+      },
+      "groupNo": {
+        "type": "string"
+      },
+      "empNo": {
+        "type": "string"
+      },
+      "empName": {
+        "type": "string"
+      },
+      "beforeName": {
+        "type": "string"
+      },
+      "enName": {
+        "type": "string"
+      },
+      "zhName": {
+        "type": "string"
+      },
+      "pinYin": {
+        "type": "string"
+      },
+      "enName2": {
+        "type": "string"
+      },
+      "IDNumber": {
+        "type": "string"
+      },
+      "sex": {
+        "type": "string"
+      },
+      "birthDay": {
+        "type": "string"
+      },
+      "age": {
+        "type": "string"
+      },
+      "country": {
+        "type": "string"
+      },
+      "nation": {
+        "type": "string"
+      },
+      "political": {
+        "type": "string"
+      },
+      "joinDate": {
+        "type": "string"
+      },
+      "household": {
+        "type": "string"
+      },
+      "bloodType": {
+        "type": "string"
+      }
+    }
   }
 
 }
