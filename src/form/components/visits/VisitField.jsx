@@ -7,8 +7,7 @@ import Field from '../fields/Field';
  * @param {*} props 
  */
 const VisitField = (props) => {
-    const { uiSchema, ...otherProps } = props;
-    return <Field {...otherProps} uiSchema={uiSchema} />
+    return <Field {...props}/>
 }
 
 
