@@ -1,6 +1,6 @@
 import React from "react";
 import setimmediate1 from "setimmediate";
-
+import JSONPath from "jsonpath-plus";
 
 /**
  * setimmediate
@@ -31,7 +31,10 @@ const setimmediate = (() => {
  */
 const getOffspringSchema = (schema, fieldPath) => {
   //console.log(schema, "schema");
-  return "test"
+  let path = "$" + fieldPath.replace(/\//g, ".properties.")
+  //console.log(path, 'path');
+  let result = JSONPath({ json: schema, path: path });
+  return result;
 }
 
 /**

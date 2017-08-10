@@ -17,62 +17,87 @@ const schema = {
   "type": "object",
   "properties": {
     "fields": {
-      "dateRange": {
-        "type": "object"
-      },
-      "groupNo": {
-        "type": "string"
-      },
-      "empNo": {
-        "type": "string"
-      },
-      "empName": {
-        "type": "string"
-      },
-      "beforeName": {
-        "type": "string"
-      },
-      "enName": {
-        "type": "string"
-      },
-      "zhName": {
-        "type": "string"
-      },
-      "pinYin": {
-        "type": "string"
-      },
-      "enName2": {
-        "type": "string"
-      },
-      "IDNumber": {
-        "type": "string"
-      },
-      "sex": {
-        "type": "string"
-      },
-      "birthDay": {
-        "type": "string"
-      },
-      "age": {
-        "type": "string"
-      },
-      "country": {
-        "type": "string"
-      },
-      "nation": {
-        "type": "string"
-      },
-      "political": {
-        "type": "string"
-      },
-      "joinDate": {
-        "type": "string"
-      },
-      "household": {
-        "type": "string"
-      },
-      "bloodType": {
-        "type": "string"
+      "properties": {
+        "dateRange": {
+          "type": "object",
+          "title": "Date Range"
+        },
+        "groupNo": {
+          "type": "string",
+          "title": "Group No"
+        },
+        "empNo": {
+          "type": "string",
+          "title": "Emp No"
+        },
+        "empName": {
+          "type": "string",
+          "title": "Emp Name"
+        },
+        "beforeName": {
+          "type": "string",
+          "title": "Before Name"
+        },
+        "enName": {
+          "type": "string",
+          "title": "En Name"
+        },
+        "zhName": {
+          "type": "string",
+          "title": "Zh Name"
+        },
+        "pinYin": {
+          "type": "string",
+          "title": "Pin Yin"
+        },
+        "enName2": {
+          "type": "string",
+          "title": "En Name2"
+        },
+        "IDNumber": {
+          "type": "string",
+          "title": "ID Number"
+        },
+        "sex": {
+          "type": "string",
+          "title": "sex"
+        },
+        "birthDay": {
+          "type": "string",
+          "title": "Birth Day"
+        },
+        "age": {
+          "type": "string",
+          "title": "Age"
+        },
+        "country": {
+          "type": "string",
+          "title": "Country"
+        },
+        "maritalStatus": {
+          "type": "string",
+          "title": "Marital Status"
+        },
+        "nation": {
+          "type": "string",
+          "title": "Nation"
+        },
+        "political": {
+          "type": "string",
+          "title": "Political"
+        },
+        "joinDate": {
+          "type": "string",
+          "title": "Join Date"
+        },
+        "household": {
+          "type": "string",
+          "title": "Household"
+        },
+        "bloodType": {
+          "type": "string",
+          "title": "Blood Type"
+        }
       }
     }
   }
@@ -248,7 +273,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "textarea",
-        "fieldPath": "/bloodType"
+        "fieldPath": "/fields/bloodType"
       }
     }]
 

@@ -11,10 +11,15 @@ const Field = (props) => {
     const { schema, uiSchema } = props;
 
     //获取后继节点的schema
-    const offspringSchema = getOffspringSchema(schema, uiSchema.fieldPath);
+    let offspringSchema = getOffspringSchema(schema, uiSchema.fieldPath);
+    if (Array.isArray(offspringSchema) && offspringSchema.length > 0) {
+        offspringSchema = offspringSchema[0];
+    }
+    //console.log(offspringSchema,'offspringSchema');
+    const { title = "" } = (offspringSchema || {});
 
     return <Col style={{ paddingTop: "10px", paddingBottom: "10px" }}>
-        <Col span={8} style={{ paddingLeft: "15px" }}>{uiSchema.fieldPath}</Col>
+        <Col span={8} style={{ paddingLeft: "15px", fontWeight: "bold" }}>{title}</Col>
         <Col span={16}><Widget {...props} /></Col>
     </Col>
 }
