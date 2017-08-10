@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Visit from './Visit';
+
 import {Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 
@@ -20,14 +22,14 @@ const VisitTab = (props) => {
     }
 
     if (!Array.isArray(children)) {
-        return <Tab {...tabProps}>
+        return <Tabs {...tabProps}>
             <TabPane {...panelProps} >
                 <Visit {...otherProps} uiSchema={children} />
             </TabPane>
-        </Tab>
+        </Tabs>
     }
 
-    return <Tab {...tabProps}>
+    return <Tabs {...tabProps}>
         {
             children.map((item, index) => {
                 return <TabPane {...panelProps} >
@@ -35,7 +37,7 @@ const VisitTab = (props) => {
                 </TabPane>
             })
         }
-    </Tab>
+    </Tabs>
 }
 
 
