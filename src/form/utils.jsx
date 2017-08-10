@@ -48,8 +48,19 @@ const getFormValue = (formData, fieldPath) => {
 }
 
 
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ */
+const deepCompare = (a, b) => {
+  return JSON.stringify(a) === JSON.stringify(b);
+}
+
+
 export {
   setimmediate as setimmediate,
   getOffspringSchema as getOffspringSchema,
-  getFormValue as getFormValue
+  getFormValue as getFormValue,
+  deepCompare as deepCompare
 }
