@@ -79,8 +79,8 @@ class VisitTab extends Component {
             }}>
             {
                 children.map((item, index) => {
-                    return <TabPane {...panelProps} tab={item.title}>
-                        <Visit key={index} {...otherProps} uiSchema={item} />
+                    return <TabPane key={index}  {...panelProps} tab={item.title}>
+                        <Visit {...otherProps} uiSchema={item} />
                     </TabPane>
                 })
             }

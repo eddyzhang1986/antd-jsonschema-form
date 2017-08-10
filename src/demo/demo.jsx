@@ -12,6 +12,36 @@ import Editor from '../form/components/Editor'
 import Form from '../form/index.jsx';
 //import TestTabs from './tabtest/TabTest'
 
+const tabUiSchema = {
+  "xType": "tab",
+  "children": [
+    {
+      "xType": "grid",
+      "title": "tes1t2",
+      "children": {
+        "xType": "field",
+        "fieldPath": "/fields/empNo"
+      }
+    },
+    {
+      "xType": "grid",
+      "title": "test2",
+      "children": {
+        "xType": "field",
+        "fieldPath": "/fields/age"
+      }
+    },
+    {
+      "xType": "grid",
+      "title": "test6"
+    },
+    {
+      "xType": "grid",
+      "title": "test3"
+    }
+  ]
+}
+
 const schema = {
 
   "type": "object",
