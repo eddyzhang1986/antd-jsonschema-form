@@ -17,7 +17,7 @@ const tabUiSchema = {
   "children": [
     {
       "xType": "grid",
-      "panelProps": {
+      "panel": {
         "tab": "test1"
       },
       "children": {
@@ -27,7 +27,7 @@ const tabUiSchema = {
     },
     {
       "xType": "grid",
-      "panelProps": {
+      "panel": {
         "tab": "test2"
       },
       "children": {
@@ -37,13 +37,13 @@ const tabUiSchema = {
     },
     {
       "xType": "grid",
-      "panelProps": {
+      "panel": {
         "tab": "test3"
       }
     },
     {
       "xType": "grid",
-      "panelProps": {
+      "panel": {
         "tab": "test6"
       }
     }

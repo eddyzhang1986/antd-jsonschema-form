@@ -65,7 +65,7 @@ class VisitTab extends Component {
                         activeKey: active
                     });
                 }}>
-                <TabPane key={activeKey} {...(children.panelProps || {}) }>
+                <TabPane key={activeKey} {...(children.panel || {}) }>
                     <Visit {...otherProps} uiSchema={children} />
                 </TabPane>
             </Tabs>
@@ -79,7 +79,7 @@ class VisitTab extends Component {
             }}>
             {
                 children.map((item, index) => {
-                    return <TabPane key={index} {...(item.panelProps || {}) }>
+                    return <TabPane key={index} {...(item.panel || {}) }>
                         <Visit {...otherProps} uiSchema={item} />
                     </TabPane>
                 })
