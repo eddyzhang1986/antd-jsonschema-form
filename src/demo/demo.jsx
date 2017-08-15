@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import update from 'react-addons-update';
-
 //import 'bootstrap/dist/css/bootstrap.min.css';
-//import { DatePicker } from 'antd';
+import { DatePicker } from 'antd';
 import Editor from '../form/components/Editor'
-
-
 
 // import { Input } from 'antd';
 // const { TextArea } = Input;
@@ -155,7 +151,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "date-range",
-        "fieldPath": "$.properties.fields.properties.dateRange"
+        "fieldPath": "/fields/dateRange"
       }
     }, {
       "xType": "col",
@@ -163,7 +159,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.groupNo"
+        "fieldPath": "/fields/groupNo"
       }
     }, {
       "xType": "col",
@@ -171,7 +167,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.empNo"
+        "fieldPath": "/fields/empNo"
       }
     }, {
       "xType": "col",
@@ -179,7 +175,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.empName"
+        "fieldPath": "/fields/empName"
       }
     }, {
       "xType": "col",
@@ -187,7 +183,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.beforeName"
+        "fieldPath": "/fields/beforeName"
       }
     }, {
       "xType": "col",
@@ -195,7 +191,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.enName"
+        "fieldPath": "/fields/enName"
       }
     }, {
       "xType": "col",
@@ -203,7 +199,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.zhName"
+        "fieldPath": "/fields/zhName"
       }
     }, {
       "xType": "col",
@@ -211,7 +207,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.pinYin"
+        "fieldPath": "/fields/pinYin"
       }
     }, {
       "xType": "col",
@@ -219,7 +215,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.enName2"
+        "fieldPath": "/fields/enName2"
       }
     }, {
       "xType": "col",
@@ -227,7 +223,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.IDNumber"
+        "fieldPath": "/fields/IDNumber"
       }
     }, {
       "xType": "col",
@@ -235,7 +231,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.sex"
+        "fieldPath": "/fields/sex"
       }
     }, {
       "xType": "col",
@@ -243,7 +239,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "date-time",
-        "fieldPath": "$.properties.fields.properties.birthDay"
+        "fieldPath": "/fields/birthDay"
       }
     }, {
       "xType": "col",
@@ -251,7 +247,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "updown",
-        "fieldPath": "$.properties.fields.properties.age"
+        "fieldPath": "/fields/age"
       }
     }, {
       "xType": "col",
@@ -259,7 +255,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.country"
+        "fieldPath": "/fields/country"
       }
     }, {
       "xType": "col",
@@ -267,7 +263,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.maritalStatus"
+        "fieldPath": "/fields/maritalStatus"
       }
     }, {
       "xType": "col",
@@ -275,7 +271,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.nation"
+        "fieldPath": "/fields/nation"
       }
     }, {
       "xType": "col",
@@ -283,7 +279,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.political"
+        "fieldPath": "/fields/political"
       }
     }, {
       "xType": "col",
@@ -291,7 +287,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.joinDate"
+        "fieldPath": "/fields/joinDate"
       }
     }, {
       "xType": "col",
@@ -299,7 +295,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "$.properties.fields.properties.household"
+        "fieldPath": "/fields/household"
       }
     }, {
       "xType": "col",
@@ -307,7 +303,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "textarea",
-        "fieldPath": "$.properties.fields.properties.bloodType"
+        "fieldPath": "/fields/bloodType"
       }
     }]
 
@@ -337,11 +333,11 @@ class Demo extends Component {
       schema: schema,
       uiSchema: uiSchema,
       formData: {
-        "$.properties.fields.properties.groupNo": "0001",
-        "$.properties.fields.properties.empNo": "0003",
-        "$.properties.fields.properties.age": 20,
-        "$.properties.fields.properties.birthDay": "2017-07-19 10:10:10",
-        "$.properties.fields.properties.dateRange": {
+        "/fields/groupNo": "0001",
+        "/fields/empNo": "0003",
+        "/fields/age": 20,
+        "/fields/birthDay": "2017-07-19 10:10:10",
+        "/fields/dateRange": {
           beginDate: "2017-07-07",
           endDate: "2017-07-07"
         }
@@ -371,21 +367,15 @@ class Demo extends Component {
         uiSchema={this.state.uiSchema}
         edit={edit}
         formData={formData}
-        onChange={(e, newValue, fieldPath) => {
-
-          const newData = update(formData, {
-            [fieldPath]: { $set: newValue }
-          });
-
+        onChange={(e, newValue, newData, fieldPath) => {
           this.setState({
             formData: newData
           }, () => {
-            console.log('formData', formData);
+            console.log(this.state.formData, "change");
           });
-
         }}
-        onBlur={(e, newValue, fieldPath) => {
-          console.log(newValue, 'blur');
+        onBlur={(e, newValue, newData, fieldPath) => {
+          console.log(newData, 'blur');
         }}
       />
       {edit ? <div>

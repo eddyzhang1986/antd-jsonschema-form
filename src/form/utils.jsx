@@ -31,9 +31,9 @@ const setimmediate = (() => {
  */
 const getOffspringSchema = (schema, fieldPath) => {
   //console.log(schema, "schema");
-  //let path = "$" + fieldPath.replace(/\//g, ".properties.")
+  let path = "$" + fieldPath.replace(/\//g, ".properties.")
   //console.log(path, 'path');
-  let result = JSONPath({ json: schema, path: fieldPath });
+  let result = JSONPath({ json: schema, path: path });
   return result;
 }
 
