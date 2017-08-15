@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import update from 'react-addons-update';
+
 //import 'bootstrap/dist/css/bootstrap.min.css';
-import { DatePicker } from 'antd';
+//import { DatePicker } from 'antd';
 import Editor from '../form/components/Editor'
+
+
 
 // import { Input } from 'antd';
 // const { TextArea } = Input;
@@ -367,15 +371,21 @@ class Demo extends Component {
         uiSchema={this.state.uiSchema}
         edit={edit}
         formData={formData}
-        onChange={(e, newValue, newData, fieldPath) => {
+        onChange={(e, newValue, fieldPath) => {
+
+          const newData = update(formData, {
+            [fieldPath]: { $set: newValue }
+          });
+
           this.setState({
             formData: newData
           }, () => {
-            console.log(this.state.formData, "change");
+            console.log('formData', formData);
           });
+
         }}
-        onBlur={(e, newValue, newData, fieldPath) => {
-          console.log(newData, 'blur');
+        onBlur={(e, newValue, fieldPath) => {
+          console.log(newValue, 'blur');
         }}
       />
       {edit ? <div>
