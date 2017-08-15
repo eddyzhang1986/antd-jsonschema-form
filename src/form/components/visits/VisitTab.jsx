@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { deepCompare } from '../../utils';
+//import { deepCompare } from '../../utils';
 import Visit from './Visit';
 
 import { Tabs } from 'antd';
@@ -17,10 +17,10 @@ class VisitTab extends Component {
         super(props);
 
         const { uiSchema } = this.props;
-        const { tabProps = {} } = uiSchema;
+        const { activeKey = 0, ...otherConfig } = uiSchema;
 
         this.state = {
-            activeKey: (tabProps.activeKey || 0)
+            activeKey: activeKey
         }
     }
 
@@ -28,15 +28,15 @@ class VisitTab extends Component {
     componentWillReceiveProps(nextProps) {
 
         const { uiSchema } = this.props;
-        const { tabProps = {} } = uiSchema;
+        const { activeKey } = uiSchema;
 
         const { uiSchema: nextUiSchema } = nextProps;
-        const { tabProps: nextTabProps = {} } = nextUiSchema;
+        const { activeKey: nextActiveKey } = nextUiSchema;
 
-        //deepCompare activeKey
-        if (tabProps.activeKey !== nextTabProps.activeKey) {
+        //compare activeKey
+        if (activeKey !== nextActiveKey) {
             this.setState({
-                activeKey: nextTabProps.activeKey
+                activeKey: (nextActiveKey || 0)
             })
         }
 
@@ -47,7 +47,7 @@ class VisitTab extends Component {
     render() {
 
         const { uiSchema, ...otherProps } = this.props;
-        const { children, xType, tabProps = {}, panelProps = {} } = uiSchema;
+        const { children, xType, ...otherConfig } = uiSchema;
 
         const { activeKey } = this.state;
 
@@ -59,19 +59,19 @@ class VisitTab extends Component {
         }
 
         if (!Array.isArray(children)) {
-            return <Tabs activeKey={activeKey} {...tabProps}
+            return <Tabs activeKey={activeKey} {...otherConfig}
                 onChange={(active) => {
                     this.setState({
                         activeKey: active
                     });
                 }}>
-                <TabPane key={activeKey} {...panelProps} tab={children.title}>
+                <TabPane key={activeKey} {...(children.panelProps || {}) }>
                     <Visit {...otherProps} uiSchema={children} />
                 </TabPane>
             </Tabs>
         }
 
-        return <Tabs activeKey={activeKey} {...tabProps}
+        return <Tabs activeKey={activeKey} {...otherConfig}
             onChange={(active) => {
                 this.setState({
                     activeKey: active
@@ -79,7 +79,7 @@ class VisitTab extends Component {
             }}>
             {
                 children.map((item, index) => {
-                    return <TabPane key={index}  {...panelProps} tab={item.title}>
+                    return <TabPane key={index} {...(item.panelProps || {}) }>
                         <Visit {...otherProps} uiSchema={item} />
                     </TabPane>
                 })

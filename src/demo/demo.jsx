@@ -17,7 +17,9 @@ const tabUiSchema = {
   "children": [
     {
       "xType": "grid",
-      "title": "tes1t2",
+      "panelProps": {
+        "tab": "test1"
+      },
       "children": {
         "xType": "field",
         "fieldPath": "/fields/empNo"
@@ -25,7 +27,9 @@ const tabUiSchema = {
     },
     {
       "xType": "grid",
-      "title": "test2",
+      "panelProps": {
+        "tab": "test2"
+      },
       "children": {
         "xType": "field",
         "fieldPath": "/fields/age"
@@ -33,11 +37,15 @@ const tabUiSchema = {
     },
     {
       "xType": "grid",
-      "title": "test6"
+      "panelProps": {
+        "tab": "test3"
+      }
     },
     {
       "xType": "grid",
-      "title": "test3"
+      "panelProps": {
+        "tab": "test6"
+      }
     }
   ]
 }
