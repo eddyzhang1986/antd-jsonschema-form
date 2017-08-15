@@ -15,15 +15,41 @@ class VisitTab extends Component {
 
     constructor(props) {
         super(props);
+
+        const { uiSchema } = this.props;
+        const { tabProps = {} } = uiSchema;
+
+        this.state = {
+            activeKey: (tabProps.activeKey || 0)
+        }
+    }
+
+    //fix State
+    componentWillReceiveProps(nextProps) {
+
+        const { uiSchema } = this.props;
+        const { tabProps = {} } = uiSchema;
+
+        const { uiSchema: nextUiSchema } = nextProps;
+        const { tabProps: nextTabProps = {} } = nextUiSchema;
+
+        //deepCompare activeKey
+        if (tabProps.activeKey !== nextTabProps.activeKey) {
+            this.setState({
+                activeKey: nextTabProps.activeKey
+            })
+        }
+
+
     }
 
 
     render() {
 
-        const { uiSchema, onUISchemaChange, ...otherProps } = this.props;
+        const { uiSchema, ...otherProps } = this.props;
         const { children, xType, tabProps = {}, panelProps = {} } = uiSchema;
-        const { activeKey = 0 } = tabProps;
 
+        const { activeKey } = this.state;
 
         /**
          * 没有子元素的Tab直接不存在这tabs
@@ -35,9 +61,9 @@ class VisitTab extends Component {
         if (!Array.isArray(children)) {
             return <Tabs activeKey={activeKey} {...tabProps}
                 onChange={(active) => {
-                    if (onUISchemaChange) {
-                        onUISchemaChange();
-                    }
+                    this.setState({
+                        activeKey: active
+                    });
                 }}>
                 <TabPane key={activeKey} {...panelProps} tab={children.title}>
                     <Visit {...otherProps} uiSchema={children} />
@@ -47,9 +73,9 @@ class VisitTab extends Component {
 
         return <Tabs activeKey={activeKey} {...tabProps}
             onChange={(active) => {
-                if (onUISchemaChange) {
-                    onUISchemaChange();
-                }
+                this.setState({
+                    activeKey: active
+                });
             }}>
             {
                 children.map((item, index) => {
