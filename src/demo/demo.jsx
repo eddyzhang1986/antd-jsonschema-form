@@ -52,95 +52,130 @@ const tabUiSchema = {
 
 const schema = {
 
-  "type": "object",
-  "properties": {
-    "fields": {
-      "properties": {
-        "dateRange": {
-          "type": "object",
-          "title": "Date Range"
-        },
-        "groupNo": {
-          "type": "string",
-          "title": "Group No"
-        },
-        "empNo": {
-          "type": "string",
-          "title": "Emp No"
-        },
-        "empName": {
-          "type": "string",
-          "title": "Emp Name"
-        },
-        "beforeName": {
-          "type": "string",
-          "title": "Before Name"
-        },
-        "enName": {
-          "type": "string",
-          "title": "En Name"
-        },
-        "zhName": {
-          "type": "string",
-          "title": "Zh Name"
-        },
-        "pinYin": {
-          "type": "string",
-          "title": "Pin Yin"
-        },
-        "enName2": {
-          "type": "string",
-          "title": "En Name2"
-        },
-        "IDNumber": {
-          "type": "string",
-          "title": "ID Number"
-        },
-        "sex": {
-          "type": "string",
-          "title": "sex"
-        },
-        "birthDay": {
-          "type": "string",
-          "title": "Birth Day"
-        },
-        "age": {
-          "type": "string",
-          "title": "Age"
-        },
-        "country": {
-          "type": "string",
-          "title": "Country"
-        },
-        "maritalStatus": {
-          "type": "string",
-          "title": "Marital Status"
-        },
-        "nation": {
-          "type": "string",
-          "title": "Nation"
-        },
-        "political": {
-          "type": "string",
-          "title": "Political"
-        },
-        "joinDate": {
-          "type": "string",
-          "title": "Join Date"
-        },
-        "household": {
-          "type": "string",
-          "title": "Household"
-        },
-        "bloodType": {
-          "type": "string",
-          "title": "Blood Type"
-        }
-      }
-    }
-  }
+  "dateRange": {
+    "type": "object",
+    "title": "Date Range"
 
-}
+  },
+
+  "groupNo": {
+    "type": "string",
+    "title": "Group No"
+
+  },
+
+  "empNo": {
+    "type": "string",
+    "title": "Emp No"
+
+  },
+
+  "empName": {
+    "type": "string",
+    "title": "Emp Name"
+
+  },
+
+  "beforeName": {
+    "type": "string",
+    "title": "Before Name"
+
+  },
+
+  "enName": {
+    "type": "string",
+    "title": "En Name"
+
+  },
+
+  "zhName": {
+    "type": "string",
+    "title": "Zh Name"
+
+  },
+
+  "pinYin": {
+    "type": "string",
+    "title": "Pin Yin"
+
+  },
+
+  "enName2": {
+    "type": "string",
+    "title": "En Name2"
+
+  },
+
+  "IDNumber": {
+    "type": "string",
+    "title": "ID Number"
+
+  },
+
+  "sex": {
+    "type": "string",
+    "title": "sex"
+
+  },
+
+  "birthDay": {
+    "type": "string",
+    "title": "Birth Day"
+
+  },
+
+  "age": {
+    "type": "string",
+    "title": "Age"
+
+  },
+
+  "country": {
+    "type": "string",
+    "title": "Country"
+
+  },
+
+  "maritalStatus": {
+    "type": "string",
+    "title": "Marital Status"
+
+  },
+
+  "nation": {
+    "type": "string",
+    "title": "Nation"
+
+  },
+
+  "political": {
+    "type": "string",
+    "title": "Political"
+
+  },
+
+  "joinDate": {
+    "type": "string",
+    "title": "Join Date"
+
+  },
+
+  "household": {
+    "type": "string",
+    "title": "Household"
+
+  },
+
+  "bloodType": {
+    "type": "string",
+    "title": "Blood Type"
+
+  },
+  "contacts": {
+    "type": "array",
+    "title": "Contacts"
+  }
+};
 
 
 
@@ -159,7 +194,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "date-range",
-        "fieldPath": "/fields/dateRange"
+        "fieldPath": "dateRange"
       }
     }, {
       "xType": "col",
@@ -167,7 +202,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/groupNo"
+        "fieldPath": "groupNo"
       }
     }, {
       "xType": "col",
@@ -175,7 +210,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/empNo"
+        "fieldPath": "empNo"
       }
     }, {
       "xType": "col",
@@ -183,7 +218,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/empName"
+        "fieldPath": "empName"
       }
     }, {
       "xType": "col",
@@ -191,7 +226,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/beforeName"
+        "fieldPath": "beforeName"
       }
     }, {
       "xType": "col",
@@ -199,7 +234,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/enName"
+        "fieldPath": "enName"
       }
     }, {
       "xType": "col",
@@ -207,7 +242,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/zhName"
+        "fieldPath": "zhName"
       }
     }, {
       "xType": "col",
@@ -215,7 +250,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/pinYin"
+        "fieldPath": "pinYin"
       }
     }, {
       "xType": "col",
@@ -223,7 +258,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/enName2"
+        "fieldPath": "enName2"
       }
     }, {
       "xType": "col",
@@ -231,7 +266,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/IDNumber"
+        "fieldPath": "IDNumber"
       }
     }, {
       "xType": "col",
@@ -239,7 +274,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/sex"
+        "fieldPath": "sex"
       }
     }, {
       "xType": "col",
@@ -247,7 +282,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "date-time",
-        "fieldPath": "/fields/birthDay"
+        "fieldPath": "birthDay"
       }
     }, {
       "xType": "col",
@@ -255,7 +290,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "updown",
-        "fieldPath": "/fields/age"
+        "fieldPath": "age"
       }
     }, {
       "xType": "col",
@@ -263,7 +298,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/country"
+        "fieldPath": "country"
       }
     }, {
       "xType": "col",
@@ -271,7 +306,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/maritalStatus"
+        "fieldPath": "maritalStatus"
       }
     }, {
       "xType": "col",
@@ -279,7 +314,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/nation"
+        "fieldPath": "nation"
       }
     }, {
       "xType": "col",
@@ -287,7 +322,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/political"
+        "fieldPath": "political"
       }
     }, {
       "xType": "col",
@@ -295,7 +330,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/joinDate"
+        "fieldPath": "joinDate"
       }
     }, {
       "xType": "col",
@@ -303,7 +338,7 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "text",
-        "fieldPath": "/fields/household"
+        "fieldPath": "household"
       }
     }, {
       "xType": "col",
@@ -311,12 +346,10 @@ const uiSchema = {
       "children": {
         "xType": "field",
         "widget": "textarea",
-        "fieldPath": "/fields/bloodType"
+        "fieldPath": "bloodType"
       }
     }]
-
   }]
-
 }
 
 
@@ -341,11 +374,11 @@ class Demo extends Component {
       schema: schema,
       uiSchema: uiSchema,
       formData: {
-        "/fields/groupNo": "0001",
-        "/fields/empNo": "0003",
-        "/fields/age": 20,
-        "/fields/birthDay": "2017-07-19 10:10:10",
-        "/fields/dateRange": {
+        groupNo: "0001",
+        empNo: "0003",
+        age: 20,
+        birthDay: "2017-07-19 10:10:10",
+        dateRange: {
           beginDate: "2017-07-07",
           endDate: "2017-07-07"
         }
