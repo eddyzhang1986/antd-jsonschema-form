@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/eddyzhang1986/antd-jsonschema-form#readme",
   "dependencies": {
-    "antd": "^2.12.0",
+    "antd": "^2.13.3",
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
     "jsonpath-plus": "^0.16.0",
